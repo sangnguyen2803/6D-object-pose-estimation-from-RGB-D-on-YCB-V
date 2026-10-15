@@ -1,0 +1,56 @@
+{
+  "fixed_validation_threshold": 0.3,
+  "metrics": {
+    "threshold": 0.3,
+    "precision": 0.9614502573676311,
+    "recall": 0.9621965644237749,
+    "F1": 0.9618232661253076,
+    "contamination": 0.03854974263236889
+  },
+  "thresholds_diagnostic_only": [
+    {
+      "threshold": 0.3,
+      "precision": 0.9614502573676311,
+      "recall": 0.9621965644237749,
+      "F1": 0.9618232661253076,
+      "contamination": 0.03854974263236889
+    },
+    {
+      "threshold": 0.4,
+      "precision": 0.9711935004948862,
+      "recall": 0.9496021398424689,
+      "F1": 0.9602764676299085,
+      "contamination": 0.028806499505113825
+    },
+    {
+      "threshold": 0.5,
+      "precision": 0.9785869645423464,
+      "recall": 0.9358416892927229,
+      "F1": 0.9567371196440994,
+      "contamination": 0.02141303545765356
+    },
+    {
+      "threshold": 0.6,
+      "precision": 0.9840217649472071,
+      "recall": 0.9188351837414984,
+      "F1": 0.9503119189532034,
+      "contamination": 0.01597823505279295
+    },
+    {
+      "threshold": 0.7,
+      "precision": 0.9887840088839533,
+      "recall": 0.8976047743218903,
+      "F1": 0.9409908021601361,
+      "contamination": 0.01121599111604664
+    },
+    {
+      "threshold": 0.8,
+      "precision": 0.9927562435564036,
+      "recall": 0.8671772090647598,
+      "F1": 0.9257273020769811,
+      "contamination": 0.007243756443596412
+    }
+  ],
+  "cases": 882,
+  "scope": "independent PBR scenes for the new point network; not real test accuracy"
+}

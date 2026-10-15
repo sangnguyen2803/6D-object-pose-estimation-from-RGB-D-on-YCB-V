@@ -1,0 +1,47 @@
+{
+  "passed": true,
+  "checks": {
+    "frames": 1,
+    "valid_exported_poses": 5,
+    "oracle_masks": false
+  },
+  "gt_instances": 0,
+  "masks_and_filtered_clouds_equal_without_GT": true,
+  "pose_cross_process_deviations": [
+    {
+      "obj_id": 14,
+      "translation_mm": 0.003131039101369235,
+      "rotation_degrees": 0.006636165048577687
+    },
+    {
+      "obj_id": 6,
+      "translation_mm": 0.0,
+      "rotation_degrees": 0.0
+    },
+    {
+      "obj_id": 19,
+      "translation_mm": 3.865766579583918e-05,
+      "rotation_degrees": 4.899328406079923e-05
+    },
+    {
+      "obj_id": 1,
+      "translation_mm": 0.003026969518672718,
+      "rotation_degrees": 0.010003960525596841
+    },
+    {
+      "obj_id": 19,
+      "translation_mm": 0.005555006197831278,
+      "rotation_degrees": 0.008175897964918664
+    }
+  ],
+  "exact_pose_equivalence_verified": false,
+  "scope": "hybrid external CLI; same registered RGB-D/K/CAD and checkpoints, no labels supplied; cross-process pose values vary, exact equivalence is not asserted",
+  "initial_strict_comparison": {
+    "passed": false,
+    "elementwise_rtol": 1e-05,
+    "elementwise_atol": 1e-05,
+    "max_translation_mm": 1.1516517372926736,
+    "max_rotation_degrees": 0.9406936522532123,
+    "scope": "recorded initial diagnostic before external_demo was regenerated; exact pose equality was rejected; current masks/clouds check is separate"
+  }
+}

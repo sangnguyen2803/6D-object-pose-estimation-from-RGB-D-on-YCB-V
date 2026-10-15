@@ -1,0 +1,225 @@
+[
+  {
+    "frame_key": "classic_train/000001/8",
+    "obj_id": 1,
+    "generated_supported": 72,
+    "accepted_before_topk": 8,
+    "rejections": {
+      "scene_swept_volume_collision": 58,
+      "target_mesh_swept_volume_collision": 6
+    },
+    "support_rejections": 8,
+    "median_observed_to_gt_cad_mm": 3.504824366549114,
+    "scope": "validation-only GT pose control, never ordinary prediction"
+  },
+  {
+    "frame_key": "classic_train/000003/44",
+    "obj_id": 2,
+    "generated_supported": 80,
+    "accepted_before_topk": 1,
+    "rejections": {
+      "scene_swept_volume_collision": 79
+    },
+    "support_rejections": 0,
+    "median_observed_to_gt_cad_mm": 3.308076109361511,
+    "scope": "validation-only GT pose control, never ordinary prediction"
+  },
+  {
+    "frame_key": "classic_train/000009/579",
+    "obj_id": 3,
+    "generated_supported": 80,
+    "accepted_before_topk": 19,
+    "rejections": {
+      "scene_swept_volume_collision": 54,
+      "target_mesh_swept_volume_collision": 7
+    },
+    "support_rejections": 0,
+    "median_observed_to_gt_cad_mm": 8.18803187471649,
+    "scope": "validation-only GT pose control, never ordinary prediction"
+  },
+  {
+    "frame_key": "classic_train/000011/48",
+    "obj_id": 5,
+    "generated_supported": 240,
+    "accepted_before_topk": 1,
+    "rejections": {
+      "scene_swept_volume_collision": 228,
+      "target_mesh_swept_volume_collision": 11
+    },
+    "support_rejections": 0,
+    "median_observed_to_gt_cad_mm": 12.582747043161623,
+    "scope": "validation-only GT pose control, never ordinary prediction"
+  },
+  {
+    "frame_key": "classic_train/000013/30",
+    "obj_id": 4,
+    "generated_supported": 0,
+    "accepted_before_topk": 0,
+    "rejections": {},
+    "support_rejections": 0,
+    "median_observed_to_gt_cad_mm": 27.10015767715511,
+    "scope": "validation-only GT pose control, never ordinary prediction"
+  },
+  {
+    "frame_key": "pbr_upright/000008/217",
+    "obj_id": 4,
+    "generated_supported": 16,
+    "accepted_before_topk": 5,
+    "rejections": {
+      "scene_swept_volume_collision": 11
+    },
+    "support_rejections": 0,
+    "median_observed_to_gt_cad_mm": 0.8584844060177748,
+    "scope": "validation-only GT pose control, never ordinary prediction"
+  },
+  {
+    "frame_key": "pbr_upright/000008/217",
+    "obj_id": 5,
+    "generated_supported": 96,
+    "accepted_before_topk": 3,
+    "rejections": {
+      "scene_swept_volume_collision": 68,
+      "target_mesh_swept_volume_collision": 25
+    },
+    "support_rejections": 144,
+    "median_observed_to_gt_cad_mm": 0.7421704046044618,
+    "scope": "validation-only GT pose control, never ordinary prediction"
+  },
+  {
+    "frame_key": "pbr_upright/000008/217",
+    "obj_id": 3,
+    "generated_supported": 40,
+    "accepted_before_topk": 6,
+    "rejections": {
+      "scene_swept_volume_collision": 27,
+      "target_mesh_swept_volume_collision": 7
+    },
+    "support_rejections": 16,
+    "median_observed_to_gt_cad_mm": 83.39692440923015,
+    "scope": "validation-only GT pose control, never ordinary prediction"
+  },
+  {
+    "frame_key": "pbr_upright/000008/217",
+    "obj_id": 1,
+    "generated_supported": 128,
+    "accepted_before_topk": 34,
+    "rejections": {
+      "scene_swept_volume_collision": 86,
+      "target_mesh_swept_volume_collision": 8
+    },
+    "support_rejections": 0,
+    "median_observed_to_gt_cad_mm": 1.2272990288759595,
+    "scope": "validation-only GT pose control, never ordinary prediction"
+  },
+  {
+    "frame_key": "pbr_upright/000008/217",
+    "obj_id": 2,
+    "generated_supported": 64,
+    "accepted_before_topk": 1,
+    "rejections": {
+      "scene_swept_volume_collision": 62,
+      "target_mesh_swept_volume_collision": 1
+    },
+    "support_rejections": 16,
+    "median_observed_to_gt_cad_mm": 1.4917111290790697,
+    "scope": "validation-only GT pose control, never ordinary prediction"
+  },
+  {
+    "frame_key": "pbr_upright/000009/487",
+    "obj_id": 1,
+    "generated_supported": 216,
+    "accepted_before_topk": 49,
+    "rejections": {
+      "scene_swept_volume_collision": 136,
+      "target_mesh_swept_volume_collision": 31
+    },
+    "support_rejections": 0,
+    "median_observed_to_gt_cad_mm": 1.1950383038263714,
+    "scope": "validation-only GT pose control, never ordinary prediction"
+  },
+  {
+    "frame_key": "pbr_upright/000009/487",
+    "obj_id": 3,
+    "generated_supported": 96,
+    "accepted_before_topk": 32,
+    "rejections": {
+      "scene_swept_volume_collision": 49,
+      "target_mesh_swept_volume_collision": 15
+    },
+    "support_rejections": 0,
+    "median_observed_to_gt_cad_mm": 1.288239585003618,
+    "scope": "validation-only GT pose control, never ordinary prediction"
+  },
+  {
+    "frame_key": "pbr_upright/000009/487",
+    "obj_id": 2,
+    "generated_supported": 48,
+    "accepted_before_topk": 4,
+    "rejections": {
+      "scene_swept_volume_collision": 44
+    },
+    "support_rejections": 0,
+    "median_observed_to_gt_cad_mm": 1.5343460341500919,
+    "scope": "validation-only GT pose control, never ordinary prediction"
+  },
+  {
+    "frame_key": "pbr_upright/000009/487",
+    "obj_id": 5,
+    "generated_supported": 240,
+    "accepted_before_topk": 2,
+    "rejections": {
+      "scene_swept_volume_collision": 199,
+      "target_mesh_swept_volume_collision": 39
+    },
+    "support_rejections": 0,
+    "median_observed_to_gt_cad_mm": 0.9013335206944145,
+    "scope": "validation-only GT pose control, never ordinary prediction"
+  },
+  {
+    "frame_key": "pbr_upright/000009/487",
+    "obj_id": 4,
+    "generated_supported": 0,
+    "accepted_before_topk": 0,
+    "rejections": {},
+    "support_rejections": 0,
+    "median_observed_to_gt_cad_mm": 0.8991979317950162,
+    "scope": "validation-only GT pose control, never ordinary prediction"
+  },
+  {
+    "frame_key": "classic_train/000001/77",
+    "obj_id": 1,
+    "generated_supported": 160,
+    "accepted_before_topk": 0,
+    "rejections": {
+      "scene_swept_volume_collision": 160
+    },
+    "support_rejections": 16,
+    "median_observed_to_gt_cad_mm": 2.569256816060634,
+    "scope": "validation-only GT pose control, never ordinary prediction"
+  },
+  {
+    "frame_key": "classic_train/000003/78",
+    "obj_id": 2,
+    "generated_supported": 24,
+    "accepted_before_topk": 0,
+    "rejections": {
+      "scene_swept_volume_collision": 24
+    },
+    "support_rejections": 16,
+    "median_observed_to_gt_cad_mm": 24.683290400767444,
+    "scope": "validation-only GT pose control, never ordinary prediction"
+  },
+  {
+    "frame_key": "classic_train/000009/329",
+    "obj_id": 3,
+    "generated_supported": 128,
+    "accepted_before_topk": 25,
+    "rejections": {
+      "scene_swept_volume_collision": 96,
+      "target_mesh_swept_volume_collision": 7
+    },
+    "support_rejections": 0,
+    "median_observed_to_gt_cad_mm": 7.943613698057453,
+    "scope": "validation-only GT pose control, never ordinary prediction"
+  }
+]

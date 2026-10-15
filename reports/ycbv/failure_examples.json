@@ -1,0 +1,322 @@
+[
+  {
+    "frame_key": "ycbv_test/000048/1",
+    "object_id": 19,
+    "reference_instance_id": "ycbv_test/000048/1/3",
+    "visibility": 0.9818085947798576,
+    "failure_type": "no_matched_pose",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/36",
+    "object_id": 19,
+    "reference_instance_id": "ycbv_test/000048/36/3",
+    "visibility": 0.994432936302434,
+    "failure_type": "no_matched_pose",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_36\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/47",
+    "object_id": 19,
+    "reference_instance_id": "ycbv_test/000048/47/3",
+    "visibility": 0.9878194095061565,
+    "failure_type": "no_matched_pose",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_47\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/83",
+    "object_id": 19,
+    "reference_instance_id": "ycbv_test/000048/83/3",
+    "visibility": 0.9838881491344873,
+    "failure_type": "no_matched_pose",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_83\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/112",
+    "object_id": 19,
+    "reference_instance_id": "ycbv_test/000048/112/3",
+    "visibility": 0.9781688277322043,
+    "failure_type": "no_matched_pose",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_112\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1024",
+    "object_id": 20,
+    "reference_instance_id": "ycbv_test/000048/1024/4",
+    "visibility": 0.9951055592081233,
+    "failure_type": "no_matched_pose",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1024\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1027",
+    "object_id": 14,
+    "reference_instance_id": "ycbv_test/000048/1027/2",
+    "visibility": 0.998860103626943,
+    "failure_type": "pose_error",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1027\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1027",
+    "object_id": 20,
+    "reference_instance_id": "ycbv_test/000048/1027/4",
+    "visibility": 0.9815205529283376,
+    "failure_type": "no_matched_pose",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1027\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1059",
+    "object_id": 20,
+    "reference_instance_id": "ycbv_test/000048/1059/4",
+    "visibility": 0.9890019452341763,
+    "failure_type": "no_matched_pose",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1059\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1074",
+    "object_id": 20,
+    "reference_instance_id": "ycbv_test/000048/1074/4",
+    "visibility": 0.9896488268670449,
+    "failure_type": "no_matched_pose",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1074\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1083",
+    "object_id": 14,
+    "reference_instance_id": "ycbv_test/000048/1083/2",
+    "visibility": 0.9990128331688055,
+    "failure_type": "pose_error",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1083\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1083",
+    "object_id": 20,
+    "reference_instance_id": "ycbv_test/000048/1083/4",
+    "visibility": 0.9911783238815375,
+    "failure_type": "no_matched_pose",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1083\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1087",
+    "object_id": 20,
+    "reference_instance_id": "ycbv_test/000048/1087/4",
+    "visibility": 0.9925949518273748,
+    "failure_type": "no_matched_pose",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1087\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1090",
+    "object_id": 1,
+    "reference_instance_id": "ycbv_test/000048/1090/0",
+    "visibility": 0.8795795613342244,
+    "failure_type": "pose_error",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1090\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1090",
+    "object_id": 20,
+    "reference_instance_id": "ycbv_test/000048/1090/4",
+    "visibility": 0.9941114785835282,
+    "failure_type": "no_matched_pose",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1090\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1094",
+    "object_id": 1,
+    "reference_instance_id": "ycbv_test/000048/1094/0",
+    "visibility": 0.8666297390448056,
+    "failure_type": "pose_error",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1094\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1094",
+    "object_id": 20,
+    "reference_instance_id": "ycbv_test/000048/1094/4",
+    "visibility": 0.9920188940467465,
+    "failure_type": "no_matched_pose",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1094\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1097",
+    "object_id": 20,
+    "reference_instance_id": "ycbv_test/000048/1097/4",
+    "visibility": 0.9855383852574168,
+    "failure_type": "no_matched_pose",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1097\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1103",
+    "object_id": 1,
+    "reference_instance_id": "ycbv_test/000048/1103/0",
+    "visibility": 0.8769391775424772,
+    "failure_type": "pose_error",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1103\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1103",
+    "object_id": 14,
+    "reference_instance_id": "ycbv_test/000048/1103/2",
+    "visibility": 0.9979594150323092,
+    "failure_type": "pose_error",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1103\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1103",
+    "object_id": 20,
+    "reference_instance_id": "ycbv_test/000048/1103/4",
+    "visibility": 0.9980830138356392,
+    "failure_type": "no_matched_pose",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1103\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1104",
+    "object_id": 20,
+    "reference_instance_id": "ycbv_test/000048/1104/4",
+    "visibility": 0.9932052680144283,
+    "failure_type": "no_matched_pose",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1104\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1107",
+    "object_id": 20,
+    "reference_instance_id": "ycbv_test/000048/1107/4",
+    "visibility": 0.9954287649200034,
+    "failure_type": "no_matched_pose",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1107\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1113",
+    "object_id": 20,
+    "reference_instance_id": "ycbv_test/000048/1113/4",
+    "visibility": 0.9836923869195777,
+    "failure_type": "no_matched_pose",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1113\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1119",
+    "object_id": 20,
+    "reference_instance_id": "ycbv_test/000048/1119/4",
+    "visibility": 0.9921107994389902,
+    "failure_type": "no_matched_pose",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1119\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1120",
+    "object_id": 1,
+    "reference_instance_id": "ycbv_test/000048/1120/0",
+    "visibility": 0.8688648853515255,
+    "failure_type": "pose_error",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1120\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1120",
+    "object_id": 20,
+    "reference_instance_id": "ycbv_test/000048/1120/4",
+    "visibility": 0.9938162544169611,
+    "failure_type": "no_matched_pose",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1120\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1122",
+    "object_id": 1,
+    "reference_instance_id": "ycbv_test/000048/1122/0",
+    "visibility": 0.8733198072533603,
+    "failure_type": "pose_error",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1122\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1122",
+    "object_id": 20,
+    "reference_instance_id": "ycbv_test/000048/1122/4",
+    "visibility": 0.9908387441074447,
+    "failure_type": "no_matched_pose",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1122\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1124",
+    "object_id": 1,
+    "reference_instance_id": "ycbv_test/000048/1124/0",
+    "visibility": 0.8703632642619595,
+    "failure_type": "pose_error",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1124\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1124",
+    "object_id": 20,
+    "reference_instance_id": "ycbv_test/000048/1124/4",
+    "visibility": 0.9966591422121897,
+    "failure_type": "no_matched_pose",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1124\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1126",
+    "object_id": 1,
+    "reference_instance_id": "ycbv_test/000048/1126/0",
+    "visibility": 0.8698925423074448,
+    "failure_type": "pose_error",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1126\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1126",
+    "object_id": 20,
+    "reference_instance_id": "ycbv_test/000048/1126/4",
+    "visibility": 0.9989972652689152,
+    "failure_type": "no_matched_pose",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1126\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1128",
+    "object_id": 14,
+    "reference_instance_id": "ycbv_test/000048/1128/2",
+    "visibility": 0.9955820895522388,
+    "failure_type": "pose_error",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1128\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1128",
+    "object_id": 20,
+    "reference_instance_id": "ycbv_test/000048/1128/4",
+    "visibility": 0.9957619310853142,
+    "failure_type": "no_matched_pose",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1128\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1132",
+    "object_id": 1,
+    "reference_instance_id": "ycbv_test/000048/1132/0",
+    "visibility": 0.8686980971686392,
+    "failure_type": "pose_error",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1132\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1132",
+    "object_id": 14,
+    "reference_instance_id": "ycbv_test/000048/1132/2",
+    "visibility": 0.9990306555192051,
+    "failure_type": "pose_error",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1132\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1132",
+    "object_id": 20,
+    "reference_instance_id": "ycbv_test/000048/1132/4",
+    "visibility": 0.9832073887489504,
+    "failure_type": "no_matched_pose",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1132\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1133",
+    "object_id": 1,
+    "reference_instance_id": "ycbv_test/000048/1133/0",
+    "visibility": 0.8648205262812521,
+    "failure_type": "pose_error",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1133\\final_visualization.png"
+  },
+  {
+    "frame_key": "ycbv_test/000048/1133",
+    "object_id": 20,
+    "reference_instance_id": "ycbv_test/000048/1133/4",
+    "visibility": 0.9799925553694397,
+    "failure_type": "no_matched_pose",
+    "overlay": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\benchmark_full\\ycbv_test_000048_1133\\final_visualization.png"
+  }
+]

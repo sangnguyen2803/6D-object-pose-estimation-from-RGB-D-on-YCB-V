@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "checks": {
+    "replay": {
+      "frames": 900,
+      "valid_exported_poses": 4128,
+      "oracle_masks": false
+    },
+    "demo": {
+      "frames": 1,
+      "valid_exported_poses": 5,
+      "oracle_masks": false
+    }
+  },
+  "synthetic_cases": 126,
+  "timing_scope": "cached replay is not end-to-end latency"
+}

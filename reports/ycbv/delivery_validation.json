@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "checks": {
+    "benchmark": {
+      "frames": 900,
+      "valid_exported_poses": 4128,
+      "oracle_masks": false
+    },
+    "mask_rgbd": {
+      "frames": 24,
+      "valid_exported_poses": 107,
+      "oracle_masks": false
+    },
+    "bbox_rgbd": {
+      "frames": 24,
+      "valid_exported_poses": 107,
+      "oracle_masks": false
+    },
+    "reference_mask_rgbd": {
+      "frames": 24,
+      "valid_exported_poses": 110,
+      "oracle_masks": true
+    },
+    "mask_rgb": {
+      "frames": 24,
+      "valid_exported_poses": 107,
+      "oracle_masks": false
+    },
+    "demo": {
+      "frames": 1,
+      "valid_exported_poses": 5,
+      "oracle_masks": false
+    }
+  }
+}

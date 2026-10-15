@@ -1,0 +1,282 @@
+{
+  "python": "3.11.0",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "dataset_revision": "39e2ccc49f7a3e258eab5cec84749c5817df417a",
+  "artifacts": [
+    {
+      "path": "artifacts/evaluation/maskrcnn_test.json",
+      "bytes": 31673,
+      "sha256": "240c2e469e445cebbb3eb101138e76dccf7fb91724aed5a021f6cda5ba010a47"
+    },
+    {
+      "path": "artifacts/evaluation/yolo_test.json",
+      "bytes": 31652,
+      "sha256": "4005f4f3e22b38a243e1b8b143d8cbce216cc3d0395ad3f92c4d1379bff46e6c"
+    },
+    {
+      "path": "artifacts/training/maskrcnn/best.pt",
+      "bytes": 351279424,
+      "sha256": "c35d7ebbd7f03ae5929be302434e8e497dd73facff18463f80090247fa544d92"
+    },
+    {
+      "path": "artifacts/training/maskrcnn/last.pt",
+      "bytes": 351279552,
+      "sha256": "5b446defde9b223908eedaa66c50cbb2d3f64755a033e1865e617b04c2733d68"
+    },
+    {
+      "path": "artifacts/training/rgb_pose/best.pt",
+      "bytes": 135979565,
+      "sha256": "653e7fe0e78c1a0d6108c47c59524963734e795f93cbf6fd897467926411768f"
+    },
+    {
+      "path": "artifacts/training/rgb_pose/last.pt",
+      "bytes": 135979629,
+      "sha256": "8c5cbaf523df09baa9cd681e4e5168abe627077ce217d8d55be0fbdbeb25c4cc"
+    },
+    {
+      "path": "artifacts/training/yolo11n_seg/weights/best.pt",
+      "bytes": 6022500,
+      "sha256": "6e954d4e55e67600480b02b93dfc2f0a972d22a222823970ee8b6443742343d9"
+    },
+    {
+      "path": "artifacts/training/yolo11n_seg/weights/last.pt",
+      "bytes": 6022500,
+      "sha256": "c08a1b1aa1bc1a4d4ba7f396fe674d8fdbf2c015a361e7bb310b61563ef587db"
+    },
+    {
+      "path": "configs/default.yaml",
+      "bytes": 1540,
+      "sha256": "09d53ea038b69306f753c2d4ad16787d1340aaf555a13f64c1dbba5190441e2c"
+    },
+    {
+      "path": "configs/pose_fpfh.yaml",
+      "bytes": 1547,
+      "sha256": "72b76971b26d1337b586f439502aae53515b3325c63943e10d10bf05f117035c"
+    },
+    {
+      "path": "data/splits.json",
+      "bytes": 49918,
+      "sha256": "0c6e9d5d59900dd52a5899526e346c15e19006443bba7f2405c053ad99df80d0"
+    },
+    {
+      "path": "docs/FOUNDATIONPOSE.md",
+      "bytes": 1730,
+      "sha256": "d8a1f51206d46f6cecf7b718a4142c73166022d72c6c4afab48d33cc5cc04c42"
+    },
+    {
+      "path": "docs/IMPLEMENTATION_VI.md",
+      "bytes": 6836,
+      "sha256": "fde38c615bfa7ea7d2ed6e93dedf4d3ca16da96fc2973eb6d064b697af56ed5c"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 757,
+      "sha256": "be31e090284aba7794ded2e1aa2bc5d4cb7e8da16af533080d0040c9bfcc4a00"
+    },
+    {
+      "path": "README.md",
+      "bytes": 11119,
+      "sha256": "b6b94228f0d5cb324df14719a47b5e2bc50f09dd5ab761b485d579a7706009ee"
+    },
+    {
+      "path": "reports/delivery_validation.json",
+      "bytes": 715,
+      "sha256": "bcfb72ef3d993e9c072ea02da785e445f3576d95d01d76d373f124adb25d5d87"
+    },
+    {
+      "path": "reports/measured_summary.json",
+      "bytes": 80588,
+      "sha256": "46343da00fde0b56d2becda502333c6ef4e7a0edb78d80ba0320252ea0ac6b4f"
+    },
+    {
+      "path": "reports/RESULTS_VI.md",
+      "bytes": 7538,
+      "sha256": "b139c09f4821ba2b8c776ed5276e653b9ffae1fc48e088135b499ee28021dc78"
+    },
+    {
+      "path": "requirements-measured.txt",
+      "bytes": 395,
+      "sha256": "928bfa75e227269a43e730c29daea26d1c1efb77d45bac5fe4f4af9c5039f8a6"
+    },
+    {
+      "path": "scripts/artifact_manifest.py",
+      "bytes": 1566,
+      "sha256": "d6d184697729185b1b651635d30140e5d47e44d6c35f7eff4dd940d87d8af956"
+    },
+    {
+      "path": "scripts/audit_local.py",
+      "bytes": 2731,
+      "sha256": "b9c068fb8cafcf0e27068937bd9876c08f2f15f65bf16775340f86cd84a15bbd"
+    },
+    {
+      "path": "scripts/bootstrap.ps1",
+      "bytes": 1180,
+      "sha256": "2725a1e83b60c01b7c3eb184606586792ecc7ae3b5b3f2c6e2627252d5ea0000"
+    },
+    {
+      "path": "scripts/build_report.py",
+      "bytes": 20403,
+      "sha256": "5ee74258a6dc8a0c30a1b96adc94a3092234c64d5f56c12f0c4f6a88ac3fa727"
+    },
+    {
+      "path": "scripts/compare_detectors.py",
+      "bytes": 2724,
+      "sha256": "9a87ec8a7a729b72be7d338a86a9fcc5a70556ca5e48756ae2335ea99e2c1543"
+    },
+    {
+      "path": "scripts/compare_pose_modalities.py",
+      "bytes": 2279,
+      "sha256": "e702906b59e4a7d39d59bd8f687d525e9313487bf26fdbf9e43a88d7cfb85f05"
+    },
+    {
+      "path": "scripts/download_dataset.py",
+      "bytes": 3389,
+      "sha256": "4d53e285bed03ccf8483e013bed0418e47be4ce90a3c43ddc35c54c46d50fb24"
+    },
+    {
+      "path": "scripts/evaluate_demo.py",
+      "bytes": 964,
+      "sha256": "327043a5f9e52f74e6393c538f4195d6dd9d7dd72022bba05b71a35fac6fd849"
+    },
+    {
+      "path": "scripts/monitor_training.py",
+      "bytes": 1985,
+      "sha256": "c953a4b87cc29abd3b15e4ceb916c1e8b16221f1109b7888c93ccb0a8c56363d"
+    },
+    {
+      "path": "scripts/run.py",
+      "bytes": 238,
+      "sha256": "1139c2c06bf9797a09d3e805f0a1de722ef08458808eb8bf1e4920899a3ec4ca"
+    },
+    {
+      "path": "scripts/run_all.ps1",
+      "bytes": 3101,
+      "sha256": "c9ac30835284986171d934c173a74c6136d5cfcd5487502987ab9f313995703a"
+    },
+    {
+      "path": "scripts/run_experiments.py",
+      "bytes": 7193,
+      "sha256": "321c6cdbcd05d9b1cb16dbdebfdcf792ac8fffdc4f95e5b84f92bb2b318cd745"
+    },
+    {
+      "path": "scripts/validate_delivery.py",
+      "bytes": 3420,
+      "sha256": "4e0bce20730510923a4a8ad36ae35175e237ff5a6c433cd395225b9139859def"
+    },
+    {
+      "path": "scripts/visualize_instances.py",
+      "bytes": 1514,
+      "sha256": "67604fe45549f6b39618ce5a3664e870f5bc2557825122d3908dd7d9aff386a7"
+    },
+    {
+      "path": "src/clutterpick/__init__.py",
+      "bytes": 77,
+      "sha256": "ab3a42fec1ffad492404a53b07afffe82df7fa0eff6af827c17cb6fb537c96d4"
+    },
+    {
+      "path": "src/clutterpick/cli.py",
+      "bytes": 5970,
+      "sha256": "5bbc220715c9ce4a9a1dc254813b8371478347f4bf33e4074b01e674595bc01d"
+    },
+    {
+      "path": "src/clutterpick/collision.py",
+      "bytes": 3904,
+      "sha256": "9a1ce44963f3a34f59a4392f18075902bf85bb638a3df687a6ad7c197d259593"
+    },
+    {
+      "path": "src/clutterpick/common.py",
+      "bytes": 1141,
+      "sha256": "e734b78c4557030b1837e32bf4dbe65172c518ed9eb7ba3669d9ed5dfe4a2bda"
+    },
+    {
+      "path": "src/clutterpick/data.py",
+      "bytes": 7858,
+      "sha256": "19d318de09af452f4a667a1192f5792683ea2da695ce9aef1f9b99169b62b580"
+    },
+    {
+      "path": "src/clutterpick/detection.py",
+      "bytes": 4643,
+      "sha256": "81276f56751c91952d0c4b299a1c1dbd59aea2270c51cb165027a9c4f871bb09"
+    },
+    {
+      "path": "src/clutterpick/evaluation.py",
+      "bytes": 7477,
+      "sha256": "2d2a2c5f640e6bb93a28d89db4434e68a11a9aa1302b00fa81e5b69446914603"
+    },
+    {
+      "path": "src/clutterpick/geometry.py",
+      "bytes": 2514,
+      "sha256": "9e3f0d91099bc8ab825b44402daf3611d1c762be79f62b956f1f4df6f36b47db"
+    },
+    {
+      "path": "src/clutterpick/grasp.py",
+      "bytes": 4242,
+      "sha256": "f451672aa87b4b0341879c9d799a0bba8a172a0a3fb605e985e4f91850be134d"
+    },
+    {
+      "path": "src/clutterpick/pipeline.py",
+      "bytes": 12530,
+      "sha256": "a32de9aeac6e13e680ad19aaff97ffc41136e6abfd5ed9f88d86c88285e5a300"
+    },
+    {
+      "path": "src/clutterpick/pose.py",
+      "bytes": 8436,
+      "sha256": "08ce93c5a0f9587277287f3f07211fe4f20d3e97cd7d9a3bbe32b9382bb76e74"
+    },
+    {
+      "path": "src/clutterpick/rendered_pose.py",
+      "bytes": 5050,
+      "sha256": "2b546956cd54737b742ede21854677d1253d6845d32f07b5012ac9f7cbf06113"
+    },
+    {
+      "path": "src/clutterpick/rgb_pose.py",
+      "bytes": 9908,
+      "sha256": "ae476f9ee745aac3819737d24706be8b3b9f1950d4f869ce1bfabd31f983b699"
+    },
+    {
+      "path": "src/clutterpick/training.py",
+      "bytes": 6808,
+      "sha256": "d747b8bf109a2d6221f7c6dd19c5fea622ed26e6a69de8cf9f3b44326ef03d3a"
+    },
+    {
+      "path": "src/clutterpick/visualization.py",
+      "bytes": 3690,
+      "sha256": "93776a1a7328a74ca4b8892d876a9797559727e5311888016270a4907c09ae24"
+    },
+    {
+      "path": "src/clutterpick/yolo.py",
+      "bytes": 3045,
+      "sha256": "06b9b4a5e239bfacad16919ff96618363bf4ebedb180cd181e03c9211b309e79"
+    },
+    {
+      "path": "tests/test_collision.py",
+      "bytes": 1282,
+      "sha256": "911d211014bd10a6a2c12c3d329f237abb76df90dd62633611187ffd43c2a109"
+    },
+    {
+      "path": "tests/test_dataset.py",
+      "bytes": 1467,
+      "sha256": "6c3c253ec2c2830d8ced4f9337f4384cc5ef8cfc2ed76641aadac8ba093977e3"
+    },
+    {
+      "path": "tests/test_evaluation.py",
+      "bytes": 1508,
+      "sha256": "ca65d917c1cfe8c4c35b9308ed0a2f8a786349967b724ca5b965b8938592967a"
+    },
+    {
+      "path": "tests/test_geometry_and_pose.py",
+      "bytes": 1570,
+      "sha256": "7e7e9fd94ee350a6cae319916c453e7f62c52a6162f9eeb85566ae336a34b08e"
+    },
+    {
+      "path": "tests/test_grasp_support.py",
+      "bytes": 567,
+      "sha256": "9228657918e8e32ec281221bf86de08201f96bd0897a186132d5f43027e5b985"
+    },
+    {
+      "path": "tests/test_rgb_pose.py",
+      "bytes": 1319,
+      "sha256": "ace574542b95f453e9d5f95bbea71335e4f84594cce4fa469a342840086720e6"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "cases": 882,
+  "metrics": {
+    "all_dilated_roi_points": {
+      "precision": 0.6589958900226758,
+      "recall": 1.0,
+      "F1": 0.7944515040524524,
+      "contamination": 0.3410041099773242,
+      "TP": 297592,
+      "FP": 153992,
+      "FN": 0
+    },
+    "predicted_mask_membership": {
+      "precision": 0.893362269435649,
+      "recall": 0.9281701120997876,
+      "F1": 0.9104336175114828,
+      "contamination": 0.106637730564351,
+      "TP": 276216,
+      "FP": 32971,
+      "FN": 21376
+    }
+  },
+  "scope": "same fixed 512 sampled held-out PBR ROI points; no fitting or threshold selection"
+}

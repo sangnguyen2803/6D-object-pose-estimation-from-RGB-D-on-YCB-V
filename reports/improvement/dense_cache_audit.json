@@ -1,0 +1,7 @@
+{
+  "instances": 46792,
+  "instances_with_at_least_16_valid_coordinate_targets": 46665,
+  "empty_coordinate_target_instances": 90,
+  "torch_imported": false,
+  "scope": "training targets only; input visible-depth masks do not depend on GT pose"
+}

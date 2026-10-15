@@ -1,0 +1,5 @@
+{
+    "phase":  "dense_pose_training",
+    "detail":  "scripts/run.py --config configs/improved.yaml train-dense-pose --epochs 24 --device cuda",
+    "updated_utc":  "2026-10-12T04:43:58.7913563Z"
+}

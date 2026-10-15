@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "checks": {
+    "baseline_0": {
+      "frames": 96,
+      "valid_exported_poses": 436,
+      "oracle_masks": false
+    },
+    "baseline_1": {
+      "frames": 96,
+      "valid_exported_poses": 436,
+      "oracle_masks": false
+    },
+    "optimized_0": {
+      "frames": 96,
+      "valid_exported_poses": 436,
+      "oracle_masks": false
+    },
+    "optimized_1": {
+      "frames": 96,
+      "valid_exported_poses": 436,
+      "oracle_masks": false
+    },
+    "demo": {
+      "frames": 1,
+      "valid_exported_poses": 5,
+      "oracle_masks": false
+    }
+  },
+  "cohort_frames": 96,
+  "scope": "checks consistency and provenance; does not assert SOTA or improvement in every metric"
+}

@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "cases": 7,
+  "max_rgb_difference": 0.003921575844287872,
+  "rgb_different_channel_fraction": 1.0540674603174604e-05,
+  "legacy_repeat_max_rgb_difference": 0.003921568393707275,
+  "silhouettes_exactly_equal": true,
+  "max_depth_difference_m": 0.0,
+  "rgb_tolerance": "one uint8 intensity level; <=0.1% channels differ; legacy repeat has the same quantization variation",
+  "legacy": {
+    "render_calls": 14,
+    "context_mesh_additions": 14
+  },
+  "resident": {
+    "render_calls": 7,
+    "context_mesh_additions": 4
+  },
+  "scope": "same CAD, lights, poses and camera; hidden cached meshes must not affect pixels"
+}

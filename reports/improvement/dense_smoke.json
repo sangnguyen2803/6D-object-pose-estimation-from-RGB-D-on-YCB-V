@@ -1,0 +1,95 @@
+{
+  "finite_forward_backward": true,
+  "batch": 16,
+  "loss": 0.13454225659370422,
+  "valid_pixels_per_instance": [
+    1350,
+    1654,
+    44,
+    1193,
+    4514,
+    3912,
+    4485,
+    2586,
+    1941,
+    4575,
+    1508,
+    3763,
+    1362,
+    4376,
+    4135,
+    2667
+  ],
+  "source_groups": [
+    "classic_train",
+    "onboarding",
+    "pbr_upright"
+  ],
+  "instances": [
+    {
+      "id": "classic_train/000002/520/0",
+      "class": 1
+    },
+    {
+      "id": "classic_train/000002/520/1",
+      "class": 3
+    },
+    {
+      "id": "classic_train/000004/243/0",
+      "class": 2
+    },
+    {
+      "id": "classic_train/000005/364/0",
+      "class": 2
+    },
+    {
+      "id": "onboarding/obj_000001_down/738/0",
+      "class": 1
+    },
+    {
+      "id": "onboarding/obj_000001_up/287/0",
+      "class": 1
+    },
+    {
+      "id": "onboarding/obj_000002_down/207/0",
+      "class": 2
+    },
+    {
+      "id": "pbr_upright/000000/648/0",
+      "class": 3
+    },
+    {
+      "id": "pbr_upright/000000/648/1",
+      "class": 4
+    },
+    {
+      "id": "pbr_upright/000000/648/3",
+      "class": 1
+    },
+    {
+      "id": "pbr_upright/000000/648/4",
+      "class": 5
+    },
+    {
+      "id": "pbr_upright/000001/789/0",
+      "class": 3
+    },
+    {
+      "id": "pbr_upright/000001/789/1",
+      "class": 1
+    },
+    {
+      "id": "pbr_upright/000001/789/2",
+      "class": 2
+    },
+    {
+      "id": "pbr_upright/000001/789/3",
+      "class": 4
+    },
+    {
+      "id": "pbr_upright/000001/789/4",
+      "class": 5
+    }
+  ],
+  "ground_truth_used_for_training_targets_only": true
+}

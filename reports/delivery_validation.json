@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "benchmark_frames": 923,
+  "gt_instances": 1931,
+  "predicted_pose_records": 1844,
+  "exported_grasp_records": 377,
+  "experiment_cohorts": {
+    "ablations": {
+      "predicted_mask": 16,
+      "bbox": 16,
+      "reference_mask": 16
+    },
+    "modalities": {
+      "rgbd_keypoints": 16,
+      "rgb_keypoints": 16
+    },
+    "detectors": {
+      "yolo": 16,
+      "maskrcnn": 16
+    }
+  },
+  "checks": [
+    "unique full test frames",
+    "proper SE3 transforms",
+    "gripper opening constraints",
+    "no ground truth inference",
+    "consistent final generator",
+    "no fabricated simulation/physical validation",
+    "matched experiment frame cohorts"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "dataset": "ycbv",
+  "dataset_revision": "5c2c4aa229800355648cd268040aa814f8dc94f0",
+  "decoded_frames": 900,
+  "decoded_instances": 4125,
+  "errors": [],
+  "duplicate_rgb_groups": [],
+  "cross_split_frame_overlap": {
+    "train/val": [],
+    "train/test": [],
+    "val/test": []
+  },
+  "official_test_targets_match": true,
+  "object_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "depth_scales_mm": [
+    0.1
+  ],
+  "mean_invalid_depth_fraction": 0.17064680627893516,
+  "train_val_available": false,
+  "scope": "all local RGB-D/masks decoded; exact duplicates only; pretrained test-only mode allows empty train/val"
+}

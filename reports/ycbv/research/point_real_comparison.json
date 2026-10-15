@@ -1,0 +1,51 @@
+{
+  "learned_3d": {
+    "frames": 24,
+    "gt_instances": 110,
+    "matched_pose_instances": 103,
+    "detections": 107,
+    "success_counts": {
+      "ADD_success_0_1d": 78,
+      "ADD_S_success_0_1d": 100,
+      "ADD_or_S_success_0_1d": 97
+    },
+    "recall": {
+      "ADD_success_0_1d": 0.7090909090909091,
+      "ADD_S_success_0_1d": 0.9090909090909091,
+      "ADD_or_S_success_0_1d": 0.8818181818181818
+    },
+    "median_inference_s_excluding_first": 1.3549091999884695,
+    "scope": "diagnostic ADD/ADD-S/ADD(-S), 0.1 diameter, all GT instances; not official BOP AR",
+    "mean_contamination": 0.0315550813021331,
+    "mean_foreground_retention": 0.9479242008668558
+  },
+  "original_2d_mask": {
+    "frames": 24,
+    "gt_instances": 110,
+    "matched_pose_instances": 103,
+    "detections": 107,
+    "success_counts": {
+      "ADD_success_0_1d": 78,
+      "ADD_S_success_0_1d": 100,
+      "ADD_or_S_success_0_1d": 97
+    },
+    "recall": {
+      "ADD_success_0_1d": 0.7090909090909091,
+      "ADD_S_success_0_1d": 0.9090909090909091,
+      "ADD_or_S_success_0_1d": 0.8818181818181818
+    },
+    "median_inference_s_excluding_first": 1.3264895000029355,
+    "scope": "diagnostic ADD/ADD-S/ADD(-S), 0.1 diameter, all GT instances; not official BOP AR",
+    "mean_contamination": 0.03936164644067079
+  },
+  "source_masks": "same published RGB detector/robust ICP configuration on fixed 24 frame cohort; threshold selected only on PBR validation",
+  "gt_used_for_inference": false,
+  "paired": {
+    "gt_instances": 110,
+    "fail_to_pass": 0,
+    "pass_to_fail": 0,
+    "both_pass": 97,
+    "both_fail": 13,
+    "threshold": "0.1 CAD diameter; ADD(-S); does not imply every numerical error improves"
+  }
+}

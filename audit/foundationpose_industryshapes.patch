@@ -1,0 +1,811 @@
+diff --git a/.gitignore b/.gitignore
+old mode 100644
+new mode 100755
+diff --git a/LICENSE b/LICENSE
+old mode 100644
+new mode 100755
+diff --git a/Utils.py b/Utils.py
+old mode 100644
+new mode 100755
+diff --git a/assets/ar_maze_c.mp4 b/assets/ar_maze_c.mp4
+old mode 100644
+new mode 100755
+diff --git a/assets/bop.jpg b/assets/bop.jpg
+old mode 100644
+new mode 100755
+diff --git a/assets/cvpr_review.png b/assets/cvpr_review.png
+old mode 100644
+new mode 100755
+diff --git a/assets/demo.jpg b/assets/demo.jpg
+old mode 100644
+new mode 100755
+diff --git a/assets/demo_driller.jpg b/assets/demo_driller.jpg
+old mode 100644
+new mode 100755
+diff --git a/assets/intro.jpg b/assets/intro.jpg
+old mode 100644
+new mode 100755
+diff --git a/assets/robot_mustard.mp4 b/assets/robot_mustard.mp4
+old mode 100644
+new mode 100755
+diff --git a/assets/train_data_vis.png b/assets/train_data_vis.png
+old mode 100644
+new mode 100755
+diff --git a/assets/ycbv_tracking_c.mp4 b/assets/ycbv_tracking_c.mp4
+old mode 100644
+new mode 100755
+diff --git a/build_all.sh b/build_all.sh
+old mode 100644
+new mode 100755
+diff --git a/build_all_conda.sh b/build_all_conda.sh
+old mode 100644
+new mode 100755
+diff --git a/bundlesdf/config_linemod.yml b/bundlesdf/config_linemod.yml
+old mode 100644
+new mode 100755
+diff --git a/bundlesdf/config_ycbv.yml b/bundlesdf/config_ycbv.yml
+old mode 100644
+new mode 100755
+diff --git a/bundlesdf/mycuda/__init__.py b/bundlesdf/mycuda/__init__.py
+old mode 100644
+new mode 100755
+diff --git a/bundlesdf/mycuda/bindings.cpp b/bundlesdf/mycuda/bindings.cpp
+old mode 100644
+new mode 100755
+diff --git a/bundlesdf/mycuda/common.cu b/bundlesdf/mycuda/common.cu
+old mode 100644
+new mode 100755
+diff --git a/bundlesdf/mycuda/common.h b/bundlesdf/mycuda/common.h
+old mode 100644
+new mode 100755
+diff --git a/bundlesdf/mycuda/setup.py b/bundlesdf/mycuda/setup.py
+old mode 100644
+new mode 100755
+index ad00334..55fa596
+--- a/bundlesdf/mycuda/setup.py
++++ b/bundlesdf/mycuda/setup.py
+@@ -15,8 +15,8 @@ from torch.utils.cpp_extension import load
+ code_dir = os.path.dirname(os.path.realpath(__file__))
+ 
+ 
+-nvcc_flags = ['-Xcompiler', '-O3', '-std=c++14', '-U__CUDA_NO_HALF_OPERATORS__', '-U__CUDA_NO_HALF_CONVERSIONS__', '-U__CUDA_NO_HALF2_OPERATORS__']
+-c_flags = ['-O3', '-std=c++14']
++nvcc_flags = ['-Xcompiler', '-O3', '-std=c++17', '-U__CUDA_NO_HALF_OPERATORS__', '-U__CUDA_NO_HALF_CONVERSIONS__', '-U__CUDA_NO_HALF2_OPERATORS__']
++c_flags = ['-O3', '-std=c++17']
+ 
+ setup(
+     name='common',
+diff --git a/bundlesdf/mycuda/torch_ngp_grid_encoder/LICENSE b/bundlesdf/mycuda/torch_ngp_grid_encoder/LICENSE
+old mode 100644
+new mode 100755
+diff --git a/bundlesdf/mycuda/torch_ngp_grid_encoder/bindings.cpp b/bundlesdf/mycuda/torch_ngp_grid_encoder/bindings.cpp
+old mode 100644
+new mode 100755
+diff --git a/bundlesdf/mycuda/torch_ngp_grid_encoder/grid.py b/bundlesdf/mycuda/torch_ngp_grid_encoder/grid.py
+old mode 100644
+new mode 100755
+diff --git a/bundlesdf/mycuda/torch_ngp_grid_encoder/gridencoder.cu b/bundlesdf/mycuda/torch_ngp_grid_encoder/gridencoder.cu
+old mode 100644
+new mode 100755
+diff --git a/bundlesdf/mycuda/torch_ngp_grid_encoder/gridencoder.h b/bundlesdf/mycuda/torch_ngp_grid_encoder/gridencoder.h
+old mode 100644
+new mode 100755
+diff --git a/bundlesdf/nerf_helpers.py b/bundlesdf/nerf_helpers.py
+old mode 100644
+new mode 100755
+diff --git a/bundlesdf/nerf_runner.py b/bundlesdf/nerf_runner.py
+old mode 100644
+new mode 100755
+diff --git a/bundlesdf/run_nerf.py b/bundlesdf/run_nerf.py
+old mode 100644
+new mode 100755
+index 5cfea7d..c5901c5
+--- a/bundlesdf/run_nerf.py
++++ b/bundlesdf/run_nerf.py
+@@ -20,15 +20,19 @@ def run_neural_object_field(cfg, K, rgbs, depths, masks, cam_in_obs, debug=0, sa
+   depths = np.asarray(depths)
+   masks = np.asarray(masks)
+   cam_in_obs = np.asarray(cam_in_obs)
++  print("cam_in_obs shape:", np.asarray(cam_in_obs).shape)
++  print("glcam_in_cvcam shape:", glcam_in_cvcam.shape)
++
+   glcam_in_obs = cam_in_obs@glcam_in_cvcam
+ 
+   cfg['save_dir'] = save_dir
+   os.makedirs(save_dir, exist_ok=True)
+ 
+   for i,rgb in enumerate(rgbs):
+-    imageio.imwrite(f'{save_dir}/rgb_{i:07d}.png', rgb)
++    imageio.imwrite(f'{save_dir}/rgb_{i:06d}.png', rgb)
+ 
+   sc_factor,translation,pcd_real_scale, pcd_normalized = compute_scene_bounds(None,glcam_in_obs, K, use_mask=True,base_dir=save_dir,rgbs=rgbs,depths=depths,masks=masks, eps=cfg['dbscan_eps'], min_samples=cfg['dbscan_eps_min_samples'])
++  print("ok")
+   cfg['sc_factor'] = sc_factor
+   cfg['translation'] = translation
+ 
+@@ -49,53 +53,67 @@ def run_neural_object_field(cfg, K, rgbs, depths, masks, cam_in_obs, debug=0, sa
+ def run_one_ob(base_dir, cfg, use_refined_mask=False):
+   save_dir = f'{base_dir}/nerf'
+   os.system(f'rm -rf {save_dir} && mkdir -p {save_dir}')
+-  with open(f'{base_dir}/select_frames.yml','r') as ff:
+-    info = yaml.safe_load(ff)
++  #with open(f'{base_dir}/select_frames.yml','r') as ff:
++    #info = yaml.safe_load(ff)
+   rgbs = []
+   depths = []
+   masks = []
+   cam_in_obs = []
+-  color_files = sorted(glob.glob(f'{base_dir}/rgb/*.png'))
+-  K = np.loadtxt(f'{base_dir}/K.txt')
++  color_files = sorted(glob.glob(f'{base_dir}/color/*.png'))
++  K = np.loadtxt(f'{base_dir}/cam_K.txt')
++  #K = np.loadtxt(f'{base_dir}/K.txt')
+   for i,color_file in enumerate(color_files):
+     rgb = imageio.imread(color_file)
+-    depth = cv2.imread(color_file.replace('rgb','depth_enhanced'), -1)/1e3
++    depth = cv2.imread(color_file.replace('color','depth'), -1)/1e3
+     if use_refined_mask:
+-      mask = cv2.imread(color_file.replace('rgb','mask_refined'), -1)
++      mask = cv2.imread(color_file.replace('color','mask_refined'), -1)
+     else:
+-      mask = cv2.imread(color_file.replace('rgb','mask'), -1)
+-    cam_in_ob = np.loadtxt(color_file.replace('rgb','cam_in_ob').replace('.png','.txt')).reshape(4,4)
++      mask = cv2.imread(color_file.replace('color','mask'), -1)
++    ob_in_cam = np.loadtxt(color_file.replace('color','ob_in_cam').replace('.png','.txt')).reshape(4,4)
++    cam_in_ob = np.linalg.inv(ob_in_cam)
++    #cam_in_ob = np.loadtxt(color_file.replace('color','ob_in_cam').replace('.png','.txt')).reshape(4,4)
++    
+     rgbs.append(rgb)
+     depths.append(depth)
+     masks.append(mask)
+     cam_in_obs.append(cam_in_ob)
++    cam_in_ob_dir = os.path.join(base_dir, 'cam_in_ob')
++    os.makedirs(cam_in_ob_dir, exist_ok=True)
++    np.savetxt(os.path.join(cam_in_ob_dir, f'cam_in_ob_{i:06d}.txt'), cam_in_ob)
+ 
+   mesh = run_neural_object_field(cfg, K, rgbs, depths, masks, cam_in_obs, save_dir=save_dir, debug=0)
+   return mesh
+ 
+ 
+ def run_ycbv():
+-  ob_ids = np.arange(1,22)
++  ob_ids = np.arange(17,29)
+   code_dir = os.path.dirname(os.path.realpath(__file__))
+   with open(f'{code_dir}/config_ycbv.yml','r') as ff:
+     cfg = yaml.safe_load(ff)
+ 
+   for ob_id in ob_ids:
+-    base_dir = f'{args.ref_view_dir}/ob_{ob_id:07d}'
++    #base_dir = f'{args.ref_view_dir}/obj_{ob_id:06d}'
++    base_dir = f'{args.ref_view_dir}/{ob_id:06d}'
++    if not os.path.exists(base_dir):
++      logging.info(f"Skipping {base_dir}, directory does not exist")
++      continue
+     mesh = run_one_ob(base_dir=base_dir, cfg=cfg)
+     out_file = f'{base_dir}/model/model.obj'
+     os.makedirs(os.path.dirname(out_file), exist_ok=True)
+     mesh.export(out_file)
++    logging.info(f"saved to {out_file}")
+ 
+ 
+ def run_linemod():
+-  ob_ids = np.setdiff1d(np.arange(1,16), np.array([7,3])).tolist()
++  ob_ids = np.arange(1,6).tolist()
++  #ob_ids = [1]
++  #ob_ids = [1, 2, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 15]
+   code_dir = os.path.dirname(os.path.realpath(__file__))
+   with open(f'{code_dir}/config_linemod.yml','r') as ff:
+     cfg = yaml.safe_load(ff)
+   for ob_id in ob_ids:
+-    base_dir = f'{args.ref_view_dir}/ob_{ob_id:07d}'
+-    mesh = run_one_ob(base_dir=base_dir, cfg=cfg, use_refined_mask=True)
++    base_dir = f'{args.ref_view_dir}/{ob_id:06d}'
++    mesh = run_one_ob(base_dir=base_dir, cfg=cfg, use_refined_mask=False)
+     out_file = f'{base_dir}/model/model.obj'
+     os.makedirs(os.path.dirname(out_file), exist_ok=True)
+     mesh.export(out_file)
+diff --git a/bundlesdf/tool.py b/bundlesdf/tool.py
+old mode 100644
+new mode 100755
+index d52bb9d..9b37b7b
+--- a/bundlesdf/tool.py
++++ b/bundlesdf/tool.py
+@@ -46,6 +46,7 @@ def compute_scene_bounds_worker(color_file,K,glcam_in_world,use_mask,rgb=None,de
+     depth = cv2.imread(depth_file,-1)/1e3
+   xyz_map = depth2xyzmap(depth,K)
+   valid = depth>=0.1
++  logging.info(f"Number of valid points before mask application: {np.sum(valid)}")
+   if use_mask:
+     if mask is None:
+       mask = cv2.imread(mask_file,-1)
+diff --git a/datareader.py b/datareader.py
+old mode 100644
+new mode 100755
+index b7a6606..ef617bf
+--- a/datareader.py
++++ b/datareader.py
+@@ -9,9 +9,10 @@
+ 
+ from Utils import *
+ import json,os,sys
++import xatlas
+ 
+ 
+-BOP_LIST = ['lmo','tless','ycbv','hb','tudl','icbin','itodd']
++BOP_LIST = ['lmo','tless','ycbv','hb','tudl','icbin','itodd', 'industryshapes']
+ BOP_DIR = os.getenv('BOP_DIR')
+ 
+ def get_bop_reader(video_dir, zfar=np.inf):
+@@ -29,6 +30,10 @@ def get_bop_reader(video_dir, zfar=np.inf):
+     return IcbinReader(video_dir, zfar=zfar)
+   if 'itodd' in video_dir:
+     return ItoddReader(video_dir, zfar=zfar)
++  if 'industryshapes' in video_dir:
++    return IndustrialReader(video_dir, zfar=zfar)
++  if 'hope' in video_dir:
++    return HopeReader(video_dir, zfar=zfar)
+   else:
+     raise RuntimeError
+ 
+@@ -37,17 +42,21 @@ def get_bop_video_dirs(dataset):
+   if dataset=='ycbv':
+     video_dirs = sorted(glob.glob(f'{BOP_DIR}/ycbv/test/*'))
+   elif dataset=='lmo':
+-    video_dirs = sorted(glob.glob(f'{BOP_DIR}/lmo/lmo_test_bop19/test/*'))
++    video_dirs = sorted(glob.glob(f'{BOP_DIR}/lmo/test/*'))
+   elif dataset=='tless':
+-    video_dirs = sorted(glob.glob(f'{BOP_DIR}/tless/tless_test_primesense_bop19/test_primesense/*'))
++    video_dirs = sorted(glob.glob(f'{BOP_DIR}/tless/test_primesense/*'))
+   elif dataset=='hb':
+     video_dirs = sorted(glob.glob(f'{BOP_DIR}/hb/hb_test_primesense_bop19/test_primesense/*'))
+   elif dataset=='tudl':
+-    video_dirs = sorted(glob.glob(f'{BOP_DIR}/tudl/tudl_test_bop19/test/*'))
++    video_dirs = sorted(glob.glob(f'{BOP_DIR}/tudl/test/*'))
+   elif dataset=='icbin':
+-    video_dirs = sorted(glob.glob(f'{BOP_DIR}/icbin/icbin_test_bop19/test/*'))
++    video_dirs = sorted(glob.glob(f'{BOP_DIR}/icbin/test/*'))
+   elif dataset=='itodd':
+     video_dirs = sorted(glob.glob(f'{BOP_DIR}/itodd/itodd_test_bop19/test/*'))
++  elif dataset=='industryshapes':
++    video_dirs = sorted(glob.glob(f'{BOP_DIR}/industryshapes/test/*'))
++  elif dataset=='hope':
++    video_dirs = sorted(glob.glob(f'{BOP_DIR}/hope/test/*'))
+   else:
+     raise RuntimeError
+   return video_dirs
+@@ -262,30 +271,57 @@ class BopBaseReader:
+     xyz_map = depth2xyzmap(depth, self.get_K(i))
+     return xyz_map
+ 
++ 
++  # def get_mask(self, i_frame:int, ob_id:int, type='mask_visib'):
++  #   '''
++  #   #@type: mask_visib (only visible part) / mask (projected mask from whole model)
++  #   '''
++  #   pos = 0
++  #   name = int(os.path.basename(self.color_files[i_frame]).split('.')[0])
++  #   if self.scene_gt is not None:
++  #     for k in self.scene_gt[str(name)]:
++  #       if k['obj_id']==ob_id:
++  #         break
++  #       pos += 1
++  #     mask_file = f'{self.base_dir}/{type}/{name:06d}_{pos:06d}.png'
++  #     if not os.path.exists(mask_file):
++  #       logging.info(f'{mask_file} not found')
++  #       return None
++  #   else:
++  #     # mask_dir = os.path.dirname(self.color_files[0]).replace('rgb',type)
++  #     # mask_file = f'{mask_dir}/{self.id_strs[i_frame]}_{ob_id:06d}.png'
++  #     raise RuntimeError
++  #   mask = cv2.imread(mask_file, -1)
++  #   if self.resize!=1:
++  #     mask = cv2.resize(mask, fx=self.resize, fy=self.resize, dsize=None, interpolation=cv2.INTER_NEAREST)
++  #   return mask>0
++
++  def get_masks(self, i_frame:int, ob_id:int, type='mask_visib'):
++    """
++    Return a list of all visible‐mask arrays for ob_id in frame i_frame.
++    """
++    frame_id = int(os.path.basename(self.color_files[i_frame]).split('.')[0])
++    masks = []
++
++    # loop over every GT entry and collect matching positions
++    entries = self.scene_gt[str(frame_id)]
++    for pos, k in enumerate(entries):
++        if k['obj_id'] != ob_id:
++            continue
++        mask_file = f'{self.base_dir}/{type}/{frame_id:06d}_{pos:06d}.png'
++        if not os.path.exists(mask_file):
++            logging.info(f'{mask_file} not found, skipping')
++            continue
++        m = cv2.imread(mask_file, -1)
++        if self.resize != 1:
++            m = cv2.resize(m,
++                           fx=self.resize, fy=self.resize,
++                           dsize=None,
++                           interpolation=cv2.INTER_NEAREST)
++        masks.append(m.astype(bool))
++
++    return masks
+ 
+-  def get_mask(self, i_frame:int, ob_id:int, type='mask_visib'):
+-    '''
+-    @type: mask_visib (only visible part) / mask (projected mask from whole model)
+-    '''
+-    pos = 0
+-    name = int(os.path.basename(self.color_files[i_frame]).split('.')[0])
+-    if self.scene_gt is not None:
+-      for k in self.scene_gt[str(name)]:
+-        if k['obj_id']==ob_id:
+-          break
+-        pos += 1
+-      mask_file = f'{self.base_dir}/{type}/{name:06d}_{pos:06d}.png'
+-      if not os.path.exists(mask_file):
+-        logging.info(f'{mask_file} not found')
+-        return None
+-    else:
+-      # mask_dir = os.path.dirname(self.color_files[0]).replace('rgb',type)
+-      # mask_file = f'{mask_dir}/{self.id_strs[i_frame]}_{ob_id:06d}.png'
+-      raise RuntimeError
+-    mask = cv2.imread(mask_file, -1)
+-    if self.resize!=1:
+-      mask = cv2.resize(mask, fx=self.resize, fy=self.resize, dsize=None, interpolation=cv2.INTER_NEAREST)
+-    return mask>0
+ 
+ 
+   def get_gt_mesh(self, ob_id:int):
+@@ -389,16 +425,20 @@ class LinemodOcclusionReader(BopBaseReader):
+       14: 'lamp',
+       15: 'phone',
+     }
+-    self.load_symmetry_tfs()
++    #self.load_symmetry_tfs()
+ 
+   def get_gt_mesh_file(self, ob_id):
+     mesh_dir = f'{BOP_DIR}/{self.dataset_name}/models/obj_{ob_id:06d}.ply'
+     return mesh_dir
++  
++  def get_reconstructed_mesh(self, ob_id, ref_view_dir):
++    mesh = trimesh.load(os.path.abspath(f'{ref_view_dir}/ob_{ob_id:07d}/model/model.obj'))
++    return mesh
+ 
+ 
+ 
+ class LinemodReader(LinemodOcclusionReader):
+-  def __init__(self, base_dir='/mnt/9a72c439-d0a7-45e8-8d20-d7a235d02763/DATASET/LINEMOD/lm_test_all/test/000001', zfar=np.inf, split=None):
++  def __init__(self, base_dir='BOP/lmo', zfar=np.inf, split=None):
+     super().__init__(base_dir, zfar=zfar)
+     self.dataset_name = 'lm'
+     if split is not None:  # train/test
+@@ -411,7 +451,7 @@ class LinemodReader(LinemodOcclusionReader):
+       self.make_id_strs()
+ 
+     self.ob_ids = np.setdiff1d(np.arange(1,16), np.array([7,3])).tolist()  # Exclude bowl and mug
+-    self.load_symmetry_tfs()
++    #self.load_symmetry_tfs()
+ 
+ 
+   def get_gt_mesh_file(self, ob_id):
+@@ -480,9 +520,10 @@ class YcbVideoReader(BopBaseReader):
+ 
+   def get_gt_mesh_file(self, ob_id):
+     if 'BOP' in self.base_dir:
+-      mesh_file = os.path.abspath(f'{self.base_dir}/../../ycbv_models/models/obj_{ob_id:06d}.ply')
++      #mesh_file = os.path.abspath(f'{self.base_dir}/../../ycbv_models/models/obj_{ob_id:06d}.ply')
++      mesh_file = os.path.abspath(f'{self.base_dir}/../../models/obj_{ob_id:06d}.ply')
+     else:
+-      mesh_file = f'{self.base_dir}/../../ycbv_models/models/obj_{ob_id:06d}.ply'
++      mesh_file = f'{BOP_DIR}/{self.dataset_name}/models/obj_{ob_id:06d}.ply'
+     return mesh_file
+ 
+ 
+@@ -536,11 +577,12 @@ class TlessReader(BopBaseReader):
+     self.dataset_name = 'tless'
+ 
+     self.ob_ids = np.arange(1,31).astype(int).tolist()
++    self.K = list(self.K_table.values())[0]
+     self.load_symmetry_tfs()
+ 
+ 
+   def get_gt_mesh_file(self, ob_id):
+-    mesh_file = f'{self.base_dir}/../../../models_cad/obj_{ob_id:06d}.ply'
++    mesh_file = f'{BOP_DIR}/{self.dataset_name}/models_cad/obj_{ob_id:06d}.ply'
+     return mesh_file
+ 
+ 
+@@ -588,14 +630,15 @@ class ItoddReader(BopBaseReader):
+ 
+ 
+ class IcbinReader(BopBaseReader):
+-  def __init__(self, base_dir, zfar=np.inf):
++  def __init__(self, base_dir="/home/orestis/Desktop/FoundationPose/BOP/icbin", zfar=np.inf):
+     super().__init__(base_dir, zfar=zfar)
+     self.dataset_name = 'icbin'
+     self.ob_ids = np.arange(1,3).astype(int).tolist()
++    self.K = list(self.K_table.values())[0]
+     self.load_symmetry_tfs()
+ 
+   def get_gt_mesh_file(self, ob_id):
+-    mesh_file = f'{self.base_dir}/../../../icbin_models/models/obj_{ob_id:06d}.ply'
++    mesh_file = f'{BOP_DIR}/{self.dataset_name}/models/obj_{ob_id:06d}.ply'
+     return mesh_file
+ 
+ 
+@@ -604,10 +647,26 @@ class TudlReader(BopBaseReader):
+     super().__init__(base_dir, zfar=zfar)
+     self.dataset_name = 'tudl'
+     self.ob_ids = np.arange(1,4).astype(int).tolist()
++    self.K = list(self.K_table.values())[0]
+     self.load_symmetry_tfs()
+ 
+   def get_gt_mesh_file(self, ob_id):
+-    mesh_file = f'{self.base_dir}/../../../tudl_models/models/obj_{ob_id:06d}.ply'
++    mesh_file = f'{BOP_DIR}/{self.dataset_name}/models/obj_{ob_id:06d}.ply'
+     return mesh_file
+ 
+ 
++class IndustrialReader(BopBaseReader):
++  def __init__(self, base_dir, zfar=np.inf):
++    super().__init__(base_dir, zfar=zfar)
++    self.dataset_name = 'industryshapes'
++    self.ob_ids = np.arange(1,6).astype(int).tolist()
++    self.K = list(self.K_table.values())[0]
++    self.load_symmetry_tfs()
++
++  def get_gt_mesh_file(self, ob_id):
++    mesh_file = f'{BOP_DIR}/{self.dataset_name}/models/obj_{ob_id:06d}.ply'
++    return mesh_file
++
++  def get_reconstructed_mesh(self, ob_id, ref_view_dir):
++    mesh = trimesh.load(os.path.abspath(f'{ref_view_dir}/{ob_id:06d}/model/model.obj'))
++    return mesh
+\ No newline at end of file
+diff --git a/docker/dockerfile b/docker/dockerfile
+old mode 100644
+new mode 100755
+diff --git a/docker/run_container.sh b/docker/run_container.sh
+old mode 100644
+new mode 100755
+index 8503571..cb1f515
+--- a/docker/run_container.sh
++++ b/docker/run_container.sh
+@@ -1,3 +1,86 @@
+-docker rm -f foundationpose
++#!/bin/bash
++docker rm -f foundationpose 2>/dev/null || true
+ DIR=$(pwd)/../
+-xhost +  && docker run --gpus all --env NVIDIA_DISABLE_REQUIRE=1 -it --network=host --name foundationpose  --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -v $DIR:$DIR -v /home:/home -v /mnt:/mnt -v /tmp/.X11-unix:/tmp/.X11-unix -v /tmp:/tmp  --ipc=host -e DISPLAY=${DISPLAY} -e GIT_INDEX_FILE foundationpose:latest bash -c "cd $DIR && bash"
++
++# Force GPU support on Ubuntu 24.04 Noble systems
++if grep -q "PRETTY_NAME=\"Ubuntu 24.04" /etc/os-release; then
++    echo "Detected Ubuntu 24.04 (Noble) - using alternative approach for GPU support"
++    
++    # Configure Docker daemon directly
++    if [ ! -f /etc/docker/daemon.json ] || ! grep -q "nvidia" /etc/docker/daemon.json; then
++        echo "Creating/updating Docker daemon configuration..."
++        sudo mkdir -p /etc/docker
++        sudo tee /etc/docker/daemon.json > /dev/null <<EOF
++{
++    "runtimes": {
++        "nvidia": {
++            "path": "/usr/bin/nvidia-container-runtime",
++            "runtimeArgs": []
++        }
++    }
++}
++EOF
++        echo "Restarting Docker daemon..."
++        sudo pkill -SIGHUP dockerd
++        sleep 3
++    fi
++    
++    # Run with GPU support
++    echo "Running with GPU support using direct configuration..."
++    docker run --gpus all \
++        --runtime=nvidia \
++        -it --network=host --name foundationpose \
++        --cap-add=SYS_PTRACE --security-opt seccomp=unconfined \
++        -v $DIR:$DIR -v /mnt:/mnt -v /tmp:/tmp --ipc=host \
++        shingarey/foundationpose_custom_cuda121:latest bash -c "cd $DIR && bash"
++    exit $?
++fi
++
++# Original flow for other distributions
++# More robust GPU check with correct CUDA image
++has_gpu=false
++if command -v nvidia-smi &> /dev/null && nvidia-smi &> /dev/null; then
++    # Check if Docker NVIDIA runtime works with valid CUDA image
++    echo "Testing Docker GPU access..."
++    if docker run --rm --gpus all nvidia/cuda:11.6.2-base-ubuntu20.04 nvidia-smi &> /dev/null; then
++        has_gpu=true
++        echo "NVIDIA GPU and Docker GPU runtime working correctly."
++    else
++        echo "NVIDIA GPU found, but Docker GPU runtime has issues."
++        echo "This may be because nvidia-container-toolkit is not installed or configured."
++        
++        # Check if we're on a Debian/Ubuntu system
++        if [ -f /etc/os-release ] && grep -q "ID=ubuntu\|ID=debian" /etc/os-release; then
++            echo "Consider running these commands to fix Docker GPU access:"
++            echo "distribution=\$(. /etc/os-release;echo \$ID\$VERSION_ID)"
++            echo "curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -"
++            echo "curl -s -L https://nvidia.github.io/nvidia-docker/\$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list"
++            echo "sudo apt-get update && sudo apt-get install -y nvidia-container-toolkit"
++            echo "sudo pkill -SIGHUP dockerd"
++        fi
++        
++        read -p "Do you want to try running with GPU support anyway? [y/N]: " force_gpu
++        if [[ "$force_gpu" =~ ^[Yy]$ ]]; then
++            has_gpu=true
++        fi
++    fi
++else
++    echo "NVIDIA GPU not found or drivers not properly installed."
++fi
++
++# Run the container based on GPU availability
++if [ "$has_gpu" = true ]; then
++    echo "Running with GPU support."
++    # Try with minimal settings first 
++    docker run --gpus all \
++        -it --network=host --name foundationpose \
++        --cap-add=SYS_PTRACE --security-opt seccomp=unconfined \
++        -v $DIR:$DIR -v /mnt:/mnt -v /tmp:/tmp --ipc=host \
++        shingarey/foundationpose_custom_cuda121:latest bash -c "cd $DIR && bash"
++else
++    echo "Running without GPU support."
++    docker run -it --network=host --name foundationpose \
++        --cap-add=SYS_PTRACE --security-opt seccomp=unconfined \
++        -v $DIR:$DIR -v /mnt:/mnt -v /tmp:/tmp --ipc=host \
++        shingarey/foundationpose_custom_cuda121:latest bash -c "cd $DIR && bash"
++fi
+\ No newline at end of file
+diff --git a/estimater.py b/estimater.py
+old mode 100644
+new mode 100755
+diff --git a/learning/datasets/h5_dataset.py b/learning/datasets/h5_dataset.py
+old mode 100644
+new mode 100755
+diff --git a/learning/datasets/pose_dataset.py b/learning/datasets/pose_dataset.py
+old mode 100644
+new mode 100755
+diff --git a/learning/models/network_modules.py b/learning/models/network_modules.py
+old mode 100644
+new mode 100755
+diff --git a/learning/models/refine_network.py b/learning/models/refine_network.py
+old mode 100644
+new mode 100755
+diff --git a/learning/models/score_network.py b/learning/models/score_network.py
+old mode 100644
+new mode 100755
+diff --git a/learning/training/predict_pose_refine.py b/learning/training/predict_pose_refine.py
+old mode 100644
+new mode 100755
+diff --git a/learning/training/predict_score.py b/learning/training/predict_score.py
+old mode 100644
+new mode 100755
+diff --git a/learning/training/training_config.py b/learning/training/training_config.py
+old mode 100644
+new mode 100755
+diff --git a/mycpp/CMakeLists.txt b/mycpp/CMakeLists.txt
+old mode 100644
+new mode 100755
+index 7c8a9a5..27f2229
+--- a/mycpp/CMakeLists.txt
++++ b/mycpp/CMakeLists.txt
+@@ -4,7 +4,7 @@ project(mycpp)
+ 
+ set(CMAKE_BUILD_TYPE Release)
+ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -fopenmp -g3 -O3")
++set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -fopenmp -g3 -O3")
+ 
+ 
+ find_package(Boost REQUIRED COMPONENTS system program_options)
+@@ -19,7 +19,7 @@ include_directories(
+ 
+ file(GLOB MY_SRC ${PROJECT_SOURCE_DIR}/src/*.cpp)
+ 
+-set(PYBIND11_CPP_STANDARD -std=c++14)
++set(PYBIND11_CPP_STANDARD -std=c++17)
+ 
+ pybind11_add_module(mycpp src/app/pybind_api.cpp ${MY_SRC})
+ target_link_libraries(mycpp PRIVATE ${Boost_LIBRARIES} ${OpenMP_CXX_FLAGS} Eigen3::Eigen)
+\ No newline at end of file
+diff --git a/mycpp/include/Utils.h b/mycpp/include/Utils.h
+old mode 100644
+new mode 100755
+diff --git a/mycpp/src/Utils.cpp b/mycpp/src/Utils.cpp
+old mode 100644
+new mode 100755
+diff --git a/mycpp/src/app/pybind_api.cpp b/mycpp/src/app/pybind_api.cpp
+old mode 100644
+new mode 100755
+diff --git a/offscreen_renderer.py b/offscreen_renderer.py
+old mode 100644
+new mode 100755
+diff --git a/readme.md b/readme.md
+old mode 100644
+new mode 100755
+diff --git a/requirements.txt b/requirements.txt
+old mode 100644
+new mode 100755
+diff --git a/run_demo.py b/run_demo.py
+old mode 100644
+new mode 100755
+diff --git a/run_linemod.py b/run_linemod.py
+old mode 100644
+new mode 100755
+index b927bc6..c452989
+--- a/run_linemod.py
++++ b/run_linemod.py
+@@ -48,7 +48,9 @@ def get_mask(reader, i_frame, ob_id, detect_type):
+ 
+ 
+ 
+-def run_pose_estimation_worker(reader, i_frames, est:FoundationPose=None, debug=0, ob_id=None, device='cuda:0'):
++#def run_pose_estimation_worker(reader, i_frames, est:FoundationPose=None, debug=0, ob_id=None, device='cuda:0'):
++def run_pose_estimation_worker(reader, i_frames, est:FoundationPose=None,
++                               debug=0, ob_id=None, inst_idx=None, device='cuda:0'):
+   torch.cuda.set_device(device)
+   est.to_device(device)
+   est.glctx = dr.RasterizeCudaContext(device=device)
+@@ -65,11 +67,19 @@ def run_pose_estimation_worker(reader, i_frames, est:FoundationPose=None, debug=
+ 
+     debug_dir =est.debug_dir
+ 
+-    ob_mask = get_mask(reader, i_frame, ob_id, detect_type=detect_type)
++    #ob_mask = get_mask(reader, i_frame, ob_id, detect_type=detect_type)
++    all_masks = reader.get_masks(i_frame, ob_id)
++    if inst_idx >= len(all_masks):
++      logging.info(f"Only {len(all_masks)} instances of {ob_id} in frame {i_frame}, skipping idx={inst_idx}")
++      continue
++    ob_mask = all_masks[inst_idx]
++    # if ob_mask is None:
++    #   logging.info("ob_mask not found, skip")
++    #   result[video_id][id_str][ob_id] = np.eye(4)
++    #   return result
+     if ob_mask is None:
+-      logging.info("ob_mask not found, skip")
+-      result[video_id][id_str][ob_id] = np.eye(4)
+-      return result
++      logging.info("ob_mask not found, skipping instance %d", inst_idx)
++      continue
+ 
+     est.gt_pose = reader.get_gt_pose(i_frame, ob_id)
+ 
+@@ -82,41 +92,81 @@ def run_pose_estimation_worker(reader, i_frames, est:FoundationPose=None, debug=
+       tmp.apply_transform(pose)
+       tmp.export(f'{debug_dir}/model_tf.obj')
+ 
+-    result[video_id][id_str][ob_id] = pose
++    #result[video_id][id_str][ob_id] = pose
++    result[video_id][id_str].setdefault(ob_id, []).append(pose)
+ 
+   return result
+ 
+ 
+ def run_pose_estimation():
+   wp.force_load(device='cuda')
+-  reader_tmp = LinemodReader(f'{opt.linemod_dir}/lm_test_all/test/000002', split=None)
++  video_dirs = sorted(glob.glob(f'{opt.dataset_dir}/test/*'))
++  print(f"Found video directories: {video_dirs}")
++  res = NestDict()
+ 
+   debug = opt.debug
+   use_reconstructed_mesh = opt.use_reconstructed_mesh
+   debug_dir = opt.debug_dir
+ 
+-  res = NestDict()
++  reader_tmp = IndustrialReader(video_dirs[0])
+   glctx = dr.RasterizeCudaContext()
+   mesh_tmp = trimesh.primitives.Box(extents=np.ones((3)), transform=np.eye(4)).to_mesh()
+-  est = FoundationPose(model_pts=mesh_tmp.vertices.copy(), model_normals=mesh_tmp.vertex_normals.copy(), symmetry_tfs=None, mesh=mesh_tmp, scorer=None, refiner=None, glctx=glctx, debug_dir=debug_dir, debug=debug)
+-
+-  for ob_id in reader_tmp.ob_ids:
+-    ob_id = int(ob_id)
++  est = FoundationPose(
++      model_pts=mesh_tmp.vertices.copy(),
++      model_normals=mesh_tmp.vertex_normals.copy(),
++      symmetry_tfs=None,
++      mesh=mesh_tmp,
++      scorer=None,
++      refiner=None,
++      glctx=glctx,
++      debug_dir=debug_dir,
++      debug=debug
++  )
++
++  ob_ids = reader_tmp.ob_ids
++
++  for ob_id in ob_ids:
+     if use_reconstructed_mesh:
+-      mesh = reader_tmp.get_reconstructed_mesh(ob_id, ref_view_dir=opt.ref_view_dir)
++        mesh = reader_tmp.get_reconstructed_mesh(ob_id, ref_view_dir=opt.ref_view_dir)
+     else:
+-      mesh = reader_tmp.get_gt_mesh(ob_id)
++        mesh = reader_tmp.get_gt_mesh(ob_id)
+     symmetry_tfs = reader_tmp.symmetry_tfs[ob_id]
+ 
+     args = []
+-
+-    video_dir = f'{opt.linemod_dir}/lm_test_all/test/{ob_id:06d}'
+-    reader = LinemodReader(video_dir, split=None)
+-    video_id = reader.get_video_id()
+-    est.reset_object(model_pts=mesh.vertices.copy(), model_normals=mesh.vertex_normals.copy(), symmetry_tfs=symmetry_tfs, mesh=mesh)
+-
+-    for i in range(len(reader.color_files)):
+-      args.append((reader, [i], est, debug, ob_id, "cuda:0"))
++    # for video_dir in video_dirs:
++    #   reader = TudlReader(video_dir, zfar=1.5)
++
++    #   scene_ob_ids = reader.get_instance_ids_in_image(0)
++    #   if ob_id not in scene_ob_ids:
++    #     continue
++    #   video_id = reader.get_video_id()
++
++    #   for i in range(len(reader.color_files)):
++    #     args.append((reader, [i], est, debug, ob_id, "cuda:0"))
++
++    for video_dir in video_dirs:
++      reader   = IndustrialReader(video_dir, zfar=1.5)
++      video_id = reader.get_video_id()
++
++      for i_frame in range(len(reader.color_files)):
++        masks = reader.get_masks(i_frame, ob_id)
++        for inst_idx in range(len(masks)):
++          args.append((
++            reader,
++            [i_frame],
++            est,
++            debug,
++            ob_id,
++            inst_idx,
++            "cuda:0"
++          ))
++
++    est.reset_object(
++      model_pts=mesh.vertices.copy(),
++      model_normals=mesh.vertex_normals.copy(),
++      symmetry_tfs=symmetry_tfs,
++      mesh=mesh
++    )
+ 
+     outs = []
+     for arg in args:
+@@ -124,19 +174,26 @@ def run_pose_estimation():
+       outs.append(out)
+ 
+     for out in outs:
+-      for video_id in out:
+-        for id_str in out[video_id]:
+-          for ob_id in out[video_id][id_str]:
+-            res[video_id][id_str][ob_id] = out[video_id][id_str][ob_id]
++      # for video_id in out:
++      #   for id_str in out[video_id]:
++      #     res[video_id][id_str][ob_id] = out[video_id][id_str][ob_id]
++      for video_id, vid_dict in out.items():
++        for id_str, frame_dict in vid_dict.items():
++          for inst_ob_id, poses in frame_dict.items():
++            # extend the list of poses for this object
++            res[video_id][id_str].setdefault(inst_ob_id, []).extend(poses)
++
++  dataset_name = os.path.basename(opt.dataset_dir.strip("/"))
++  with open(f'{opt.debug_dir}/{dataset_name}.yml', 'w') as ff:
++      yaml.safe_dump(make_yaml_dumpable(res), ff)
+ 
+-  with open(f'{opt.debug_dir}/linemod_res.yml','w') as ff:
+-    yaml.safe_dump(make_yaml_dumpable(res), ff)
+ 
+ 
+ if __name__=='__main__':
+   parser = argparse.ArgumentParser()
+   code_dir = os.path.dirname(os.path.realpath(__file__))
+-  parser.add_argument('--linemod_dir', type=str, default="/mnt/9a72c439-d0a7-45e8-8d20-d7a235d02763/DATASET/LINEMOD", help="linemod root dir")
++  #parser.add_argument('--linemod_dir', type=str, default="/mnt/9a72c439-d0a7-45e8-8d20-d7a235d02763/DATASET/LINEMOD", help="linemod root dir")
++  parser.add_argument('--dataset_dir', type=str, default="/home/orestis/Desktop/FoundationPose/BOP/lmo", help="lmo root dir")
+   parser.add_argument('--use_reconstructed_mesh', type=int, default=0)
+   parser.add_argument('--ref_view_dir', type=str, default="/mnt/9a72c439-d0a7-45e8-8d20-d7a235d02763/DATASET/YCB_Video/bowen_addon/ref_views_16")
+   parser.add_argument('--debug', type=int, default=0)
+diff --git a/run_ycb_video.py b/run_ycb_video.py
+old mode 100644
+new mode 100755

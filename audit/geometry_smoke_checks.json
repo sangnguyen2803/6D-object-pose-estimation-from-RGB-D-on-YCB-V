@@ -1,0 +1,80 @@
+[
+  {
+    "sample": "IndustryShapes_Classic_test",
+    "object_id": 1,
+    "cad_vertex_count": 55904,
+    "valid_points": 9484,
+    "point_to_nearest_cad_vertex_mm_p50_p90_p95": [
+      3.0421354489489008,
+      9.711651703582882,
+      11.715318579238682
+    ],
+    "diagnostic_uses_gt_pose_and_gt_mask": true,
+    "note": "One-sided distance to vertices, not mesh-surface distance or pose prediction error. Includes sensor/label error."
+  },
+  {
+    "sample": "IndustryShapes_Classic_train",
+    "object_id": 1,
+    "cad_vertex_count": 55904,
+    "valid_points": 6551,
+    "point_to_nearest_cad_vertex_mm_p50_p90_p95": [
+      2.9972212031261285,
+      10.291178727620068,
+      12.771388658112347
+    ],
+    "diagnostic_uses_gt_pose_and_gt_mask": true,
+    "note": "One-sided distance to vertices, not mesh-surface distance or pose prediction error. Includes sensor/label error."
+  },
+  {
+    "sample": "IndustryShapes_Extended_test",
+    "object_id": 1,
+    "cad_vertex_count": 55904,
+    "valid_points": 4307,
+    "point_to_nearest_cad_vertex_mm_p50_p90_p95": [
+      8.651067977812641,
+      22.496124861680777,
+      33.2699747985913
+    ],
+    "diagnostic_uses_gt_pose_and_gt_mask": true,
+    "note": "One-sided distance to vertices, not mesh-surface distance or pose prediction error. Includes sensor/label error."
+  },
+  {
+    "sample": "IndustryShapes_Onboardings_static",
+    "object_id": 1,
+    "cad_vertex_count": 55904,
+    "valid_points": 17686,
+    "point_to_nearest_cad_vertex_mm_p50_p90_p95": [
+      5.533273138707171,
+      10.481642254272419,
+      11.886526812294933
+    ],
+    "diagnostic_uses_gt_pose_and_gt_mask": true,
+    "note": "One-sided distance to vertices, not mesh-surface distance or pose prediction error. Includes sensor/label error."
+  },
+  {
+    "sample": "IndustryShapes_PBR_train_random",
+    "object_id": 3,
+    "cad_vertex_count": 720893,
+    "valid_points": 7194,
+    "point_to_nearest_cad_vertex_mm_p50_p90_p95": [
+      2.5149966820393637,
+      10.443885992440961,
+      14.289180415248849
+    ],
+    "diagnostic_uses_gt_pose_and_gt_mask": true,
+    "note": "One-sided distance to vertices, not mesh-surface distance or pose prediction error. Includes sensor/label error."
+  },
+  {
+    "sample": "IndustryShapes_PBR_train_upright",
+    "object_id": 5,
+    "cad_vertex_count": 5596,
+    "valid_points": 867,
+    "point_to_nearest_cad_vertex_mm_p50_p90_p95": [
+      2.3724444322777134,
+      4.331592463100517,
+      5.895145486311244
+    ],
+    "diagnostic_uses_gt_pose_and_gt_mask": true,
+    "note": "One-sided distance to vertices, not mesh-surface distance or pose prediction error. Includes sensor/label error."
+  }
+]

@@ -1,0 +1,64 @@
+{
+  "frame_counts": {
+    "train": 15484,
+    "val": 3908,
+    "test": 923,
+    "extended_test": 0,
+    "onboarding": 0,
+    "pbr": 0
+  },
+  "multi_object_frames": {
+    "train": 8213,
+    "val": 2000,
+    "test": 849,
+    "extended_test": 0,
+    "onboarding": 0,
+    "pbr": 0
+  },
+  "source_groups": {
+    "train": {
+      "classic_train": 1792,
+      "onboarding": 5692,
+      "pbr_upright": 8000
+    },
+    "val": {
+      "classic_train": 1908,
+      "pbr_upright": 2000
+    },
+    "test": {
+      "classic_test": 923
+    },
+    "extended_test": {},
+    "onboarding": {},
+    "pbr": {}
+  },
+  "class_instances": {
+    "train": {
+      "1": 9760,
+      "3": 9350,
+      "2": 9798,
+      "5": 9241,
+      "4": 9548
+    },
+    "val": {
+      "1": 2100,
+      "2": 2186,
+      "3": 3361,
+      "5": 2073,
+      "4": 2188
+    },
+    "test": {
+      "1": 278,
+      "3": 964,
+      "5": 230,
+      "4": 206,
+      "2": 253
+    },
+    "extended_test": {},
+    "onboarding": {},
+    "pbr": {}
+  },
+  "rotation_flags_train": 82,
+  "issues": [],
+  "exact_duplicate_training_frames_excluded": 617
+}

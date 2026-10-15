@@ -1,0 +1,133 @@
+[
+  {
+    "frame_key": "classic_train/000001/8",
+    "obj_id": 1,
+    "generated_supported": 80,
+    "accepted_before_topk": 0,
+    "rejections": {
+      "scene_or_approach_collision": 14,
+      "target_body_collision": 66
+    },
+    "support_rejections": 0,
+    "median_observed_to_gt_cad_mm": 4.029093071938773,
+    "scope": "validation-only GT pose control, never ordinary prediction"
+  },
+  {
+    "frame_key": "classic_train/000003/44",
+    "obj_id": 2,
+    "generated_supported": 80,
+    "accepted_before_topk": 0,
+    "rejections": {
+      "target_body_collision": 78,
+      "scene_or_approach_collision": 2
+    },
+    "support_rejections": 0,
+    "median_observed_to_gt_cad_mm": 3.8841284947259327,
+    "scope": "validation-only GT pose control, never ordinary prediction"
+  },
+  {
+    "frame_key": "classic_train/000009/579",
+    "obj_id": 3,
+    "generated_supported": 80,
+    "accepted_before_topk": 6,
+    "rejections": {
+      "target_body_collision": 67,
+      "scene_or_approach_collision": 7
+    },
+    "support_rejections": 0,
+    "median_observed_to_gt_cad_mm": 8.579677326609222,
+    "scope": "validation-only GT pose control, never ordinary prediction"
+  },
+  {
+    "frame_key": "classic_train/000011/48",
+    "obj_id": 5,
+    "generated_supported": 80,
+    "accepted_before_topk": 0,
+    "rejections": {
+      "target_body_collision": 59,
+      "scene_or_approach_collision": 21
+    },
+    "support_rejections": 0,
+    "median_observed_to_gt_cad_mm": 13.047686554807099,
+    "scope": "validation-only GT pose control, never ordinary prediction"
+  },
+  {
+    "frame_key": "classic_train/000013/30",
+    "obj_id": 4,
+    "generated_supported": 80,
+    "accepted_before_topk": 0,
+    "rejections": {
+      "scene_or_approach_collision": 15,
+      "target_body_collision": 65
+    },
+    "support_rejections": 0,
+    "median_observed_to_gt_cad_mm": 27.120687486982757,
+    "scope": "validation-only GT pose control, never ordinary prediction"
+  },
+  {
+    "frame_key": "classic_train/000001/77",
+    "obj_id": 1,
+    "generated_supported": 80,
+    "accepted_before_topk": 0,
+    "rejections": {
+      "target_body_collision": 67,
+      "scene_or_approach_collision": 12,
+      "target_approach_collision": 1
+    },
+    "support_rejections": 0,
+    "median_observed_to_gt_cad_mm": 3.036682992369233,
+    "scope": "validation-only GT pose control, never ordinary prediction"
+  },
+  {
+    "frame_key": "classic_train/000003/78",
+    "obj_id": 2,
+    "generated_supported": 80,
+    "accepted_before_topk": 0,
+    "rejections": {
+      "target_body_collision": 79,
+      "scene_or_approach_collision": 1
+    },
+    "support_rejections": 0,
+    "median_observed_to_gt_cad_mm": 25.041954312028317,
+    "scope": "validation-only GT pose control, never ordinary prediction"
+  },
+  {
+    "frame_key": "classic_train/000009/329",
+    "obj_id": 3,
+    "generated_supported": 80,
+    "accepted_before_topk": 3,
+    "rejections": {
+      "target_body_collision": 66,
+      "scene_or_approach_collision": 11
+    },
+    "support_rejections": 0,
+    "median_observed_to_gt_cad_mm": 8.218951844564907,
+    "scope": "validation-only GT pose control, never ordinary prediction"
+  },
+  {
+    "frame_key": "classic_train/000011/26",
+    "obj_id": 5,
+    "generated_supported": 80,
+    "accepted_before_topk": 0,
+    "rejections": {
+      "scene_or_approach_collision": 14,
+      "target_body_collision": 66
+    },
+    "support_rejections": 0,
+    "median_observed_to_gt_cad_mm": 4.786544366463832,
+    "scope": "validation-only GT pose control, never ordinary prediction"
+  },
+  {
+    "frame_key": "classic_train/000013/105",
+    "obj_id": 4,
+    "generated_supported": 80,
+    "accepted_before_topk": 0,
+    "rejections": {
+      "target_body_collision": 66,
+      "scene_or_approach_collision": 14
+    },
+    "support_rejections": 0,
+    "median_observed_to_gt_cad_mm": 39.8828175021175,
+    "scope": "validation-only GT pose control, never ordinary prediction"
+  }
+]

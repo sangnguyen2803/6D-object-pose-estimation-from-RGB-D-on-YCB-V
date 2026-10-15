@@ -1,0 +1,54 @@
+{
+  "dataset": "ycbv",
+  "dataset_revision": "5c2c4aa229800355648cd268040aa814f8dc94f0",
+  "decoded_frames": 1320,
+  "decoded_instances": 12887,
+  "errors": [],
+  "duplicate_rgb_groups": [],
+  "cross_split_frame_overlap": {
+    "train/val": [],
+    "train/holdout": [],
+    "train/test": [],
+    "val/holdout": [],
+    "val/test": [],
+    "holdout/test": []
+  },
+  "official_test_targets_match": true,
+  "cross_split_scene_overlap": {
+    "train/val": [],
+    "train/holdout": [],
+    "train/test": [],
+    "val/holdout": [],
+    "val/test": [],
+    "holdout/test": []
+  },
+  "object_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "depth_scales_mm": [
+    0.1
+  ],
+  "mean_invalid_depth_fraction": 0.11635009519018309,
+  "train_val_available": true,
+  "scope": "all local RGB-D/masks decoded; exact duplicates only; pretrained test-only mode allows empty train/val"
+}

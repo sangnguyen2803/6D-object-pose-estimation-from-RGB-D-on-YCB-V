@@ -1,0 +1,809 @@
+{
+  "variants": {
+    "baseline": {
+      "config": {
+        "seed": 42,
+        "project": {
+          "name": "YCBPose",
+          "scope": "instance_segmentation_pointcloud_6d_pose"
+        },
+        "data": {
+          "name": "ycbv",
+          "root": "data/ycbv/raw/ycbv",
+          "index": "data/ycbv/index.json",
+          "splits": "data/ycbv/splits.json",
+          "index_report": "reports/ycbv/data_split.json",
+          "revision": "5c2c4aa229800355648cd268040aa814f8dc94f0",
+          "models": "data/ycbv/raw/ycbv/models",
+          "num_objects": 21,
+          "object_ids": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21
+          ],
+          "min_visibility_train": 0.05,
+          "validation_scenes": [],
+          "pbr_validation_scenes": [
+            "000045",
+            "000046",
+            "000047",
+            "000048",
+            "000049"
+          ]
+        },
+        "detector": {
+          "architecture": "cosypose",
+          "checkpoint": "artifacts/pretrained/ycbv/detector/checkpoint.pth.tar",
+          "min_size": 480,
+          "max_size": 640,
+          "score_threshold": 0.5,
+          "mask_threshold": 0.5,
+          "max_detections": 100
+        },
+        "training": {
+          "epochs": 8,
+          "batch_size": 2,
+          "accumulation_steps": 1,
+          "learning_rate": 0.001,
+          "momentum": 0.9,
+          "weight_decay": 0.0005,
+          "num_workers": 0,
+          "threaded_prefetch": true,
+          "amp": true,
+          "freeze_backbone": false,
+          "output": "artifacts/ycbv/training/maskrcnn",
+          "initial_checkpoint": "artifacts/pretrained/ycbv/detector/converted.pt"
+        },
+        "geometry": {
+          "depth_min_m": 0.1,
+          "depth_max_m": 3.0,
+          "voxel_size_m": 0.003,
+          "min_points": 40,
+          "boundary_erosion_pixels": 1
+        },
+        "pose": {
+          "backend": "cosypose_rgbd",
+          "coarse_checkpoint": "artifacts/pretrained/ycbv/coarse/checkpoint.pth.tar",
+          "refiner_checkpoint": "artifacts/pretrained/ycbv/refiner/checkpoint.pth.tar",
+          "coarse_iterations": 1,
+          "refiner_iterations": 4,
+          "model_points": 12000,
+          "observed_points": 1800,
+          "random_hypotheses": 16,
+          "refine_hypotheses": 8,
+          "icp_iterations": 25,
+          "correspondence_limit_m": 0.04,
+          "trim_fraction": 0.8,
+          "min_coverage": 0.65,
+          "max_observed_rmse_m": 0.01,
+          "depth_refinement": true,
+          "depth_max_translation_update_m": 0.05,
+          "depth_max_rotation_update_degrees": 10.0,
+          "depth_min_relative_fit_improvement": 0.1,
+          "refinement_method": "robust",
+          "robust_iterations": 20,
+          "huber_delta_m": 0.004,
+          "damping": 0.01
+        },
+        "evaluation": {
+          "pose_success_diameter_fraction": 0.1,
+          "minimum_mask_match_iou": 0.5,
+          "pose_metric_vertex_limit": 10000
+        }
+      },
+      "repeats": [
+        {
+          "frames": 96,
+          "gt_instances": 440,
+          "matched_pose_instances": 419,
+          "detections": 436,
+          "success_counts": {
+            "ADD_success_0_1d": 324,
+            "ADD_S_success_0_1d": 404,
+            "ADD_or_S_success_0_1d": 390
+          },
+          "recall": {
+            "ADD_success_0_1d": 0.7363636363636363,
+            "ADD_S_success_0_1d": 0.9181818181818182,
+            "ADD_or_S_success_0_1d": 0.8863636363636364
+          },
+          "median_inference_s_excluding_first": 1.83306130010169,
+          "scope": "diagnostic ADD/ADD-S/ADD(-S), 0.1 diameter, all GT instances; not official BOP AR"
+        },
+        {
+          "frames": 96,
+          "gt_instances": 440,
+          "matched_pose_instances": 419,
+          "detections": 436,
+          "success_counts": {
+            "ADD_success_0_1d": 324,
+            "ADD_S_success_0_1d": 404,
+            "ADD_or_S_success_0_1d": 390
+          },
+          "recall": {
+            "ADD_success_0_1d": 0.7363636363636363,
+            "ADD_S_success_0_1d": 0.9181818181818182,
+            "ADD_or_S_success_0_1d": 0.8863636363636364
+          },
+          "median_inference_s_excluding_first": 2.0333910000044852,
+          "scope": "diagnostic ADD/ADD-S/ADD(-S), 0.1 diameter, all GT instances; not official BOP AR"
+        }
+      ],
+      "per_object": {
+        "1": {
+          "gt": 32,
+          "ADD_success_0_1d": 0.3125,
+          "ADD_S_success_0_1d": 0.9375,
+          "ADD_or_S_success_0_1d": 0.9375
+        },
+        "2": {
+          "gt": 24,
+          "ADD_success_0_1d": 0.7916666666666666,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 0.7916666666666666
+        },
+        "3": {
+          "gt": 40,
+          "ADD_success_0_1d": 1.0,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "4": {
+          "gt": 48,
+          "ADD_success_0_1d": 0.9166666666666666,
+          "ADD_S_success_0_1d": 0.9166666666666666,
+          "ADD_or_S_success_0_1d": 0.9166666666666666
+        },
+        "5": {
+          "gt": 16,
+          "ADD_success_0_1d": 1.0,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "6": {
+          "gt": 32,
+          "ADD_success_0_1d": 1.0,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "7": {
+          "gt": 8,
+          "ADD_success_0_1d": 1.0,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "8": {
+          "gt": 8,
+          "ADD_success_0_1d": 1.0,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "9": {
+          "gt": 24,
+          "ADD_success_0_1d": 0.625,
+          "ADD_S_success_0_1d": 0.75,
+          "ADD_or_S_success_0_1d": 0.625
+        },
+        "10": {
+          "gt": 16,
+          "ADD_success_0_1d": 0.9375,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 0.9375
+        },
+        "11": {
+          "gt": 24,
+          "ADD_success_0_1d": 1.0,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "12": {
+          "gt": 32,
+          "ADD_success_0_1d": 0.84375,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 0.84375
+        },
+        "13": {
+          "gt": 16,
+          "ADD_success_0_1d": 0.0,
+          "ADD_S_success_0_1d": 0.6875,
+          "ADD_or_S_success_0_1d": 0.6875
+        },
+        "14": {
+          "gt": 16,
+          "ADD_success_0_1d": 1.0,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "15": {
+          "gt": 32,
+          "ADD_success_0_1d": 1.0,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "16": {
+          "gt": 8,
+          "ADD_success_0_1d": 0.0,
+          "ADD_S_success_0_1d": 0.375,
+          "ADD_or_S_success_0_1d": 0.375
+        },
+        "17": {
+          "gt": 8,
+          "ADD_success_0_1d": 0.75,
+          "ADD_S_success_0_1d": 0.75,
+          "ADD_or_S_success_0_1d": 0.75
+        },
+        "18": {
+          "gt": 16,
+          "ADD_success_0_1d": 0.5625,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "19": {
+          "gt": 16,
+          "ADD_success_0_1d": 0.0,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "20": {
+          "gt": 16,
+          "ADD_success_0_1d": 0.125,
+          "ADD_S_success_0_1d": 0.25,
+          "ADD_or_S_success_0_1d": 0.25
+        },
+        "21": {
+          "gt": 8,
+          "ADD_success_0_1d": 0.125,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        }
+      },
+      "frames": [
+        "ycbv_test/000048/1074",
+        "ycbv_test/000049/2146",
+        "ycbv_test/000050/682",
+        "ycbv_test/000051/637",
+        "ycbv_test/000052/165",
+        "ycbv_test/000053/610",
+        "ycbv_test/000054/1559",
+        "ycbv_test/000055/1100",
+        "ycbv_test/000056/538",
+        "ycbv_test/000057/610",
+        "ycbv_test/000058/596",
+        "ycbv_test/000059/126",
+        "ycbv_test/000048/2051",
+        "ycbv_test/000049/1582",
+        "ycbv_test/000050/642",
+        "ycbv_test/000051/407",
+        "ycbv_test/000052/653",
+        "ycbv_test/000053/155",
+        "ycbv_test/000054/681",
+        "ycbv_test/000055/562",
+        "ycbv_test/000056/608",
+        "ycbv_test/000057/1035",
+        "ycbv_test/000058/691",
+        "ycbv_test/000059/1039",
+        "ycbv_test/000048/1577",
+        "ycbv_test/000049/2061",
+        "ycbv_test/000050/1778",
+        "ycbv_test/000051/601",
+        "ycbv_test/000052/98",
+        "ycbv_test/000053/616",
+        "ycbv_test/000054/390",
+        "ycbv_test/000055/1625",
+        "ycbv_test/000056/53",
+        "ycbv_test/000057/1086",
+        "ycbv_test/000058/662",
+        "ycbv_test/000059/510",
+        "ycbv_test/000048/2066",
+        "ycbv_test/000049/1655",
+        "ycbv_test/000050/620",
+        "ycbv_test/000051/1628",
+        "ycbv_test/000052/582",
+        "ycbv_test/000053/638",
+        "ycbv_test/000054/50",
+        "ycbv_test/000055/618",
+        "ycbv_test/000056/575",
+        "ycbv_test/000057/1046",
+        "ycbv_test/000058/1097",
+        "ycbv_test/000059/1539",
+        "ycbv_test/000048/1094",
+        "ycbv_test/000049/617",
+        "ycbv_test/000050/1719",
+        "ycbv_test/000051/1709",
+        "ycbv_test/000052/39",
+        "ycbv_test/000053/126",
+        "ycbv_test/000054/1042",
+        "ycbv_test/000055/454",
+        "ycbv_test/000056/1062",
+        "ycbv_test/000057/1082",
+        "ycbv_test/000058/588",
+        "ycbv_test/000059/29",
+        "ycbv_test/000048/1097",
+        "ycbv_test/000049/591",
+        "ycbv_test/000050/1284",
+        "ycbv_test/000051/1693",
+        "ycbv_test/000052/669",
+        "ycbv_test/000053/118",
+        "ycbv_test/000054/1605",
+        "ycbv_test/000055/1046",
+        "ycbv_test/000056/1171",
+        "ycbv_test/000057/1827",
+        "ycbv_test/000058/1164",
+        "ycbv_test/000059/1093",
+        "ycbv_test/000048/1631",
+        "ycbv_test/000049/2123",
+        "ycbv_test/000050/640",
+        "ycbv_test/000051/1076",
+        "ycbv_test/000052/625",
+        "ycbv_test/000053/677",
+        "ycbv_test/000054/86",
+        "ycbv_test/000055/1643",
+        "ycbv_test/000056/1202",
+        "ycbv_test/000057/575",
+        "ycbv_test/000058/1094",
+        "ycbv_test/000059/80",
+        "ycbv_test/000048/1090",
+        "ycbv_test/000049/537",
+        "ycbv_test/000050/1209",
+        "ycbv_test/000051/169",
+        "ycbv_test/000052/170",
+        "ycbv_test/000053/167",
+        "ycbv_test/000054/583",
+        "ycbv_test/000055/1520",
+        "ycbv_test/000056/1",
+        "ycbv_test/000057/1585",
+        "ycbv_test/000058/603",
+        "ycbv_test/000059/127"
+      ],
+      "timing": {
+        "p50_s": 1.9010907000047155,
+        "p95_s": 3.1219366350269406,
+        "frames_per_s": 0.5078797787061121,
+        "components_median_s": {
+          "detection_s": 0.07161004998488352,
+          "scene_geometry_s": 0.172980000032112,
+          "instance_geometry_s": 0.15843889996176586,
+          "pose_s": 1.4651609500288032
+        }
+      },
+      "memory": {
+        "peak_torch_allocated_MiB": 411.56884765625,
+        "peak_incremental_workspace_MiB": 145.49609375,
+        "scope": "PyTorch allocations; excludes renderer/driver memory"
+      },
+      "warmup_frames": 96,
+      "output": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\architecture\\benchmark96\\baseline",
+      "renderer": {
+        "render_calls": 4360,
+        "context_mesh_additions": 864
+      }
+    },
+    "optimized": {
+      "config": {
+        "seed": 42,
+        "project": {
+          "name": "YCBPose",
+          "scope": "instance_segmentation_pointcloud_6d_pose"
+        },
+        "data": {
+          "name": "ycbv",
+          "root": "data/ycbv/raw/ycbv",
+          "index": "data/ycbv/index.json",
+          "splits": "data/ycbv/splits.json",
+          "index_report": "reports/ycbv/data_split.json",
+          "revision": "5c2c4aa229800355648cd268040aa814f8dc94f0",
+          "models": "data/ycbv/raw/ycbv/models",
+          "num_objects": 21,
+          "object_ids": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21
+          ],
+          "min_visibility_train": 0.05,
+          "validation_scenes": [],
+          "pbr_validation_scenes": [
+            "000045",
+            "000046",
+            "000047",
+            "000048",
+            "000049"
+          ]
+        },
+        "detector": {
+          "architecture": "cosypose",
+          "checkpoint": "artifacts/pretrained/ycbv/detector/checkpoint.pth.tar",
+          "min_size": 480,
+          "max_size": 640,
+          "score_threshold": 0.5,
+          "mask_threshold": 0.5,
+          "max_detections": 100
+        },
+        "training": {
+          "epochs": 8,
+          "batch_size": 2,
+          "accumulation_steps": 1,
+          "learning_rate": 0.001,
+          "momentum": 0.9,
+          "weight_decay": 0.0005,
+          "num_workers": 0,
+          "threaded_prefetch": true,
+          "amp": true,
+          "freeze_backbone": false,
+          "output": "artifacts/ycbv/training/maskrcnn",
+          "initial_checkpoint": "artifacts/pretrained/ycbv/detector/converted.pt"
+        },
+        "geometry": {
+          "depth_min_m": 0.1,
+          "depth_max_m": 3.0,
+          "voxel_size_m": 0.003,
+          "min_points": 40,
+          "boundary_erosion_pixels": 1
+        },
+        "pose": {
+          "backend": "cosypose_rgbd",
+          "coarse_checkpoint": "artifacts/pretrained/ycbv/coarse/checkpoint.pth.tar",
+          "refiner_checkpoint": "artifacts/pretrained/ycbv/refiner/checkpoint.pth.tar",
+          "coarse_iterations": 1,
+          "refiner_iterations": 4,
+          "model_points": 12000,
+          "observed_points": 1800,
+          "random_hypotheses": 16,
+          "refine_hypotheses": 8,
+          "icp_iterations": 25,
+          "correspondence_limit_m": 0.04,
+          "trim_fraction": 0.8,
+          "min_coverage": 0.65,
+          "max_observed_rmse_m": 0.01,
+          "depth_refinement": true,
+          "depth_max_translation_update_m": 0.05,
+          "depth_max_rotation_update_degrees": 10.0,
+          "depth_min_relative_fit_improvement": 0.1,
+          "refinement_method": "robust",
+          "robust_iterations": 20,
+          "huber_delta_m": 0.004,
+          "damping": 0.01,
+          "cache_model_trees": true,
+          "resident_renderer": true,
+          "quality_retry": true
+        },
+        "evaluation": {
+          "pose_success_diameter_fraction": 0.1,
+          "minimum_mask_match_iou": 0.5,
+          "pose_metric_vertex_limit": 10000
+        },
+        "runtime": {
+          "pose_batch_size": 4,
+          "lazy_scene_geometry": true
+        }
+      },
+      "repeats": [
+        {
+          "frames": 96,
+          "gt_instances": 440,
+          "matched_pose_instances": 419,
+          "detections": 436,
+          "success_counts": {
+            "ADD_success_0_1d": 323,
+            "ADD_S_success_0_1d": 404,
+            "ADD_or_S_success_0_1d": 390
+          },
+          "recall": {
+            "ADD_success_0_1d": 0.7340909090909091,
+            "ADD_S_success_0_1d": 0.9181818181818182,
+            "ADD_or_S_success_0_1d": 0.8863636363636364
+          },
+          "median_inference_s_excluding_first": 1.2159681000048295,
+          "scope": "diagnostic ADD/ADD-S/ADD(-S), 0.1 diameter, all GT instances; not official BOP AR"
+        },
+        {
+          "frames": 96,
+          "gt_instances": 440,
+          "matched_pose_instances": 419,
+          "detections": 436,
+          "success_counts": {
+            "ADD_success_0_1d": 323,
+            "ADD_S_success_0_1d": 404,
+            "ADD_or_S_success_0_1d": 390
+          },
+          "recall": {
+            "ADD_success_0_1d": 0.7340909090909091,
+            "ADD_S_success_0_1d": 0.9181818181818182,
+            "ADD_or_S_success_0_1d": 0.8863636363636364
+          },
+          "median_inference_s_excluding_first": 1.1600788999348879,
+          "scope": "diagnostic ADD/ADD-S/ADD(-S), 0.1 diameter, all GT instances; not official BOP AR"
+        }
+      ],
+      "per_object": {
+        "1": {
+          "gt": 32,
+          "ADD_success_0_1d": 0.3125,
+          "ADD_S_success_0_1d": 0.9375,
+          "ADD_or_S_success_0_1d": 0.9375
+        },
+        "2": {
+          "gt": 24,
+          "ADD_success_0_1d": 0.7916666666666666,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 0.7916666666666666
+        },
+        "3": {
+          "gt": 40,
+          "ADD_success_0_1d": 1.0,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "4": {
+          "gt": 48,
+          "ADD_success_0_1d": 0.9166666666666666,
+          "ADD_S_success_0_1d": 0.9166666666666666,
+          "ADD_or_S_success_0_1d": 0.9166666666666666
+        },
+        "5": {
+          "gt": 16,
+          "ADD_success_0_1d": 1.0,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "6": {
+          "gt": 32,
+          "ADD_success_0_1d": 1.0,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "7": {
+          "gt": 8,
+          "ADD_success_0_1d": 1.0,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "8": {
+          "gt": 8,
+          "ADD_success_0_1d": 1.0,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "9": {
+          "gt": 24,
+          "ADD_success_0_1d": 0.625,
+          "ADD_S_success_0_1d": 0.75,
+          "ADD_or_S_success_0_1d": 0.625
+        },
+        "10": {
+          "gt": 16,
+          "ADD_success_0_1d": 0.9375,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 0.9375
+        },
+        "11": {
+          "gt": 24,
+          "ADD_success_0_1d": 1.0,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "12": {
+          "gt": 32,
+          "ADD_success_0_1d": 0.84375,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 0.84375
+        },
+        "13": {
+          "gt": 16,
+          "ADD_success_0_1d": 0.0,
+          "ADD_S_success_0_1d": 0.6875,
+          "ADD_or_S_success_0_1d": 0.6875
+        },
+        "14": {
+          "gt": 16,
+          "ADD_success_0_1d": 1.0,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "15": {
+          "gt": 32,
+          "ADD_success_0_1d": 1.0,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "16": {
+          "gt": 8,
+          "ADD_success_0_1d": 0.0,
+          "ADD_S_success_0_1d": 0.375,
+          "ADD_or_S_success_0_1d": 0.375
+        },
+        "17": {
+          "gt": 8,
+          "ADD_success_0_1d": 0.75,
+          "ADD_S_success_0_1d": 0.75,
+          "ADD_or_S_success_0_1d": 0.75
+        },
+        "18": {
+          "gt": 16,
+          "ADD_success_0_1d": 0.5,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "19": {
+          "gt": 16,
+          "ADD_success_0_1d": 0.0,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "20": {
+          "gt": 16,
+          "ADD_success_0_1d": 0.125,
+          "ADD_S_success_0_1d": 0.25,
+          "ADD_or_S_success_0_1d": 0.25
+        },
+        "21": {
+          "gt": 8,
+          "ADD_success_0_1d": 0.125,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        }
+      },
+      "frames": [
+        "ycbv_test/000048/1074",
+        "ycbv_test/000049/2146",
+        "ycbv_test/000050/682",
+        "ycbv_test/000051/637",
+        "ycbv_test/000052/165",
+        "ycbv_test/000053/610",
+        "ycbv_test/000054/1559",
+        "ycbv_test/000055/1100",
+        "ycbv_test/000056/538",
+        "ycbv_test/000057/610",
+        "ycbv_test/000058/596",
+        "ycbv_test/000059/126",
+        "ycbv_test/000048/2051",
+        "ycbv_test/000049/1582",
+        "ycbv_test/000050/642",
+        "ycbv_test/000051/407",
+        "ycbv_test/000052/653",
+        "ycbv_test/000053/155",
+        "ycbv_test/000054/681",
+        "ycbv_test/000055/562",
+        "ycbv_test/000056/608",
+        "ycbv_test/000057/1035",
+        "ycbv_test/000058/691",
+        "ycbv_test/000059/1039",
+        "ycbv_test/000048/1577",
+        "ycbv_test/000049/2061",
+        "ycbv_test/000050/1778",
+        "ycbv_test/000051/601",
+        "ycbv_test/000052/98",
+        "ycbv_test/000053/616",
+        "ycbv_test/000054/390",
+        "ycbv_test/000055/1625",
+        "ycbv_test/000056/53",
+        "ycbv_test/000057/1086",
+        "ycbv_test/000058/662",
+        "ycbv_test/000059/510",
+        "ycbv_test/000048/2066",
+        "ycbv_test/000049/1655",
+        "ycbv_test/000050/620",
+        "ycbv_test/000051/1628",
+        "ycbv_test/000052/582",
+        "ycbv_test/000053/638",
+        "ycbv_test/000054/50",
+        "ycbv_test/000055/618",
+        "ycbv_test/000056/575",
+        "ycbv_test/000057/1046",
+        "ycbv_test/000058/1097",
+        "ycbv_test/000059/1539",
+        "ycbv_test/000048/1094",
+        "ycbv_test/000049/617",
+        "ycbv_test/000050/1719",
+        "ycbv_test/000051/1709",
+        "ycbv_test/000052/39",
+        "ycbv_test/000053/126",
+        "ycbv_test/000054/1042",
+        "ycbv_test/000055/454",
+        "ycbv_test/000056/1062",
+        "ycbv_test/000057/1082",
+        "ycbv_test/000058/588",
+        "ycbv_test/000059/29",
+        "ycbv_test/000048/1097",
+        "ycbv_test/000049/591",
+        "ycbv_test/000050/1284",
+        "ycbv_test/000051/1693",
+        "ycbv_test/000052/669",
+        "ycbv_test/000053/118",
+        "ycbv_test/000054/1605",
+        "ycbv_test/000055/1046",
+        "ycbv_test/000056/1171",
+        "ycbv_test/000057/1827",
+        "ycbv_test/000058/1164",
+        "ycbv_test/000059/1093",
+        "ycbv_test/000048/1631",
+        "ycbv_test/000049/2123",
+        "ycbv_test/000050/640",
+        "ycbv_test/000051/1076",
+        "ycbv_test/000052/625",
+        "ycbv_test/000053/677",
+        "ycbv_test/000054/86",
+        "ycbv_test/000055/1643",
+        "ycbv_test/000056/1202",
+        "ycbv_test/000057/575",
+        "ycbv_test/000058/1094",
+        "ycbv_test/000059/80",
+        "ycbv_test/000048/1090",
+        "ycbv_test/000049/537",
+        "ycbv_test/000050/1209",
+        "ycbv_test/000051/169",
+        "ycbv_test/000052/170",
+        "ycbv_test/000053/167",
+        "ycbv_test/000054/583",
+        "ycbv_test/000055/1520",
+        "ycbv_test/000056/1",
+        "ycbv_test/000057/1585",
+        "ycbv_test/000058/603",
+        "ycbv_test/000059/127"
+      ],
+      "timing": {
+        "p50_s": 1.1901777000166476,
+        "p95_s": 2.0017741699703038,
+        "frames_per_s": 0.814597267027151,
+        "components_median_s": {
+          "detection_s": 0.08073665003757924,
+          "scene_geometry_s": 1.3899989426136017e-05,
+          "instance_geometry_s": 0.2174447500729002,
+          "pose_s": 0.8334800999728031
+        }
+      },
+      "memory": {
+        "peak_torch_allocated_MiB": 417.34912109375,
+        "peak_incremental_workspace_MiB": 151.2763671875,
+        "scope": "PyTorch allocations; excludes renderer/driver memory"
+      },
+      "warmup_frames": 96,
+      "output": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\architecture\\recovery96\\optimized",
+      "renderer": {
+        "render_calls": 4720,
+        "context_mesh_additions": 0
+      }
+    }
+  },
+  "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "cohort_size": 96,
+  "repetitions": 2,
+  "uses_gt_for_inference": false,
+  "reused_baseline_report": "reports/ycbv/architecture/benchmark96.json",
+  "scope": "paired same frame cohort, detector/pose checkpoints and robust ICP; exploratory test evaluation; warm timings before reference scoring; excludes model initialization and report visualization"
+}

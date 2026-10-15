@@ -1,0 +1,14 @@
+{
+  "use_existing_best": true,
+  "selected_epoch": 6,
+  "completed_epochs": 11,
+  "original_epoch_budget": 12,
+  "stopped_during_epoch": 12,
+  "best_validation_mask_AP": 0.5736713968400493,
+  "checkpoint": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\training\\improved_maskrcnn\\best.pt",
+  "checkpoint_sha256": "71cca99ae92fa472375fbf8c4569a76e237f7ec7b564345c119a7bfddcd04c61",
+  "selection_split": "val",
+  "test_used_for_selection": false,
+  "reason": "User requested stopping epoch 12 and using the best validation checkpoint",
+  "recorded_utc": "2026-10-12T04:41:26.647141+00:00"
+}

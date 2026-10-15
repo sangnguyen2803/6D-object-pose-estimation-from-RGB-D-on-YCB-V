@@ -1,0 +1,9 @@
+{
+  "decoded_frames": 4623,
+  "decoded_instances": 5844,
+  "errors": [],
+  "duplicate_rgb_groups": [],
+  "cross_group_duplicate_rgb_groups": [],
+  "invalid_depth_fraction_mean": 0.20053442521878834,
+  "scope": "exact compressed RGB SHA256, not perceptual near-duplicate detection; RGB/depth/masks fully decoded"
+}

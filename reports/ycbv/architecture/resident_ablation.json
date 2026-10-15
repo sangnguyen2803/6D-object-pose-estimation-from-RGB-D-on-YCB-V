@@ -1,0 +1,334 @@
+{
+  "variants": {
+    "resident_only": {
+      "config": {
+        "seed": 42,
+        "project": {
+          "name": "YCBPose",
+          "scope": "instance_segmentation_pointcloud_6d_pose"
+        },
+        "data": {
+          "name": "ycbv",
+          "root": "data/ycbv/raw/ycbv",
+          "index": "data/ycbv/index.json",
+          "splits": "data/ycbv/splits.json",
+          "index_report": "reports/ycbv/data_split.json",
+          "revision": "5c2c4aa229800355648cd268040aa814f8dc94f0",
+          "models": "data/ycbv/raw/ycbv/models",
+          "num_objects": 21,
+          "object_ids": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21
+          ],
+          "min_visibility_train": 0.05,
+          "validation_scenes": [],
+          "pbr_validation_scenes": [
+            "000045",
+            "000046",
+            "000047",
+            "000048",
+            "000049"
+          ]
+        },
+        "detector": {
+          "architecture": "cosypose",
+          "checkpoint": "artifacts/pretrained/ycbv/detector/checkpoint.pth.tar",
+          "min_size": 480,
+          "max_size": 640,
+          "score_threshold": 0.5,
+          "mask_threshold": 0.5,
+          "max_detections": 100
+        },
+        "training": {
+          "epochs": 8,
+          "batch_size": 2,
+          "accumulation_steps": 1,
+          "learning_rate": 0.001,
+          "momentum": 0.9,
+          "weight_decay": 0.0005,
+          "num_workers": 0,
+          "threaded_prefetch": true,
+          "amp": true,
+          "freeze_backbone": false,
+          "output": "artifacts/ycbv/training/maskrcnn",
+          "initial_checkpoint": "artifacts/pretrained/ycbv/detector/converted.pt"
+        },
+        "geometry": {
+          "depth_min_m": 0.1,
+          "depth_max_m": 3.0,
+          "voxel_size_m": 0.003,
+          "min_points": 40,
+          "boundary_erosion_pixels": 1
+        },
+        "pose": {
+          "backend": "cosypose_rgbd",
+          "coarse_checkpoint": "artifacts/pretrained/ycbv/coarse/checkpoint.pth.tar",
+          "refiner_checkpoint": "artifacts/pretrained/ycbv/refiner/checkpoint.pth.tar",
+          "coarse_iterations": 1,
+          "refiner_iterations": 4,
+          "model_points": 12000,
+          "observed_points": 1800,
+          "random_hypotheses": 16,
+          "refine_hypotheses": 8,
+          "icp_iterations": 25,
+          "correspondence_limit_m": 0.04,
+          "trim_fraction": 0.8,
+          "min_coverage": 0.65,
+          "max_observed_rmse_m": 0.01,
+          "depth_refinement": true,
+          "depth_max_translation_update_m": 0.05,
+          "depth_max_rotation_update_degrees": 10.0,
+          "depth_min_relative_fit_improvement": 0.1,
+          "refinement_method": "robust",
+          "robust_iterations": 20,
+          "huber_delta_m": 0.004,
+          "damping": 0.01,
+          "resident_renderer": true
+        },
+        "evaluation": {
+          "pose_success_diameter_fraction": 0.1,
+          "minimum_mask_match_iou": 0.5,
+          "pose_metric_vertex_limit": 10000
+        }
+      },
+      "repeats": [
+        {
+          "frames": 24,
+          "gt_instances": 110,
+          "matched_pose_instances": 103,
+          "detections": 107,
+          "success_counts": {
+            "ADD_success_0_1d": 78,
+            "ADD_S_success_0_1d": 100,
+            "ADD_or_S_success_0_1d": 97
+          },
+          "recall": {
+            "ADD_success_0_1d": 0.7090909090909091,
+            "ADD_S_success_0_1d": 0.9090909090909091,
+            "ADD_or_S_success_0_1d": 0.8818181818181818
+          },
+          "median_inference_s_excluding_first": 1.7084319000132382,
+          "scope": "diagnostic ADD/ADD-S/ADD(-S), 0.1 diameter, all GT instances; not official BOP AR"
+        },
+        {
+          "frames": 24,
+          "gt_instances": 110,
+          "matched_pose_instances": 103,
+          "detections": 107,
+          "success_counts": {
+            "ADD_success_0_1d": 78,
+            "ADD_S_success_0_1d": 100,
+            "ADD_or_S_success_0_1d": 97
+          },
+          "recall": {
+            "ADD_success_0_1d": 0.7090909090909091,
+            "ADD_S_success_0_1d": 0.9090909090909091,
+            "ADD_or_S_success_0_1d": 0.8818181818181818
+          },
+          "median_inference_s_excluding_first": 1.7190231999848038,
+          "scope": "diagnostic ADD/ADD-S/ADD(-S), 0.1 diameter, all GT instances; not official BOP AR"
+        }
+      ],
+      "per_object": {
+        "1": {
+          "gt": 8,
+          "ADD_success_0_1d": 0.25,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "2": {
+          "gt": 6,
+          "ADD_success_0_1d": 0.8333333333333334,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 0.8333333333333334
+        },
+        "3": {
+          "gt": 10,
+          "ADD_success_0_1d": 1.0,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "4": {
+          "gt": 12,
+          "ADD_success_0_1d": 0.8333333333333334,
+          "ADD_S_success_0_1d": 0.8333333333333334,
+          "ADD_or_S_success_0_1d": 0.8333333333333334
+        },
+        "5": {
+          "gt": 4,
+          "ADD_success_0_1d": 1.0,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "6": {
+          "gt": 8,
+          "ADD_success_0_1d": 1.0,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "7": {
+          "gt": 2,
+          "ADD_success_0_1d": 1.0,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "8": {
+          "gt": 2,
+          "ADD_success_0_1d": 1.0,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "9": {
+          "gt": 6,
+          "ADD_success_0_1d": 0.6666666666666666,
+          "ADD_S_success_0_1d": 0.6666666666666666,
+          "ADD_or_S_success_0_1d": 0.6666666666666666
+        },
+        "10": {
+          "gt": 4,
+          "ADD_success_0_1d": 1.0,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "11": {
+          "gt": 6,
+          "ADD_success_0_1d": 1.0,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "12": {
+          "gt": 8,
+          "ADD_success_0_1d": 0.75,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 0.75
+        },
+        "13": {
+          "gt": 4,
+          "ADD_success_0_1d": 0.0,
+          "ADD_S_success_0_1d": 0.75,
+          "ADD_or_S_success_0_1d": 0.75
+        },
+        "14": {
+          "gt": 4,
+          "ADD_success_0_1d": 1.0,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "15": {
+          "gt": 8,
+          "ADD_success_0_1d": 1.0,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "16": {
+          "gt": 2,
+          "ADD_success_0_1d": 0.0,
+          "ADD_S_success_0_1d": 0.5,
+          "ADD_or_S_success_0_1d": 0.5
+        },
+        "17": {
+          "gt": 2,
+          "ADD_success_0_1d": 0.5,
+          "ADD_S_success_0_1d": 0.5,
+          "ADD_or_S_success_0_1d": 0.5
+        },
+        "18": {
+          "gt": 4,
+          "ADD_success_0_1d": 0.5,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "19": {
+          "gt": 4,
+          "ADD_success_0_1d": 0.0,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        },
+        "20": {
+          "gt": 4,
+          "ADD_success_0_1d": 0.0,
+          "ADD_S_success_0_1d": 0.25,
+          "ADD_or_S_success_0_1d": 0.25
+        },
+        "21": {
+          "gt": 2,
+          "ADD_success_0_1d": 0.0,
+          "ADD_S_success_0_1d": 1.0,
+          "ADD_or_S_success_0_1d": 1.0
+        }
+      },
+      "frames": [
+        "ycbv_test/000048/1074",
+        "ycbv_test/000049/2146",
+        "ycbv_test/000050/682",
+        "ycbv_test/000051/637",
+        "ycbv_test/000052/165",
+        "ycbv_test/000053/610",
+        "ycbv_test/000054/1559",
+        "ycbv_test/000055/1100",
+        "ycbv_test/000056/538",
+        "ycbv_test/000057/610",
+        "ycbv_test/000058/596",
+        "ycbv_test/000059/126",
+        "ycbv_test/000048/2051",
+        "ycbv_test/000049/1582",
+        "ycbv_test/000050/642",
+        "ycbv_test/000051/407",
+        "ycbv_test/000052/653",
+        "ycbv_test/000053/155",
+        "ycbv_test/000054/681",
+        "ycbv_test/000055/562",
+        "ycbv_test/000056/608",
+        "ycbv_test/000057/1035",
+        "ycbv_test/000058/691",
+        "ycbv_test/000059/1039"
+      ],
+      "timing": {
+        "p50_s": 1.7318345999810845,
+        "p95_s": 2.851274470036151,
+        "frames_per_s": 0.5423914403370294,
+        "components_median_s": {
+          "detection_s": 0.10160230001201853,
+          "scene_geometry_s": 0.16083639999851584,
+          "instance_geometry_s": 0.14339209999889135,
+          "pose_s": 1.3060912000364624
+        }
+      },
+      "memory": {
+        "peak_torch_allocated_MiB": 411.56884765625,
+        "peak_incremental_workspace_MiB": 145.49609375,
+        "scope": "PyTorch allocations; excludes renderer/driver memory"
+      },
+      "warmup_frames": 24,
+      "output": "D:\\Github\\clutterpick-rgb-d-perception-and-robotic-grasping\\artifacts\\ycbv\\architecture\\resident_ablation\\resident_only",
+      "renderer": {
+        "render_calls": 1070,
+        "context_mesh_additions": 0
+      }
+    }
+  },
+  "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "cohort_size": 24,
+  "repetitions": 2,
+  "uses_gt_for_inference": false,
+  "scope": "paired same frame cohort, detector/pose checkpoints and robust ICP; exploratory test evaluation; warm timings before reference scoring; excludes model initialization and report visualization"
+}

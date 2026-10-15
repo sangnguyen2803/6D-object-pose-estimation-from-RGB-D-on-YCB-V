@@ -1,0 +1,84 @@
+{
+  "dataset": "YCB-V BOP",
+  "dataset_revision": "5c2c4aa229800355648cd268040aa814f8dc94f0",
+  "archives": [
+    {
+      "source": "https://huggingface.co/datasets/bop-benchmark/ycbv/resolve/5c2c4aa229800355648cd268040aa814f8dc94f0/ycbv_base.zip",
+      "path": "data\\ycbv\\downloads\\ycbv_base.zip",
+      "bytes": 15805,
+      "sha256": "98440f8bd403100b21cf11a6729fabe8b3d5ce714472edc57a18b7f1fcd4bb18",
+      "checksum_source": "Hugging Face LFS"
+    },
+    {
+      "source": "https://huggingface.co/datasets/bop-benchmark/ycbv/resolve/5c2c4aa229800355648cd268040aa814f8dc94f0/ycbv_models.zip",
+      "path": "data\\ycbv\\downloads\\ycbv_models.zip",
+      "bytes": 524634729,
+      "sha256": "1e517a9b513cadb8eaf406ac3ce3c5f1d6fc4a80161c866b4e2a73d13de5e554",
+      "checksum_source": "Hugging Face LFS"
+    },
+    {
+      "source": "https://huggingface.co/datasets/bop-benchmark/ycbv/resolve/5c2c4aa229800355648cd268040aa814f8dc94f0/ycbv_test_bop19.zip",
+      "path": "data\\ycbv\\downloads\\ycbv_test_bop19.zip",
+      "bytes": 660198701,
+      "sha256": "c0c11251849877e7b2f373f6c7acf54739dc69d0fb2649c20050ca977bf5513d",
+      "checksum_source": "Hugging Face LFS"
+    }
+  ],
+  "pretrained_models": [
+    {
+      "role": "detector",
+      "model_id": "detector-bop-ycbv-synt+real--292971",
+      "source": "https://www.rocq.inria.fr/archive_ylabbeprojectsdata/cosypose/experiments/detector-bop-ycbv-synt+real--292971/config.yaml",
+      "path": "artifacts\\pretrained\\ycbv\\detector\\config.yaml",
+      "bytes": 1534,
+      "sha256": "51051adac17b6c0fbdb1c8867aa6be25b6839ffde71f456e728b69f989cd5071",
+      "checksum_source": "recorded after HTTP transfer"
+    },
+    {
+      "role": "detector",
+      "model_id": "detector-bop-ycbv-synt+real--292971",
+      "source": "https://www.rocq.inria.fr/archive_ylabbeprojectsdata/cosypose/experiments/detector-bop-ycbv-synt+real--292971/checkpoint.pth.tar",
+      "path": "artifacts\\pretrained\\ycbv\\detector\\checkpoint.pth.tar",
+      "bytes": 176608975,
+      "sha256": "1532343627abf6137014492b236980bcb335d4e41fe8322a07a647a6ba280fa4",
+      "checksum_source": "recorded after HTTP transfer"
+    },
+    {
+      "role": "coarse",
+      "model_id": "coarse-bop-ycbv-synt+real--822463",
+      "source": "https://www.rocq.inria.fr/archive_ylabbeprojectsdata/cosypose/experiments/coarse-bop-ycbv-synt+real--822463/config.yaml",
+      "path": "artifacts\\pretrained\\ycbv\\coarse\\config.yaml",
+      "bytes": 1304,
+      "sha256": "fbda6cfd32106c6e0b10c2bda092e49856701ab8c8b6b01dffec45ee61a47f5a",
+      "checksum_source": "recorded after HTTP transfer"
+    },
+    {
+      "role": "coarse",
+      "model_id": "coarse-bop-ycbv-synt+real--822463",
+      "source": "https://www.rocq.inria.fr/archive_ylabbeprojectsdata/cosypose/experiments/coarse-bop-ycbv-synt+real--822463/checkpoint.pth.tar",
+      "path": "artifacts\\pretrained\\ycbv\\coarse\\checkpoint.pth.tar",
+      "bytes": 43318065,
+      "sha256": "52926384d9d31ff03595d2fddae47aa0ec8a0cc749ee7af41921977a4dce2f6e",
+      "checksum_source": "recorded after HTTP transfer"
+    },
+    {
+      "role": "refiner",
+      "model_id": "refiner-bop-ycbv-synt+real--631598",
+      "source": "https://www.rocq.inria.fr/archive_ylabbeprojectsdata/cosypose/experiments/refiner-bop-ycbv-synt+real--631598/config.yaml",
+      "path": "artifacts\\pretrained\\ycbv\\refiner\\config.yaml",
+      "bytes": 1218,
+      "sha256": "dc7286c9e7b989e07c531668aad931961928c41ab9aecf0d111715f7f6b57cb6",
+      "checksum_source": "recorded after HTTP transfer"
+    },
+    {
+      "role": "refiner",
+      "model_id": "refiner-bop-ycbv-synt+real--631598",
+      "source": "https://www.rocq.inria.fr/archive_ylabbeprojectsdata/cosypose/experiments/refiner-bop-ycbv-synt+real--631598/checkpoint.pth.tar",
+      "path": "artifacts\\pretrained\\ycbv\\refiner\\checkpoint.pth.tar",
+      "bytes": 43318065,
+      "sha256": "8f65ecdbb77303850d224ccda0de1046f65cde32873e310201fb18e46567f207",
+      "checksum_source": "recorded after HTTP transfer"
+    }
+  ],
+  "cosypose_source_revision": "c90a04f434b1e89f02341cc03899eb63ea8facba"
+}

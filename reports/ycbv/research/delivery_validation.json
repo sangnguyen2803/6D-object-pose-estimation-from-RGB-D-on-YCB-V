@@ -1,0 +1,68 @@
+{
+  "passed": true,
+  "checks": {
+    "rgb": {
+      "frames": 24,
+      "valid_exported_poses": 114,
+      "oracle_masks": false
+    },
+    "early": {
+      "frames": 24,
+      "valid_exported_poses": 110,
+      "oracle_masks": false
+    },
+    "late": {
+      "frames": 24,
+      "valid_exported_poses": 108,
+      "oracle_masks": false
+    },
+    "gated": {
+      "frames": 24,
+      "valid_exported_poses": 111,
+      "oracle_masks": false
+    },
+    "rgb_query": {
+      "frames": 24,
+      "valid_exported_poses": 110,
+      "oracle_masks": false
+    },
+    "gated_query": {
+      "frames": 24,
+      "valid_exported_poses": 111,
+      "oracle_masks": false
+    },
+    "point_baseline": {
+      "frames": 24,
+      "valid_exported_poses": 107,
+      "oracle_masks": false
+    },
+    "learned_3d": {
+      "frames": 24,
+      "valid_exported_poses": 107,
+      "oracle_masks": false
+    },
+    "combined": {
+      "frames": 24,
+      "valid_exported_poses": 111,
+      "oracle_masks": false
+    },
+    "demo": {
+      "frames": 1,
+      "valid_exported_poses": 5,
+      "oracle_masks": false
+    },
+    "cli_demo": {
+      "frames": 1,
+      "valid_exported_poses": 5,
+      "oracle_masks": false
+    },
+    "external_demo": {
+      "frames": 1,
+      "valid_exported_poses": 5,
+      "oracle_masks": false
+    }
+  },
+  "train": 300,
+  "val": 60,
+  "holdout": 60
+}

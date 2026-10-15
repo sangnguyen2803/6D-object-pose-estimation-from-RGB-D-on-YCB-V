@@ -1,0 +1,2238 @@
+{
+  "dataset": "https://huggingface.co/datasets/POSE-Lab/IndustryShapes",
+  "dataset_revision": "39e2ccc49f7a3e258eab5cec84749c5817df417a",
+  "audit_date_user_timezone": "2026-10-12",
+  "scope": "All archive directories; all GT/camera/info JSON for non-PBR archives; first-scene JSON for each PBR archive; one decoded frame per scene archive; CAD assets. Full pixel corpus and remaining PBR scene labels not validated.",
+  "archives": [
+    {
+      "archive": "bop_format/IndustryShapes_Extended_test.zip",
+      "compressed_bytes": 1299930278,
+      "uncompressed_bytes": 1394293569,
+      "entries": 24819,
+      "scenes": [
+        {
+          "prefix": "IndustryShapes_Extended_test/IndustryShapes_Extended_test/000009/",
+          "frames": 757,
+          "instances": 3785,
+          "per_object_instances": {
+            "1": 757,
+            "2": 757,
+            "3": 757,
+            "4": 757,
+            "5": 757
+          },
+          "camera_frames": 757,
+          "depth_scales": [
+            0.1
+          ],
+          "multi_instance_frames": 757,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.0,
+            0.86977648202138,
+            1.0
+          ],
+          "max_rotation_orthogonality_error": 2.0935728059399314e-15,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.9999999999999988,
+            1.0000000000000013
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 0,
+          "extra_depth_without_gt_count": 0,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 453,
+            "(0.25, 0.5)": 299,
+            "(0.5, 0.75)": 660,
+            "(0.75, 1.00001)": 2373
+          }
+        },
+        {
+          "prefix": "IndustryShapes_Extended_test/IndustryShapes_Extended_test/000010/",
+          "frames": 642,
+          "instances": 3210,
+          "per_object_instances": {
+            "1": 642,
+            "2": 642,
+            "3": 642,
+            "4": 642,
+            "5": 642
+          },
+          "camera_frames": 642,
+          "depth_scales": [
+            0.1
+          ],
+          "multi_instance_frames": 642,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.0,
+            0.9236863024014726,
+            1.0
+          ],
+          "max_rotation_orthogonality_error": 1.946684160209431e-15,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.9999999999999989,
+            1.000000000000001
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 0,
+          "extra_depth_without_gt_count": 0,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 165,
+            "(0.25, 0.5)": 232,
+            "(0.5, 0.75)": 498,
+            "(0.75, 1.00001)": 2315
+          }
+        },
+        {
+          "prefix": "IndustryShapes_Extended_test/IndustryShapes_Extended_test/000011/",
+          "frames": 681,
+          "instances": 3321,
+          "per_object_instances": {
+            "1": 681,
+            "2": 681,
+            "3": 681,
+            "4": 601,
+            "5": 677
+          },
+          "camera_frames": 681,
+          "depth_scales": [
+            0.1
+          ],
+          "multi_instance_frames": 681,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.00024746349913387774,
+            0.9358092185879914,
+            1.0
+          ],
+          "max_rotation_orthogonality_error": 2.338565693928715e-15,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.9999999999999988,
+            1.000000000000001
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 0,
+          "extra_depth_without_gt_count": 0,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 30,
+            "(0.25, 0.5)": 171,
+            "(0.5, 0.75)": 561,
+            "(0.75, 1.00001)": 2559
+          }
+        }
+      ],
+      "samples": [
+        {
+          "tag": "IndustryShapes_Extended_test",
+          "source_prefix": "IndustryShapes_Extended_test/IndustryShapes_Extended_test/000009/",
+          "image_id": "0",
+          "image_dimensions": {
+            "rgb": [
+              640,
+              480
+            ],
+            "depth": [
+              640,
+              480
+            ],
+            "mask": [
+              640,
+              480
+            ],
+            "mask_visib": [
+              640,
+              480
+            ]
+          },
+          "depth_mode": "I;16",
+          "depth_dtype": "uint16",
+          "depth_scale_mm": 0.1,
+          "visible_pixels": 4307,
+          "full_mask_pixels": 4447,
+          "visible_outside_full_pixels": 0,
+          "valid_depth_visible_pixels": 4307,
+          "invalid_depth_visible_fraction": 0.0,
+          "visible_depth_m_percentiles": [
+            0.8336,
+            0.8695,
+            0.916
+          ],
+          "camera": {
+            "cam_K": [
+              382.79742431640625,
+              0.0,
+              313.3721923828125,
+              0.0,
+              382.79742431640625,
+              239.26889038085938,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "depth_scale": 0.1
+          },
+          "first_instance_gt": {
+            "cam_R_m2c": [
+              0.5554149529798409,
+              -0.8114839435474583,
+              -0.18168114753894002,
+              -0.8275764757518485,
+              -0.5607869816946344,
+              -0.02520194325784922,
+              -0.08143345005924094,
+              0.1643525799203866,
+              -0.98303449719985
+            ],
+            "cam_t_m2c": [
+              339.609207178927,
+              -201.8459626778333,
+              877.8528627357412
+            ],
+            "obj_id": 1
+          },
+          "first_instance_gt_info": {
+            "bbox_obj": [
+              402,
+              95,
+              126,
+              91
+            ],
+            "bbox_visib": [
+              403,
+              95,
+              125,
+              91
+            ],
+            "px_count_all": 4448,
+            "px_count_valid": 4448,
+            "px_count_visib": 4308,
+            "visib_fract": 0.9685251798561151
+          },
+          "pointcloud_uses_ground_truth_mask": true
+        }
+      ],
+      "scene_count": 3,
+      "image_file_counts": {
+        "rgb": 2080,
+        "depth": 2080,
+        "mask": 10316,
+        "mask_visib": 10316
+      },
+      "downloaded_bytes": 7131730
+    },
+    {
+      "archive": "bop_format/IndustryShapes_Classic_test.zip",
+      "compressed_bytes": 640148187,
+      "uncompressed_bytes": 648932028,
+      "entries": 5775,
+      "scenes": [
+        {
+          "prefix": "IndustryShapes_Classic_test/IndustryShapes_Classic_test/000001/",
+          "frames": 48,
+          "instances": 48,
+          "per_object_instances": {
+            "1": 48
+          },
+          "camera_frames": 48,
+          "depth_scales": [
+            1.0
+          ],
+          "multi_instance_frames": 0,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.5213709677419355,
+            0.90452970598028,
+            0.9601422614667647
+          ],
+          "max_rotation_orthogonality_error": 8.275567968803603e-07,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.9999994584097228,
+            1.0000004227886878
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 0,
+          "extra_depth_without_gt_count": 0,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 0,
+            "(0.25, 0.5)": 0,
+            "(0.5, 0.75)": 4,
+            "(0.75, 1.00001)": 44
+          }
+        },
+        {
+          "prefix": "IndustryShapes_Classic_test/IndustryShapes_Classic_test/000002/",
+          "frames": 230,
+          "instances": 450,
+          "per_object_instances": {
+            "1": 230,
+            "3": 220
+          },
+          "camera_frames": 230,
+          "depth_scales": [
+            1.0
+          ],
+          "multi_instance_frames": 220,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.20460299194476408,
+            0.8988751604035792,
+            0.9989139878366637
+          ],
+          "max_rotation_orthogonality_error": 1.076633281432032e-06,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.9999992334923187,
+            1.0000005911635466
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 0,
+          "extra_depth_without_gt_count": 0,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 1,
+            "(0.25, 0.5)": 49,
+            "(0.5, 0.75)": 40,
+            "(0.75, 1.00001)": 360
+          }
+        },
+        {
+          "prefix": "IndustryShapes_Classic_test/IndustryShapes_Classic_test/000003/",
+          "frames": 380,
+          "instances": 744,
+          "per_object_instances": {
+            "3": 744
+          },
+          "camera_frames": 380,
+          "depth_scales": [
+            1.0
+          ],
+          "multi_instance_frames": 364,
+          "repeated_class_frames": 364,
+          "visibility_min_median_max": [
+            0.2087646921460263,
+            0.8894041342407308,
+            0.985073264253435
+          ],
+          "max_rotation_orthogonality_error": 2.1274465993295638e-15,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.9999999999999987,
+            1.0000000000000009
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 0,
+          "extra_depth_without_gt_count": 0,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 1,
+            "(0.25, 0.5)": 7,
+            "(0.5, 0.75)": 17,
+            "(0.75, 1.00001)": 719
+          }
+        },
+        {
+          "prefix": "IndustryShapes_Classic_test/IndustryShapes_Classic_test/000004/",
+          "frames": 211,
+          "instances": 552,
+          "per_object_instances": {
+            "5": 201,
+            "4": 152,
+            "2": 199
+          },
+          "camera_frames": 211,
+          "depth_scales": [
+            1.0
+          ],
+          "multi_instance_frames": 211,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.05572545022086307,
+            0.861961272295918,
+            0.9959883662621603
+          ],
+          "max_rotation_orthogonality_error": 2.1171427752518903e-07,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.9999999318967451,
+            1.0000001662710585
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 0,
+          "extra_depth_without_gt_count": 0,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 21,
+            "(0.25, 0.5)": 46,
+            "(0.5, 0.75)": 69,
+            "(0.75, 1.00001)": 416
+          }
+        },
+        {
+          "prefix": "IndustryShapes_Classic_test/IndustryShapes_Classic_test/000005/",
+          "frames": 33,
+          "instances": 85,
+          "per_object_instances": {
+            "2": 33,
+            "4": 33,
+            "5": 19
+          },
+          "camera_frames": 33,
+          "depth_scales": [
+            1.0
+          ],
+          "multi_instance_frames": 33,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.5047830543218312,
+            0.9005582693649686,
+            0.9877373417721519
+          ],
+          "max_rotation_orthogonality_error": 8.643201484954989e-07,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.9999993660157795,
+            1.0000005466139439
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 0,
+          "extra_depth_without_gt_count": 0,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 0,
+            "(0.25, 0.5)": 0,
+            "(0.5, 0.75)": 9,
+            "(0.75, 1.00001)": 76
+          }
+        },
+        {
+          "prefix": "IndustryShapes_Classic_test/IndustryShapes_Classic_test/000006/",
+          "frames": 10,
+          "instances": 25,
+          "per_object_instances": {
+            "2": 10,
+            "4": 11,
+            "5": 4
+          },
+          "camera_frames": 10,
+          "depth_scales": [
+            1.0
+          ],
+          "multi_instance_frames": 10,
+          "repeated_class_frames": 1,
+          "visibility_min_median_max": [
+            0.552324558832151,
+            0.8983448892865131,
+            0.9659899357973277
+          ],
+          "max_rotation_orthogonality_error": 2.0938928162110113e-07,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.9999998429031616,
+            1.0000001534298377
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 0,
+          "extra_depth_without_gt_count": 0,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 0,
+            "(0.25, 0.5)": 0,
+            "(0.5, 0.75)": 3,
+            "(0.75, 1.00001)": 22
+          }
+        },
+        {
+          "prefix": "IndustryShapes_Classic_test/IndustryShapes_Classic_test/000007/",
+          "frames": 5,
+          "instances": 10,
+          "per_object_instances": {
+            "2": 5,
+            "4": 5
+          },
+          "camera_frames": 5,
+          "depth_scales": [
+            1.0
+          ],
+          "multi_instance_frames": 5,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.7993682605380678,
+            0.9276726046596657,
+            0.9710501419110691
+          ],
+          "max_rotation_orthogonality_error": 1.9040610799151497e-07,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.9999998951808218,
+            1.0000000879176196
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 0,
+          "extra_depth_without_gt_count": 0,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 0,
+            "(0.25, 0.5)": 0,
+            "(0.5, 0.75)": 0,
+            "(0.75, 1.00001)": 10
+          }
+        },
+        {
+          "prefix": "IndustryShapes_Classic_test/IndustryShapes_Classic_test/000008/",
+          "frames": 6,
+          "instances": 17,
+          "per_object_instances": {
+            "2": 6,
+            "4": 5,
+            "5": 6
+          },
+          "camera_frames": 6,
+          "depth_scales": [
+            1.0
+          ],
+          "multi_instance_frames": 6,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.5032537960954447,
+            0.8935141509433963,
+            0.9480583052322419
+          ],
+          "max_rotation_orthogonality_error": 1.7427700981150375e-07,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.9999998835379083,
+            1.0000000750381648
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 0,
+          "extra_depth_without_gt_count": 0,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 0,
+            "(0.25, 0.5)": 0,
+            "(0.5, 0.75)": 4,
+            "(0.75, 1.00001)": 13
+          }
+        }
+      ],
+      "samples": [
+        {
+          "tag": "IndustryShapes_Classic_test",
+          "source_prefix": "IndustryShapes_Classic_test/IndustryShapes_Classic_test/000001/",
+          "image_id": "100",
+          "image_dimensions": {
+            "rgb": [
+              640,
+              480
+            ],
+            "depth": [
+              640,
+              480
+            ],
+            "mask": [
+              640,
+              480
+            ],
+            "mask_visib": [
+              640,
+              480
+            ]
+          },
+          "depth_mode": "I;16",
+          "depth_dtype": "uint16",
+          "depth_scale_mm": 1.0,
+          "visible_pixels": 9917,
+          "full_mask_pixels": 10840,
+          "visible_outside_full_pixels": 0,
+          "valid_depth_visible_pixels": 9484,
+          "invalid_depth_visible_fraction": 0.04366239790259151,
+          "visible_depth_m_percentiles": [
+            0.443,
+            0.478,
+            0.612
+          ],
+          "camera": {
+            "cam_K": [
+              422.74438753,
+              0.0,
+              318.68035889,
+              0.0,
+              422.42329915,
+              242.97497559,
+              0.0,
+              0.0,
+              1
+            ],
+            "depth_scale": 1.0
+          },
+          "first_instance_gt": {
+            "cam_R_m2c": [
+              0.1564350128173828,
+              -0.07310092449188232,
+              -0.9849793910980225,
+              -0.696093738079071,
+              -0.7156493663787842,
+              -0.057441651821136475,
+              -0.7007007598876953,
+              0.6946238875389099,
+              -0.16283774375915527
+            ],
+            "cam_t_m2c": [
+              102.13955688476562,
+              58.70236587524414,
+              562.806884765625
+            ],
+            "obj_id": 1
+          },
+          "first_instance_gt_info": {
+            "bbox_obj": [
+              362,
+              186,
+              103,
+              190
+            ],
+            "bbox_visib": [
+              363,
+              186,
+              102,
+              190
+            ],
+            "px_count_all": 10841,
+            "px_count_valid": 10408,
+            "px_count_visib": 9917,
+            "visib_fract": 0.9147680103311503
+          },
+          "pointcloud_uses_ground_truth_mask": true
+        }
+      ],
+      "scene_count": 8,
+      "image_file_counts": {
+        "rgb": 923,
+        "depth": 923,
+        "mask": 1931,
+        "mask_visib": 1931
+      },
+      "downloaded_bytes": 3292419
+    },
+    {
+      "archive": "bop_format/IndustryShapes_Classic_train.zip",
+      "compressed_bytes": 1114410152,
+      "uncompressed_bytes": 1127468738,
+      "entries": 15331,
+      "scenes": [
+        {
+          "prefix": "IndustryShapes_Classic_train/000001/",
+          "frames": 100,
+          "instances": 100,
+          "per_object_instances": {
+            "1": 100
+          },
+          "camera_frames": 100,
+          "depth_scales": [
+            1.0
+          ],
+          "multi_instance_frames": 0,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.4723090447352999,
+            0.9215213734065968,
+            0.9609487302347868
+          ],
+          "max_rotation_orthogonality_error": 1.8005533196448995e-06,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.9999994100104507,
+            1.0000013134480799
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 0,
+          "extra_depth_without_gt_count": 0,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 0,
+            "(0.25, 0.5)": 1,
+            "(0.5, 0.75)": 3,
+            "(0.75, 1.00001)": 96
+          }
+        },
+        {
+          "prefix": "IndustryShapes_Classic_train/000002/",
+          "frames": 216,
+          "instances": 429,
+          "per_object_instances": {
+            "1": 216,
+            "3": 213
+          },
+          "camera_frames": 216,
+          "depth_scales": [
+            1.0
+          ],
+          "multi_instance_frames": 213,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.08600710027463326,
+            0.8995850263681162,
+            0.9537773901667939
+          ],
+          "max_rotation_orthogonality_error": 2.5194896729784526e-06,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.9999993717085641,
+            1.0000017447030365
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 0,
+          "extra_depth_without_gt_count": 0,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 1,
+            "(0.25, 0.5)": 27,
+            "(0.5, 0.75)": 29,
+            "(0.75, 1.00001)": 372
+          }
+        },
+        {
+          "prefix": "IndustryShapes_Classic_train/000003/",
+          "frames": 186,
+          "instances": 186,
+          "per_object_instances": {
+            "2": 186
+          },
+          "camera_frames": 186,
+          "depth_scales": [
+            1.0
+          ],
+          "multi_instance_frames": 0,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.6230561624469863,
+            0.9529686918768703,
+            0.9928571428571429
+          ],
+          "max_rotation_orthogonality_error": 0.00045943818158983925,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.9999990379613387,
+            1.000250748861092
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 0,
+          "extra_depth_without_gt_count": 0,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 0,
+            "(0.25, 0.5)": 0,
+            "(0.5, 0.75)": 2,
+            "(0.75, 1.00001)": 184
+          }
+        },
+        {
+          "prefix": "IndustryShapes_Classic_train/000004/",
+          "frames": 183,
+          "instances": 183,
+          "per_object_instances": {
+            "2": 183
+          },
+          "camera_frames": 183,
+          "depth_scales": [
+            1.0
+          ],
+          "multi_instance_frames": 0,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.5289635174320588,
+            0.9362215728624063,
+            0.9852094205445745
+          ],
+          "max_rotation_orthogonality_error": 0.08488517836349443,
+          "rotation_orthogonality_error_gt_0_001_count": 2,
+          "rotation_determinant_min_max": [
+            0.9999984032643899,
+            1.0429251659115442
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 0,
+          "extra_depth_without_gt_count": 0,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 0,
+            "(0.25, 0.5)": 0,
+            "(0.5, 0.75)": 3,
+            "(0.75, 1.00001)": 180
+          }
+        },
+        {
+          "prefix": "IndustryShapes_Classic_train/000005/",
+          "frames": 73,
+          "instances": 73,
+          "per_object_instances": {
+            "2": 73
+          },
+          "camera_frames": 73,
+          "depth_scales": [
+            1.0
+          ],
+          "multi_instance_frames": 0,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.8462424672102091,
+            0.9465683391394834,
+            0.987551013409239
+          ],
+          "max_rotation_orthogonality_error": 0.03217527721448924,
+          "rotation_orthogonality_error_gt_0_001_count": 40,
+          "rotation_determinant_min_max": [
+            0.9999986506545061,
+            1.0175143243280362
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 0,
+          "extra_depth_without_gt_count": 0,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 0,
+            "(0.25, 0.5)": 0,
+            "(0.5, 0.75)": 0,
+            "(0.75, 1.00001)": 73
+          }
+        },
+        {
+          "prefix": "IndustryShapes_Classic_train/000006/",
+          "frames": 103,
+          "instances": 103,
+          "per_object_instances": {
+            "2": 103
+          },
+          "camera_frames": 103,
+          "depth_scales": [
+            1.0
+          ],
+          "multi_instance_frames": 0,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.7331401475237092,
+            0.930085165379283,
+            0.9866017052375152
+          ],
+          "max_rotation_orthogonality_error": 0.0011501752534719553,
+          "rotation_orthogonality_error_gt_0_001_count": 37,
+          "rotation_determinant_min_max": [
+            0.9999992754871956,
+            1.0005867006054376
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 0,
+          "extra_depth_without_gt_count": 0,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 0,
+            "(0.25, 0.5)": 0,
+            "(0.5, 0.75)": 1,
+            "(0.75, 1.00001)": 102
+          }
+        },
+        {
+          "prefix": "IndustryShapes_Classic_train/000007/",
+          "frames": 324,
+          "instances": 324,
+          "per_object_instances": {
+            "1": 324
+          },
+          "camera_frames": 324,
+          "depth_scales": [
+            1.0
+          ],
+          "multi_instance_frames": 0,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.9059920513604403,
+            0.9538687674115811,
+            0.9779255695486062
+          ],
+          "max_rotation_orthogonality_error": 1.4741723291653731e-06,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.9999989711148928,
+            1.0000007964262239
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 0,
+          "extra_depth_without_gt_count": 0,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 0,
+            "(0.25, 0.5)": 0,
+            "(0.5, 0.75)": 0,
+            "(0.75, 1.00001)": 324
+          }
+        },
+        {
+          "prefix": "IndustryShapes_Classic_train/000008/",
+          "frames": 324,
+          "instances": 324,
+          "per_object_instances": {
+            "2": 324
+          },
+          "camera_frames": 324,
+          "depth_scales": [
+            1.0
+          ],
+          "multi_instance_frames": 0,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.4017946161515454,
+            0.959464374116354,
+            0.9987133299022131
+          ],
+          "max_rotation_orthogonality_error": 0.002095345923995619,
+          "rotation_orthogonality_error_gt_0_001_count": 3,
+          "rotation_determinant_min_max": [
+            0.999998866368336,
+            1.0011189290171778
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 0,
+          "extra_depth_without_gt_count": 0,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 0,
+            "(0.25, 0.5)": 2,
+            "(0.5, 0.75)": 1,
+            "(0.75, 1.00001)": 321
+          }
+        },
+        {
+          "prefix": "IndustryShapes_Classic_train/000009/",
+          "frames": 1361,
+          "instances": 1361,
+          "per_object_instances": {
+            "3": 1361
+          },
+          "camera_frames": 1361,
+          "depth_scales": [
+            1.0
+          ],
+          "multi_instance_frames": 0,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.7875596184419714,
+            0.9175084175084175,
+            0.9670284237726098
+          ],
+          "max_rotation_orthogonality_error": 9.033496499048222e-16,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.9999999999999994,
+            1.0000000000000009
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 0,
+          "extra_depth_without_gt_count": 0,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 0,
+            "(0.25, 0.5)": 0,
+            "(0.5, 0.75)": 0,
+            "(0.75, 1.00001)": 1361
+          }
+        },
+        {
+          "prefix": "IndustryShapes_Classic_train/000010/",
+          "frames": 249,
+          "instances": 249,
+          "per_object_instances": {
+            "5": 249
+          },
+          "camera_frames": 249,
+          "depth_scales": [
+            1.0
+          ],
+          "multi_instance_frames": 0,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.47851746931067046,
+            0.8492040520984081,
+            0.9636785978249393
+          ],
+          "max_rotation_orthogonality_error": 2.250546677294176e-15,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.9999999999999988,
+            1.0000000000000009
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 0,
+          "extra_depth_without_gt_count": 0,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 0,
+            "(0.25, 0.5)": 1,
+            "(0.5, 0.75)": 11,
+            "(0.75, 1.00001)": 237
+          }
+        },
+        {
+          "prefix": "IndustryShapes_Classic_train/000011/",
+          "frames": 73,
+          "instances": 73,
+          "per_object_instances": {
+            "5": 73
+          },
+          "camera_frames": 73,
+          "depth_scales": [
+            1.0
+          ],
+          "multi_instance_frames": 0,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.7277692811885514,
+            0.843183239524703,
+            0.9125100887812753
+          ],
+          "max_rotation_orthogonality_error": 1.6542457927447391e-15,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.9999999999999989,
+            1.0000000000000013
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 0,
+          "extra_depth_without_gt_count": 0,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 0,
+            "(0.25, 0.5)": 0,
+            "(0.5, 0.75)": 3,
+            "(0.75, 1.00001)": 70
+          }
+        },
+        {
+          "prefix": "IndustryShapes_Classic_train/000012/",
+          "frames": 320,
+          "instances": 320,
+          "per_object_instances": {
+            "4": 320
+          },
+          "camera_frames": 320,
+          "depth_scales": [
+            1.0
+          ],
+          "multi_instance_frames": 0,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.7106179286335944,
+            0.8286513386751685,
+            0.9504176292873645
+          ],
+          "max_rotation_orthogonality_error": 1.7476009855890378e-15,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.9999999999999989,
+            1.0000000000000013
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 0,
+          "extra_depth_without_gt_count": 0,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 0,
+            "(0.25, 0.5)": 0,
+            "(0.5, 0.75)": 12,
+            "(0.75, 1.00001)": 308
+          }
+        },
+        {
+          "prefix": "IndustryShapes_Classic_train/000013/",
+          "frames": 188,
+          "instances": 188,
+          "per_object_instances": {
+            "4": 188
+          },
+          "camera_frames": 188,
+          "depth_scales": [
+            1.0
+          ],
+          "multi_instance_frames": 0,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.8370114331294869,
+            0.942892389297479,
+            0.9828833598023645
+          ],
+          "max_rotation_orthogonality_error": 1.3423929014423298e-15,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.9999999999999992,
+            1.0000000000000009
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 0,
+          "extra_depth_without_gt_count": 0,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 0,
+            "(0.25, 0.5)": 0,
+            "(0.5, 0.75)": 0,
+            "(0.75, 1.00001)": 188
+          }
+        }
+      ],
+      "samples": [
+        {
+          "tag": "IndustryShapes_Classic_train",
+          "source_prefix": "IndustryShapes_Classic_train/000001/",
+          "image_id": "0",
+          "image_dimensions": {
+            "rgb": [
+              640,
+              480
+            ],
+            "depth": [
+              640,
+              480
+            ],
+            "mask": [
+              640,
+              480
+            ],
+            "mask_visib": [
+              640,
+              480
+            ]
+          },
+          "depth_mode": "I;16",
+          "depth_dtype": "uint16",
+          "depth_scale_mm": 1.0,
+          "visible_pixels": 6713,
+          "full_mask_pixels": 7055,
+          "visible_outside_full_pixels": 0,
+          "valid_depth_visible_pixels": 6551,
+          "invalid_depth_visible_fraction": 0.02413228064948607,
+          "visible_depth_m_percentiles": [
+            0.658,
+            0.709,
+            0.744
+          ],
+          "camera": {
+            "cam_K": [
+              422.74438753,
+              0.0,
+              318.68035889,
+              0.0,
+              422.42329915,
+              242.97497559,
+              0.0,
+              0.0,
+              1
+            ],
+            "depth_scale": 1.0
+          },
+          "first_instance_gt": {
+            "cam_R_m2c": [
+              0.4792076349258423,
+              -0.7995233535766602,
+              -0.36210837960243225,
+              -0.8312883377075195,
+              -0.5458242893218994,
+              0.10505019128322601,
+              -0.28163763880729675,
+              0.25067561864852905,
+              -0.9261975288391113
+            ],
+            "cam_t_m2c": [
+              43.48601150512695,
+              30.93987464904785,
+              729.4821166992188
+            ],
+            "obj_id": 1
+          },
+          "first_instance_gt_info": {
+            "bbox_obj": [
+              275,
+              187,
+              148,
+              125
+            ],
+            "bbox_visib": [
+              275,
+              187,
+              148,
+              125
+            ],
+            "px_count_all": 7055,
+            "px_count_valid": 6893,
+            "px_count_visib": 6713,
+            "visib_fract": 0.9515237420269312
+          },
+          "pointcloud_uses_ground_truth_mask": true
+        }
+      ],
+      "scene_count": 13,
+      "image_file_counts": {
+        "rgb": 3700,
+        "depth": 3700,
+        "mask": 3913,
+        "mask_visib": 3913
+      },
+      "downloaded_bytes": 4568297
+    },
+    {
+      "archive": "bop_format/IndustryShapes_Onboardings_static.zip",
+      "compressed_bytes": 3686729675,
+      "uncompressed_bytes": 3863867769,
+      "entries": 26069,
+      "scenes": [
+        {
+          "prefix": "IndustryShapes_Onboardings_static/obj_000001_down/",
+          "frames": 775,
+          "instances": 775,
+          "per_object_instances": {
+            "1": 775
+          },
+          "camera_frames": 775,
+          "depth_scales": [
+            0.1
+          ],
+          "multi_instance_frames": 0,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.7483343908629442,
+            0.9251939753537197,
+            0.9657818450520094
+          ],
+          "max_rotation_orthogonality_error": 1.9693515879412332e-15,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.9999999999999989,
+            1.000000000000001
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 0,
+          "extra_depth_without_gt_count": 0,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 0,
+            "(0.25, 0.5)": 0,
+            "(0.5, 0.75)": 1,
+            "(0.75, 1.00001)": 774
+          }
+        },
+        {
+          "prefix": "IndustryShapes_Onboardings_static/obj_000001_up/",
+          "frames": 862,
+          "instances": 862,
+          "per_object_instances": {
+            "1": 862
+          },
+          "camera_frames": 862,
+          "depth_scales": [
+            0.1
+          ],
+          "multi_instance_frames": 0,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.7950770462277367,
+            0.9032388259971464,
+            0.9627170582226762
+          ],
+          "max_rotation_orthogonality_error": 2.116645734831639e-15,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.9999999999999991,
+            1.000000000000001
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 0,
+          "extra_depth_without_gt_count": 0,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 0,
+            "(0.25, 0.5)": 0,
+            "(0.5, 0.75)": 0,
+            "(0.75, 1.00001)": 862
+          }
+        },
+        {
+          "prefix": "IndustryShapes_Onboardings_static/obj_000002_down/",
+          "frames": 583,
+          "instances": 583,
+          "per_object_instances": {
+            "2": 583
+          },
+          "camera_frames": 583,
+          "depth_scales": [
+            0.1
+          ],
+          "multi_instance_frames": 0,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.01986263226285502,
+            0.9611236736823795,
+            0.9901029121961901
+          ],
+          "max_rotation_orthogonality_error": 1.8251923964154085e-15,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.9999999999999989,
+            1.0000000000000009
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 63,
+          "extra_depth_without_gt_count": 63,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 11,
+            "(0.25, 0.5)": 5,
+            "(0.5, 0.75)": 3,
+            "(0.75, 1.00001)": 564
+          }
+        },
+        {
+          "prefix": "IndustryShapes_Onboardings_static/obj_000002_up/",
+          "frames": 532,
+          "instances": 532,
+          "per_object_instances": {
+            "2": 532
+          },
+          "camera_frames": 532,
+          "depth_scales": [
+            0.1
+          ],
+          "multi_instance_frames": 0,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.7344057912728735,
+            0.9184669071181719,
+            0.9790410397517709
+          ],
+          "max_rotation_orthogonality_error": 1.8776405692299366e-15,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.9999999999999988,
+            1.000000000000001
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 93,
+          "extra_depth_without_gt_count": 145,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 0,
+            "(0.25, 0.5)": 0,
+            "(0.5, 0.75)": 3,
+            "(0.75, 1.00001)": 529
+          }
+        },
+        {
+          "prefix": "IndustryShapes_Onboardings_static/obj_000003_down/",
+          "frames": 548,
+          "instances": 548,
+          "per_object_instances": {
+            "3": 548
+          },
+          "camera_frames": 548,
+          "depth_scales": [
+            0.1
+          ],
+          "multi_instance_frames": 0,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.599966012405472,
+            0.9281882242766085,
+            0.9591387814958006
+          ],
+          "max_rotation_orthogonality_error": 1.999127634829916e-15,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.9999999999999987,
+            1.000000000000001
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 0,
+          "extra_depth_without_gt_count": 0,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 0,
+            "(0.25, 0.5)": 0,
+            "(0.5, 0.75)": 8,
+            "(0.75, 1.00001)": 540
+          }
+        },
+        {
+          "prefix": "IndustryShapes_Onboardings_static/obj_000003_up/",
+          "frames": 787,
+          "instances": 787,
+          "per_object_instances": {
+            "3": 787
+          },
+          "camera_frames": 787,
+          "depth_scales": [
+            0.1
+          ],
+          "multi_instance_frames": 0,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.8033930553353417,
+            0.9304652052697753,
+            0.9568174628282189
+          ],
+          "max_rotation_orthogonality_error": 1.8363768250973804e-15,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.999999999999999,
+            1.0000000000000009
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 0,
+          "extra_depth_without_gt_count": 21,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 0,
+            "(0.25, 0.5)": 0,
+            "(0.5, 0.75)": 0,
+            "(0.75, 1.00001)": 787
+          }
+        },
+        {
+          "prefix": "IndustryShapes_Onboardings_static/obj_000004_down/",
+          "frames": 725,
+          "instances": 725,
+          "per_object_instances": {
+            "4": 725
+          },
+          "camera_frames": 736,
+          "depth_scales": [
+            0.1
+          ],
+          "multi_instance_frames": 0,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.179139201240791,
+            0.9203871839123584,
+            0.9723641672750026
+          ],
+          "max_rotation_orthogonality_error": 1.9459778855093214e-15,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.9999999999999988,
+            1.000000000000001
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 11,
+          "extra_depth_without_gt_count": 11,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 1,
+          "visibility_bins": {
+            "(0, 0.25)": 1,
+            "(0.25, 0.5)": 0,
+            "(0.5, 0.75)": 0,
+            "(0.75, 1.00001)": 724
+          }
+        },
+        {
+          "prefix": "IndustryShapes_Onboardings_static/obj_000004_up/",
+          "frames": 504,
+          "instances": 504,
+          "per_object_instances": {
+            "4": 504
+          },
+          "camera_frames": 504,
+          "depth_scales": [
+            0.1
+          ],
+          "multi_instance_frames": 0,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.3977601156069364,
+            0.8389591002012656,
+            0.9290008291873963
+          ],
+          "max_rotation_orthogonality_error": 1.999586842831472e-15,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.9999999999999991,
+            1.000000000000001
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 61,
+          "extra_depth_without_gt_count": 126,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 0,
+            "(0.25, 0.5)": 3,
+            "(0.5, 0.75)": 15,
+            "(0.75, 1.00001)": 486
+          }
+        },
+        {
+          "prefix": "IndustryShapes_Onboardings_static/obj_000005_down/",
+          "frames": 511,
+          "instances": 511,
+          "per_object_instances": {
+            "5": 511
+          },
+          "camera_frames": 511,
+          "depth_scales": [
+            0.1
+          ],
+          "multi_instance_frames": 0,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.8495872267077927,
+            0.9606214578854798,
+            0.9847041847041847
+          ],
+          "max_rotation_orthogonality_error": 1.810904188276299e-15,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.999999999999999,
+            1.0000000000000009
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 0,
+          "extra_depth_without_gt_count": 65,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 0,
+            "(0.25, 0.5)": 0,
+            "(0.5, 0.75)": 0,
+            "(0.75, 1.00001)": 511
+          }
+        },
+        {
+          "prefix": "IndustryShapes_Onboardings_static/obj_000005_up/",
+          "frames": 482,
+          "instances": 482,
+          "per_object_instances": {
+            "5": 482
+          },
+          "camera_frames": 522,
+          "depth_scales": [
+            0.1
+          ],
+          "multi_instance_frames": 0,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.7714427367377293,
+            0.9227907328158428,
+            0.9721784776902888
+          ],
+          "max_rotation_orthogonality_error": 1.8726235597239486e-15,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.999999999999999,
+            1.0000000000000013
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 40,
+          "extra_depth_without_gt_count": 51,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 0,
+            "(0.25, 0.5)": 0,
+            "(0.5, 0.75)": 0,
+            "(0.75, 1.00001)": 482
+          }
+        }
+      ],
+      "samples": [
+        {
+          "tag": "IndustryShapes_Onboardings_static",
+          "source_prefix": "IndustryShapes_Onboardings_static/obj_000001_down/",
+          "image_id": "0",
+          "image_dimensions": {
+            "rgb": [
+              640,
+              480
+            ],
+            "depth": [
+              640,
+              480
+            ],
+            "mask": [
+              640,
+              480
+            ],
+            "mask_visib": [
+              640,
+              480
+            ]
+          },
+          "depth_mode": "I;16",
+          "depth_dtype": "uint16",
+          "depth_scale_mm": 0.1,
+          "visible_pixels": 18035,
+          "full_mask_pixels": 19112,
+          "visible_outside_full_pixels": 0,
+          "valid_depth_visible_pixels": 17686,
+          "invalid_depth_visible_fraction": 0.01935126143609648,
+          "visible_depth_m_percentiles": [
+            0.29290000000000005,
+            0.32135,
+            0.423
+          ],
+          "camera": {
+            "cam_K": [
+              426.91556803385413,
+              0,
+              310.4027099609375,
+              0,
+              426.91556803385413,
+              239.81205240885416,
+              0,
+              0,
+              1
+            ],
+            "depth_scale": 0.1
+          },
+          "first_instance_gt": {
+            "cam_R_m2c": [
+              0.09152020631279867,
+              0.005226874340879095,
+              -0.9957895016624182,
+              -0.6459345985977298,
+              -0.760758898698082,
+              -0.0633592328399828,
+              -0.7578868953682022,
+              0.6490135421054835,
+              -0.06624859238384961
+            ],
+            "cam_t_m2c": [
+              -37.23265235998153,
+              26.540142470483318,
+              407.05984205382185
+            ],
+            "obj_id": 1
+          },
+          "first_instance_gt_info": {
+            "bbox_obj": [
+              209,
+              125,
+              107,
+              276
+            ],
+            "bbox_visib": [
+              209,
+              125,
+              107,
+              276
+            ],
+            "px_count_all": 19112,
+            "px_count_valid": 18763,
+            "px_count_visib": 18035,
+            "visib_fract": 0.9436479698618669
+          },
+          "pointcloud_uses_ground_truth_mask": true
+        }
+      ],
+      "scene_count": 10,
+      "image_file_counts": {
+        "rgb": 6577,
+        "depth": 6791,
+        "mask": 6310,
+        "mask_visib": 6310
+      },
+      "downloaded_bytes": 6818455
+    },
+    {
+      "archive": "bop_format/IndustryShapes_cad_models.zip",
+      "compressed_bytes": 9519347,
+      "uncompressed_bytes": 25466547,
+      "entries": 7,
+      "scenes": [],
+      "samples": [],
+      "scene_count": 0,
+      "image_file_counts": {
+        "rgb": 0,
+        "depth": 0,
+        "mask": 0,
+        "mask_visib": 0
+      },
+      "models_info": {
+        "1": {
+          "diameter": 265.9800996557875,
+          "min_x": -79.49984741210938,
+          "min_y": -124.2697525024414,
+          "min_z": -37.097900390625,
+          "size_x": 158.99969482421875,
+          "size_y": 248.5395050048828,
+          "size_z": 74.19580078125
+        },
+        "2": {
+          "diameter": 207.05603032881712,
+          "min_x": -33.073974609375,
+          "min_y": -101.3795166015625,
+          "min_z": -33.4425048828125,
+          "size_x": 66.14794921875,
+          "size_y": 202.759033203125,
+          "size_z": 66.885009765625
+        },
+        "3": {
+          "diameter": 425.360306828223,
+          "min_x": -48.89274978637695,
+          "min_y": -211.35000610351562,
+          "min_z": -37.093753814697266,
+          "size_x": 97.78550720214844,
+          "size_y": 422.70001220703125,
+          "size_z": 74.1875
+        },
+        "4": {
+          "diameter": 125.29668465596166,
+          "min_x": -30.0733,
+          "min_y": -58.16547,
+          "min_z": -36.31156,
+          "size_x": 65.80763,
+          "size_y": 116.33094,
+          "size_z": 70.75945
+        },
+        "5": {
+          "diameter": 248.38783844725592,
+          "min_x": -91.82518,
+          "min_y": -121.2297,
+          "min_z": -13.698,
+          "size_x": 183.94457,
+          "size_y": 248.26819999999998,
+          "size_z": 27.396
+        }
+      },
+      "downloaded_bytes": 9845906
+    },
+    {
+      "archive": "bop_format/IndustryShapes_PBR_train_upright.zip",
+      "compressed_bytes": 9029553923,
+      "uncompressed_bytes": 9280785060,
+      "entries": 120093,
+      "scenes": [
+        {
+          "prefix": "IndustryShapes_PBR_train_upright/train_pbr/000000/",
+          "frames": 1000,
+          "instances": 5000,
+          "per_object_instances": {
+            "5": 1000,
+            "2": 1000,
+            "1": 1000,
+            "3": 1000,
+            "4": 1000
+          },
+          "camera_frames": 1000,
+          "depth_scales": [
+            0.1
+          ],
+          "multi_instance_frames": 1000,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.0,
+            0.9579624488024334,
+            1.0
+          ],
+          "max_rotation_orthogonality_error": 1.0577720593202393e-06,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.9999992653058383,
+            1.0000007423489674
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 0,
+          "extra_depth_without_gt_count": 0,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 255,
+            "(0.25, 0.5)": 312,
+            "(0.5, 0.75)": 539,
+            "(0.75, 1.00001)": 3894
+          }
+        }
+      ],
+      "samples": [
+        {
+          "tag": "IndustryShapes_PBR_train_upright",
+          "source_prefix": "IndustryShapes_PBR_train_upright/train_pbr/000000/",
+          "image_id": "0",
+          "image_dimensions": {
+            "rgb": [
+              720,
+              540
+            ],
+            "depth": [
+              720,
+              540
+            ],
+            "mask": [
+              720,
+              540
+            ],
+            "mask_visib": [
+              720,
+              540
+            ]
+          },
+          "depth_mode": "I;16",
+          "depth_dtype": "uint16",
+          "depth_scale_mm": 0.1,
+          "visible_pixels": 867,
+          "full_mask_pixels": 2217,
+          "visible_outside_full_pixels": 0,
+          "valid_depth_visible_pixels": 867,
+          "invalid_depth_visible_fraction": 0.0,
+          "visible_depth_m_percentiles": [
+            0.7263000000000001,
+            0.795,
+            0.8980199999999999
+          ],
+          "camera": {
+            "cam_K": [
+              422.74436950683594,
+              0.0,
+              318.68035954236984,
+              0.0,
+              422.4232946721518,
+              242.974976843315,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "cam_R_w2c": [
+              0.20634806156158447,
+              -0.8126229047775269,
+              0.5450363159179688,
+              -0.16337360441684723,
+              -0.5778183937072754,
+              -0.7996468544006348,
+              0.9647433161735535,
+              0.07596106082201004,
+              -0.2519928812980652
+            ],
+            "cam_t_w2c": [
+              180.3994903564453,
+              298.2243957519531,
+              773.2012329101562
+            ],
+            "depth_scale": 0.1
+          },
+          "first_instance_gt": {
+            "cam_R_m2c": [
+              -0.7213287353515625,
+              0.4273407757282257,
+              0.5450363755226135,
+              -0.2940449118614197,
+              0.5235481858253479,
+              -0.7996467351913452,
+              -0.6270744204521179,
+              -0.7370733618736267,
+              -0.25199297070503235
+            ],
+            "cam_t_m2c": [
+              64.46366882324219,
+              187.21319580078125,
+              820.3553466796875
+            ],
+            "obj_id": 5
+          },
+          "first_instance_gt_info": {
+            "bbox_obj": [
+              307,
+              300,
+              95,
+              87
+            ],
+            "bbox_visib": [
+              309,
+              300,
+              93,
+              87
+            ],
+            "px_count_all": 2217,
+            "px_count_valid": 2217,
+            "px_count_visib": 867,
+            "visib_fract": 0.3910690121786198
+          },
+          "pointcloud_uses_ground_truth_mask": true
+        }
+      ],
+      "scene_count": 10,
+      "image_file_counts": {
+        "rgb": 10000,
+        "depth": 10000,
+        "mask": 50000,
+        "mask_visib": 50000
+      },
+      "downloaded_bytes": 21388117
+    },
+    {
+      "archive": "bop_format/IndustryShapes_PBR_train_random.zip",
+      "compressed_bytes": 18692984716,
+      "uncompressed_bytes": 19213278889,
+      "entries": 252142,
+      "scenes": [
+        {
+          "prefix": "PBR_random/train_pbr/000000/",
+          "frames": 1000,
+          "instances": 5000,
+          "per_object_instances": {
+            "3": 1000,
+            "5": 1000,
+            "1": 1000,
+            "4": 1000,
+            "2": 1000
+          },
+          "camera_frames": 1000,
+          "depth_scales": [
+            0.1
+          ],
+          "multi_instance_frames": 1000,
+          "repeated_class_frames": 0,
+          "visibility_min_median_max": [
+            0.0,
+            0.9564164133446504,
+            1.0
+          ],
+          "max_rotation_orthogonality_error": 1.0907384257158681e-06,
+          "rotation_orthogonality_error_gt_0_001_count": 0,
+          "rotation_determinant_min_max": [
+            0.9999992132769514,
+            1.0000005848641085
+          ],
+          "missing_rgb_for_gt": [],
+          "missing_depth_for_gt": [],
+          "extra_rgb_without_gt_count": 0,
+          "extra_depth_without_gt_count": 0,
+          "missing_camera_for_gt": [],
+          "missing_mask_count": 0,
+          "missing_mask_visib_count": 0,
+          "extra_mask_count": 0,
+          "visibility_bins": {
+            "(0, 0.25)": 311,
+            "(0.25, 0.5)": 306,
+            "(0.5, 0.75)": 648,
+            "(0.75, 1.00001)": 3735
+          }
+        }
+      ],
+      "samples": [
+        {
+          "tag": "IndustryShapes_PBR_train_random",
+          "source_prefix": "PBR_random/train_pbr/000000/",
+          "image_id": "0",
+          "image_dimensions": {
+            "rgb": [
+              720,
+              540
+            ],
+            "depth": [
+              720,
+              540
+            ],
+            "mask": [
+              720,
+              540
+            ],
+            "mask_visib": [
+              720,
+              540
+            ]
+          },
+          "depth_mode": "I;16",
+          "depth_dtype": "uint16",
+          "depth_scale_mm": 0.1,
+          "visible_pixels": 7194,
+          "full_mask_pixels": 7379,
+          "visible_outside_full_pixels": 0,
+          "valid_depth_visible_pixels": 7194,
+          "invalid_depth_visible_fraction": 0.0,
+          "visible_depth_m_percentiles": [
+            0.6753000000000001,
+            0.7347,
+            0.8102
+          ],
+          "camera": {
+            "cam_K": [
+              422.74436950683594,
+              0.0,
+              318.68035954236984,
+              0.0,
+              422.4232946721518,
+              242.974976843315,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "cam_R_w2c": [
+              0.37213945388793945,
+              -0.9198195934295654,
+              -0.124274842441082,
+              -0.18525643646717072,
+              0.05759011581540108,
+              -0.9810012578964233,
+              0.9095011353492737,
+              0.3880920112133026,
+              -0.14897094666957855
+            ],
+            "cam_t_w2c": [
+              120.7446060180664,
+              29.999526977539062,
+              1005.9722900390625
+            ],
+            "depth_scale": 0.1
+          },
+          "first_instance_gt": {
+            "cam_R_m2c": [
+              -0.19507279992103577,
+              -0.9497707486152649,
+              -0.24470824003219604,
+              -0.9629758596420288,
+              0.13813714683055878,
+              0.23150740563869476,
+              -0.18607567250728607,
+              0.2808089256286621,
+              -0.9415531158447266
+            ],
+            "cam_t_m2c": [
+              -114.63381958007812,
+              54.378807067871094,
+              766.5864868164062
+            ],
+            "obj_id": 3
+          },
+          "first_instance_gt_info": {
+            "bbox_obj": [
+              155,
+              230,
+              219,
+              68
+            ],
+            "bbox_visib": [
+              155,
+              230,
+              219,
+              68
+            ],
+            "px_count_all": 7379,
+            "px_count_valid": 7379,
+            "px_count_visib": 7195,
+            "visib_fract": 0.9750643718661065
+          },
+          "pointcloud_uses_ground_truth_mask": true
+        }
+      ],
+      "scene_count": 21,
+      "image_file_counts": {
+        "rgb": 21000,
+        "depth": 21000,
+        "mask": 104975,
+        "mask_visib": 104975
+      },
+      "downloaded_bytes": 37252473
+    },
+    {
+      "archive": "bop_format/IndustryShapes_textured_cad_models.zip",
+      "compressed_bytes": 22635792,
+      "uncompressed_bytes": 79698309,
+      "entries": 17,
+      "scenes": [],
+      "samples": [],
+      "scene_count": 0,
+      "image_file_counts": {
+        "rgb": 0,
+        "depth": 0,
+        "mask": 0,
+        "mask_visib": 0
+      },
+      "models_info": {
+        "1": {
+          "diameter": 265.9800996557875,
+          "min_x": -79.49984741210938,
+          "min_y": -124.2697525024414,
+          "min_z": -37.097900390625,
+          "size_x": 158.99969482421875,
+          "size_y": 248.5395050048828,
+          "size_z": 74.19580078125
+        },
+        "2": {
+          "diameter": 207.05603032881712,
+          "min_x": -33.073974609375,
+          "min_y": -101.3795166015625,
+          "min_z": -33.4425048828125,
+          "size_x": 66.14794921875,
+          "size_y": 202.759033203125,
+          "size_z": 66.885009765625
+        },
+        "3": {
+          "diameter": 425.360306828223,
+          "min_x": -48.89274978637695,
+          "min_y": -211.35000610351562,
+          "min_z": -37.093753814697266,
+          "size_x": 97.78550720214844,
+          "size_y": 422.70001220703125,
+          "size_z": 74.1875
+        },
+        "4": {
+          "diameter": 125.29668465596166,
+          "min_x": -30.0733,
+          "min_y": -58.16547,
+          "min_z": -36.31156,
+          "size_x": 65.80763,
+          "size_y": 116.33094,
+          "size_z": 70.75945
+        },
+        "5": {
+          "diameter": 248.38783844725592,
+          "min_x": -91.82518,
+          "min_y": -121.2297,
+          "min_z": -13.698,
+          "size_x": 183.94457,
+          "size_y": 248.26819999999998,
+          "size_z": 27.396
+        }
+      },
+      "downloaded_bytes": 23179122
+    }
+  ],
+  "errors": []
+}

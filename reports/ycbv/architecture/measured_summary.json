@@ -1,0 +1,53 @@
+{
+  "p50_latency_reduction_fraction": 0.37395006981324175,
+  "p95_latency_reduction_fraction": 0.358803715773357,
+  "throughput_speedup": 1.6039175040645257,
+  "frames": 96,
+  "gt_instances": 440,
+  "paired": [
+    {
+      "repeat": 0,
+      "fail_to_pass": 0,
+      "pass_to_fail": 0,
+      "baseline_recall": 0.8863636363636364,
+      "optimized_recall": 0.8863636363636364
+    },
+    {
+      "repeat": 1,
+      "fail_to_pass": 0,
+      "pass_to_fail": 0,
+      "baseline_recall": 0.8863636363636364,
+      "optimized_recall": 0.8863636363636364
+    }
+  ],
+  "baseline_timing": {
+    "p50_s": 1.9010907000047155,
+    "p95_s": 3.1219366350269406,
+    "frames_per_s": 0.5078797787061121,
+    "components_median_s": {
+      "detection_s": 0.07161004998488352,
+      "scene_geometry_s": 0.172980000032112,
+      "instance_geometry_s": 0.15843889996176586,
+      "pose_s": 1.4651609500288032
+    }
+  },
+  "optimized_timing": {
+    "p50_s": 1.1901777000166476,
+    "p95_s": 2.0017741699703038,
+    "frames_per_s": 0.814597267027151,
+    "components_median_s": {
+      "detection_s": 0.08073665003757924,
+      "scene_geometry_s": 1.3899989426136017e-05,
+      "instance_geometry_s": 0.2174447500729002,
+      "pose_s": 0.8334800999728031
+    }
+  },
+  "scope": "paired same frame cohort, detector/pose checkpoints and robust ICP; exploratory test evaluation; warm timings before reference scoring; excludes model initialization and report visualization",
+  "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "source_report": "recovery96.json",
+  "reused_baseline_report": "reports/ycbv/architecture/benchmark96.json",
+  "quality_recovery": {
+    "attempted_objects": 72,
+    "selected_objects": 0
+  }
+}

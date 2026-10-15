@@ -1,0 +1,45 @@
+{
+  "passed": true,
+  "estimated_poses": 5,
+  "gt_labels_supplied": false,
+  "max_translation_difference_mm": 0.0488480524706084,
+  "max_rotation_difference_degrees": 0.036574215943583184,
+  "comparison_tolerance": {
+    "translation_mm": 0.1,
+    "rotation_degrees": 0.1
+  },
+  "provided_inputs": [
+    "RGB",
+    "uint16 depth",
+    "K",
+    "depth scale"
+  ],
+  "pose_differences": [
+    {
+      "obj_id": 14,
+      "translation_difference_mm": 0.01556289720297312,
+      "rotation_difference_degrees": 0.017823276853451916
+    },
+    {
+      "obj_id": 19,
+      "translation_difference_mm": 0.012997279946854933,
+      "rotation_difference_degrees": 0.005768259900517714
+    },
+    {
+      "obj_id": 6,
+      "translation_difference_mm": 0.013732668668354788,
+      "rotation_difference_degrees": 0.036574215943583184
+    },
+    {
+      "obj_id": 1,
+      "translation_difference_mm": 0.0488480524706084,
+      "rotation_difference_degrees": 0.021617187631873373
+    },
+    {
+      "obj_id": 19,
+      "translation_difference_mm": 0.01752696471344332,
+      "rotation_difference_degrees": 0.003702006876371426
+    }
+  ],
+  "scope": "same YCB-V image through unlabeled interface; not a new camera benchmark"
+}
