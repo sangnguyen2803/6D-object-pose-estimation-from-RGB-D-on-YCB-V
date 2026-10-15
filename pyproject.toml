@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "clutterpick"
+version = "0.5.0"
+description = "YCB-V instance segmentation, visible RGB-D point clouds and 6D object pose"
+requires-python = ">=3.11"
+dependencies = ["numpy", "scipy", "Pillow", "PyYAML", "requests", "trimesh>=4.6", "torch>=2.2", "torchvision>=0.17", "pycocotools", "matplotlib", "opencv-python>=4.7", "transforms3d==0.4.2", "pyrender==0.1.45"]
+
+[project.optional-dependencies]
+yolo = ["ultralytics"]
+test = ["pytest"]
+geometry = ["open3d==0.19.0"]
+viewer = ["plotly>=5"]
+
+[project.scripts]
+clutterpick = "clutterpick.cli:main"
+ycbpose = "clutterpick.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
