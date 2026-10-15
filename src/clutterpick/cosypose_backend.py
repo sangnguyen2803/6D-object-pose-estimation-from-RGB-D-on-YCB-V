@@ -68,6 +68,7 @@ class TexturedRenderer:
         self.scene_nodes={}
         self.camera=None
         self.cache_stats={'render_calls':0,'context_mesh_additions':0}
+        self.last_depths=None
 
     def mesh(self,label):
         import trimesh
@@ -97,10 +98,13 @@ class TexturedRenderer:
         self.renderer.viewport_width,self.renderer.viewport_height = width,height
         poses,intrinsics = TCO.detach().cpu().numpy(),K.detach().cpu().numpy()
         images = []
+        capture_depth=self.config.get('pose',{}).get('renderer_validation_depth',False)
+        depths=[]
         conversion = np.diag([1.,-1.,-1.,1.])
         for obj,pose,k in zip(obj_infos,poses,intrinsics):
             if not np.isfinite(pose).all() or not np.isfinite(k).all():
                 images.append(np.zeros((height,width,3),dtype=np.uint8))
+                if capture_depth: depths.append(np.zeros((height,width),dtype=np.float32))
                 continue
             resident=self.config.get('pose',{}).get('resident_renderer',False)
             if resident:
@@ -114,7 +118,11 @@ class TexturedRenderer:
                     mesh.is_visible=False
                     self.scene_nodes[label]=scene.add(mesh,pose=np.eye(4))
                 self.camera.fx,self.camera.fy,self.camera.cx,self.camera.cy=map(float,[k[0,0],k[1,1],k[0,2],k[1,2]])
-                scene.set_pose(self.scene_nodes[label],conversion@pose)
+                # Match Scene.add's Node TRS decomposition/recomposition exactly.
+                # Scene.set_pose alone stores the raw matrix and skips that legacy path.
+                node=self.scene_nodes[label]
+                node.matrix=conversion@pose
+                scene.set_pose(node,node.matrix)
                 mesh.is_visible=True
             else:
                 scene = pyrender.Scene(bg_color=[0,0,0,0],ambient_light=[.6,.6,.6])
@@ -125,10 +133,12 @@ class TexturedRenderer:
             # Pinned Pyrender 0.1.45 uploads scene meshes absent from its current context.
             self.cache_stats['context_mesh_additions']+=len(scene.meshes-self.renderer._renderer._meshes)
             try:
-                color,_ = self.renderer.render(scene,flags=pyrender.RenderFlags.SKIP_CULL_FACES)
+                color,rendered_depth = self.renderer.render(scene,flags=pyrender.RenderFlags.SKIP_CULL_FACES)
             finally:
                 if resident: mesh.is_visible=False
             images.append(color[:,:,:3])
+            if capture_depth: depths.append(rendered_depth)
+        self.last_depths=np.stack(depths) if capture_depth else None
         return torch.as_tensor(np.stack(images),device=self.device).float().permute(0,3,1,2)/255
 
     def close(self):
@@ -213,6 +223,18 @@ class CosyPoseEstimator:
             for offset,transform in enumerate(transforms):
                 index=start+offset
                 result=self.finalize_rgbd(transform,point_clouds[index],int(obj_ids[index]),depth_refinement)
+                if self.config['pose'].get('quality_retry',False) and (result.get('pose_quality') or {}).get('state')=='weak_geometry':
+                    original_quality=result['pose_quality']
+                    retry=self.estimate_rgbd(rgb,depth,k,boxes[index],masks[index],int(obj_ids[index]),
+                                             point_clouds[index],depth_refinement=depth_refinement)
+                    retry_quality=retry.get('pose_quality') or {}
+                    use_retry=(retry_quality.get('state')=='supported_geometry' and
+                               retry_quality['rmse_m']<original_quality['rmse_m'] and
+                               retry_quality['coverage_10mm']>=original_quality['coverage_10mm'])
+                    if use_retry: result=retry
+                    result['quality_recovery']={'attempted':True,'selected':bool(use_retry),
+                        'reason':'weak_geometry_after_batched_estimation','uses_gt':False,
+                        'batch_rmse_m':original_quality['rmse_m'],'retry_rmse_m':retry_quality.get('rmse_m')}
                 result['neural_pose_batch_size']=size
                 results.append(result)
         return results

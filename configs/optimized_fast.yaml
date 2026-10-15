@@ -1,0 +1,103 @@
+seed: 42
+project:
+  name: YCBPose
+  scope: instance_segmentation_pointcloud_6d_pose
+data:
+  name: ycbv
+  root: data/ycbv/raw/ycbv
+  index: data/ycbv/index.json
+  splits: data/ycbv/splits.json
+  index_report: reports/ycbv/data_split.json
+  revision: 5c2c4aa229800355648cd268040aa814f8dc94f0
+  models: data/ycbv/raw/ycbv/models
+  num_objects: 21
+  object_ids:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  min_visibility_train: 0.05
+  validation_scenes: []
+  pbr_validation_scenes:
+  - '000045'
+  - '000046'
+  - '000047'
+  - 000048
+  - 000049
+detector:
+  architecture: cosypose
+  checkpoint: artifacts/pretrained/ycbv/detector/checkpoint.pth.tar
+  min_size: 480
+  max_size: 640
+  score_threshold: 0.5
+  mask_threshold: 0.5
+  max_detections: 100
+training:
+  epochs: 8
+  batch_size: 2
+  accumulation_steps: 1
+  learning_rate: 0.001
+  momentum: 0.9
+  weight_decay: 0.0005
+  num_workers: 0
+  threaded_prefetch: true
+  amp: true
+  freeze_backbone: false
+  output: artifacts/ycbv/training/maskrcnn
+  initial_checkpoint: artifacts/pretrained/ycbv/detector/converted.pt
+geometry:
+  depth_min_m: 0.1
+  depth_max_m: 3.0
+  voxel_size_m: 0.003
+  min_points: 40
+  boundary_erosion_pixels: 1
+pose:
+  backend: cosypose_rgbd
+  coarse_checkpoint: artifacts/pretrained/ycbv/coarse/checkpoint.pth.tar
+  refiner_checkpoint: artifacts/pretrained/ycbv/refiner/checkpoint.pth.tar
+  coarse_iterations: 1
+  refiner_iterations: 4
+  model_points: 12000
+  observed_points: 1800
+  random_hypotheses: 16
+  refine_hypotheses: 8
+  icp_iterations: 25
+  correspondence_limit_m: 0.04
+  trim_fraction: 0.8
+  min_coverage: 0.65
+  max_observed_rmse_m: 0.01
+  depth_refinement: true
+  depth_max_translation_update_m: 0.05
+  depth_max_rotation_update_degrees: 10.0
+  depth_min_relative_fit_improvement: 0.1
+  refinement_method: robust
+  robust_iterations: 20
+  huber_delta_m: 0.004
+  damping: 0.01
+  cache_model_trees: true
+  resident_renderer: true
+  quality_retry: false
+evaluation:
+  pose_success_diameter_fraction: 0.1
+  minimum_mask_match_iou: 0.5
+  pose_metric_vertex_limit: 10000
+runtime:
+  pose_batch_size: 4
+  lazy_scene_geometry: true
