@@ -98,8 +98,10 @@ def load_index(config):
 
 
 def select_frames(index, ids, limit=None, seed=42):
-    """Stratified scene sampling avoids an all-one-class prefix in pilot runs."""
-    if not limit or limit >= len(ids):
+    """Sample across scenes; None selects all frames and zero selects none."""
+    if limit is not None and limit < 0:
+        raise ValueError("Frame limit must be nonnegative or None")
+    if limit is None or limit >= len(ids):
         return [index["frames"][i] for i in ids]
     rng = np.random.default_rng(seed)
     groups = {}
@@ -126,10 +128,18 @@ def load_rgbd(frame):
 
 
 def balanced_validation_frames(index,splits,limit,seed):
+    """Balance real/PBR frames, filling unused quotas from the other source."""
+    if limit is None or limit >= len(splits['val']):
+        return select_frames(index,splits['val'],limit,seed)
+    if limit < 0:
+        raise ValueError("Frame limit must be nonnegative or None")
     real = [i for i in splits['val'] if not index['frames'][i]['group'].startswith('pbr')]
     synthetic = [i for i in splits['val'] if index['frames'][i]['group'].startswith('pbr')]
     if real and synthetic:
-        return select_frames(index,real,limit//2,seed)+select_frames(index,synthetic,limit-limit//2,seed)
+        real_limit = min(len(real),limit//2)
+        synthetic_limit = min(len(synthetic),limit-real_limit)
+        real_limit = min(len(real),limit-synthetic_limit)
+        return select_frames(index,real,real_limit,seed)+select_frames(index,synthetic,synthetic_limit,seed)
     return select_frames(index,splits['val'],limit,seed)
 
 

@@ -1,6 +1,7 @@
 import numpy as np
+import pytest
 from PIL import Image
-from clutterpick.data import BOPDetectionDataset,select_frames,load_rgbd
+from clutterpick.data import BOPDetectionDataset,select_frames,load_rgbd,balanced_validation_frames
 
 
 def test_multiple_instances_same_class_remain_separate(tmp_path):
@@ -30,6 +31,35 @@ def test_pilot_sampling_covers_scenes_instead_of_first_class_only():
     frames = [{"id":i,"group":"train","scene_id":str(i//10)} for i in range(30)]
     selected = select_frames({"frames":frames},list(range(30)),6)
     assert {f["scene_id"] for f in selected}=={"0","1","2"}
+
+
+def test_sampling_zero_limit_is_empty_and_negative_limit_is_rejected():
+    frames = [{"id":0,"group":"train","scene_id":"0"}]
+    index = {"frames":frames}
+    assert select_frames(index,[0],0)==[]
+    assert select_frames(index,[0],None)==frames
+    with pytest.raises(ValueError,match="nonnegative"):
+        select_frames(index,[0],-1)
+
+
+@pytest.mark.parametrize("real_count,synthetic_count",[(4,4),(1,5),(5,1),(0,5),(5,0),(0,0)])
+@pytest.mark.parametrize("limit",[0,1,3,5,20,None])
+def test_balanced_validation_honors_budget_and_redistributes_unused_quota(real_count,synthetic_count,limit):
+    groups = ["ycbv_train_real"]*real_count+["pbr_ycbv"]*synthetic_count
+    frames = [{"id":i,"group":group,"scene_id":str(i)} for i,group in enumerate(groups)]
+    index,splits = {"frames":frames},{"val":list(range(len(frames)))}
+    selected = balanced_validation_frames(index,splits,limit,42)
+    expected = len(frames) if limit is None else min(limit,len(frames))
+    assert len(selected)==expected
+    assert len({frame["id"] for frame in selected})==expected
+    assert selected==balanced_validation_frames(index,splits,limit,42)
+    if real_count>=expected and synthetic_count>=expected:
+        assert abs(sum(f["group"].startswith("pbr") for f in selected)-expected/2)<=.5
+
+
+def test_balanced_validation_rejects_negative_limit():
+    with pytest.raises(ValueError,match="nonnegative"):
+        balanced_validation_frames({"frames":[]},{"val":[]},-1,42)
 
 
 def test_pbr_holdout_scene_is_excluded_from_training_and_overlap_rejected(tmp_path):
