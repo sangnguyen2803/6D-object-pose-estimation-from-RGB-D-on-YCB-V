@@ -27,6 +27,16 @@ def test_depth_scale_is_applied_per_frame(tmp_path):
     np.testing.assert_allclose(z,.5)
 
 
+@pytest.mark.parametrize("scale",[0,-.1,np.nan,np.inf,-np.inf])
+def test_invalid_depth_scale_is_rejected(tmp_path,scale):
+    rgb,depth = tmp_path/"rgb.png",tmp_path/"depth.png"
+    Image.fromarray(np.zeros((2,2,3),dtype=np.uint8)).save(rgb)
+    Image.fromarray(np.full((2,2),5000,dtype=np.uint16)).save(depth)
+    frame = {"rgb":str(rgb),"depth":str(depth),"depth_scale_mm":scale,"K":np.eye(3).ravel().tolist()}
+    with pytest.raises(ValueError,match="Depth scale must be finite and positive"):
+        load_rgbd(frame)
+
+
 def test_pilot_sampling_covers_scenes_instead_of_first_class_only():
     frames = [{"id":i,"group":"train","scene_id":str(i//10)} for i in range(30)]
     selected = select_frames({"frames":frames},list(range(30)),6)

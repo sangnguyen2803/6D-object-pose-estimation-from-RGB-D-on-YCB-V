@@ -118,13 +118,18 @@ def select_frames(index, ids, limit=None, seed=42):
 
 
 def load_rgbd(frame):
-    rgb = np.array(Image.open(frame["rgb"]).convert("RGB"))
-    raw = np.array(Image.open(frame["depth"]))
+    scale = float(frame["depth_scale_mm"])
+    if not np.isfinite(scale) or scale <= 0:
+        raise ValueError("Depth scale must be finite and positive (millimeters per raw unit)")
+    with Image.open(frame["rgb"]) as image:
+        rgb = np.array(image.convert("RGB"))
+    with Image.open(frame["depth"]) as image:
+        raw = np.array(image)
     if raw.ndim != 2 or raw.shape != rgb.shape[:2]:
         raise ValueError("Depth is not a registered single-channel image")
     if raw.dtype != np.uint16:
         raise ValueError(f"Expected uint16 metric depth, got {raw.dtype}")
-    return rgb, raw.astype(np.float64)*frame["depth_scale_mm"]/1000, np.array(frame["K"]).reshape(3,3)
+    return rgb, raw.astype(np.float64)*scale/1000, np.array(frame["K"]).reshape(3,3)
 
 
 def balanced_validation_frames(index,splits,limit,seed):
