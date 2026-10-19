@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 from scipy.spatial.transform import Rotation
-from clutterpick.geometry import backproject,voxel_downsample,transform_points
+from clutterpick.geometry import backproject,voxel_downsample,transform_points,instance_cloud
 from clutterpick.pose import rigid_fit,cube_rotations
 
 
@@ -48,6 +48,30 @@ def test_voxel_keeps_colors_aligned():
     colors = np.array([[255,0,0],[0,255,0],[0,0,255]])
     p,c = voxel_downsample(points,.01,colors)
     np.testing.assert_array_equal(c,[[255,0,0],[0,0,255]])
+
+
+@pytest.mark.parametrize("mask_dtype",[bool,np.uint8])
+def test_instance_depth_diagnostics_count_nonfinite_and_nonpositive_pixels(mask_dtype):
+    depth = np.array([[0.,np.nan,np.inf],[-np.inf,-1.,1.]])
+    mask = np.ones(depth.shape,dtype=mask_dtype)
+    if mask_dtype==np.uint8:
+        mask *= 255
+    rgb = np.full((*depth.shape,3),120,dtype=np.uint8)
+    config = {"geometry":{"boundary_erosion_pixels":0,"depth_min_m":.1,"depth_max_m":3.,"voxel_size_m":0}}
+    points,colors,diagnostics = instance_cloud(depth,np.eye(3),mask,rgb,config)
+    np.testing.assert_allclose(points,[[2.,1.,1.]])
+    np.testing.assert_array_equal(colors,[[120,120,120]])
+    assert diagnostics=={"visible_mask_pixels":6,"valid_points_before_filter":1,
+                         "retained_points":1,"depth_missing_fraction":5/6}
+
+
+def test_instance_depth_diagnostics_ignore_missing_pixels_outside_empty_mask():
+    depth = np.full((2,2),np.nan)
+    config = {"geometry":{"boundary_erosion_pixels":0,"depth_min_m":.1,"depth_max_m":3.,"voxel_size_m":0}}
+    points,colors,diagnostics = instance_cloud(depth,np.eye(3),np.zeros((2,2),dtype=bool),
+                                               np.zeros((2,2,3),dtype=np.uint8),config)
+    assert points.shape==colors.shape==(0,3)
+    assert diagnostics["visible_mask_pixels"]==diagnostics["depth_missing_fraction"]==0
 
 
 def test_rigid_registration_recovers_known_transform_without_reflection():

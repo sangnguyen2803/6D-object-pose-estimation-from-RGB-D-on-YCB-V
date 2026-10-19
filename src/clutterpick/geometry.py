@@ -34,6 +34,7 @@ def voxel_downsample(points, voxel_size, colors=None):
 
 
 def instance_cloud(depth,k,mask,rgb,config):
+    mask = np.asarray(mask,dtype=bool)
     g = config["geometry"]
     clean = binary_erosion(mask, iterations=g["boundary_erosion_pixels"]) if g["boundary_erosion_pixels"]>0 else mask
     points, pixels = backproject(depth,k,clean,g["depth_min_m"],g["depth_max_m"])
@@ -45,8 +46,9 @@ def instance_cloud(depth,k,mask,rgb,config):
         keep = means <= means.mean()+2*means.std()
         points, colors = points[keep], colors[keep]
     points,colors = voxel_downsample(points,g["voxel_size_m"],colors)
+    missing = ~np.isfinite(depth) | (depth<=0)
     return points,colors,{"visible_mask_pixels": int(mask.sum()), "valid_points_before_filter": original,
-                         "retained_points": len(points), "depth_missing_fraction": float((mask & (depth<=0)).sum()/max(mask.sum(),1))}
+                         "retained_points": len(points), "depth_missing_fraction": float((mask & missing).sum()/max(mask.sum(),1))}
 
 
 def write_ply(path,points,colors=None):
