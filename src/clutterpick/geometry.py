@@ -4,6 +4,15 @@ from scipy.spatial import cKDTree
 
 
 def backproject(depth, k, mask=None, depth_min=0, depth_max=np.inf):
+    """Backproject metric depth with upper-triangular pinhole intrinsics, including skew."""
+    depth = np.asarray(depth)
+    k = np.asarray(k,dtype=np.float64)
+    if depth.ndim != 2:
+        raise ValueError("Depth must be a two-dimensional image")
+    if (k.shape != (3,3) or not np.isfinite(k).all()
+            or k[0,0] <= 0 or k[1,1] <= 0
+            or not np.allclose(k[2],[0,0,1]) or not np.isclose(k[1,0],0)):
+        raise ValueError("Camera intrinsics must be finite upper-triangular 3x3 with positive focal lengths and bottom row [0, 0, 1]")
     valid = np.isfinite(depth) & (depth>depth_min) & (depth<depth_max)
     if mask is not None:
         if mask.shape != depth.shape:
@@ -11,7 +20,9 @@ def backproject(depth, k, mask=None, depth_min=0, depth_max=np.inf):
         valid &= mask.astype(bool)
     v,u = np.nonzero(valid)
     z = depth[v,u]
-    points = np.column_stack(((u-k[0,2])*z/k[0,0], (v-k[1,2])*z/k[1,1], z))
+    y = (v-k[1,2])*z/k[1,1]
+    x = ((u-k[0,2])*z-k[0,1]*y)/k[0,0]
+    points = np.column_stack((x,y,z))
     return points, np.column_stack((v,u))
 
 

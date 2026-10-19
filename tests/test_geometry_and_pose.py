@@ -1,4 +1,5 @@
 import numpy as np
+import pytest
 from scipy.spatial.transform import Rotation
 from clutterpick.geometry import backproject,voxel_downsample,transform_points
 from clutterpick.pose import rigid_fit,cube_rotations
@@ -15,6 +16,31 @@ def test_backprojection_known_metric_depth_and_invalid_pixels():
 def test_mask_prevents_background_depth_contamination():
     points,_ = backproject(np.array([[.5,3.]]),np.eye(3),np.array([[True,False]]))
     np.testing.assert_allclose(points,[[0,0,.5]])
+
+
+def test_backprojection_with_skew_reprojects_to_original_pixels():
+    depth = np.array([[1.,2.],[3.,4.]])
+    k = np.array([[200.,25.,.5],[0.,150.,.5],[0.,0.,1.]])
+    points,pixels = backproject(depth,k)
+    projected = points@k.T
+    np.testing.assert_allclose(projected[:,:2]/projected[:,2,None],pixels[:,::-1],atol=1e-12)
+    np.testing.assert_array_equal(points[:,2],depth[pixels[:,0],pixels[:,1]])
+
+
+@pytest.mark.parametrize("k",[
+    np.eye(2),np.diag([0.,1.,1.]),np.diag([1.,-1.,1.]),
+    np.diag([np.nan,1.,1.]),np.diag([1.,np.inf,1.]),
+    np.array([[1.,0.,0.],[.1,1.,0.],[0.,0.,1.]]),
+    np.diag([1.,1.,2.]),
+])
+def test_backprojection_rejects_invalid_camera_intrinsics(k):
+    with pytest.raises(ValueError,match="intrinsics"):
+        backproject(np.ones((2,2)),k)
+
+
+def test_backprojection_rejects_multichannel_depth():
+    with pytest.raises(ValueError,match="two-dimensional"):
+        backproject(np.ones((2,2,3)),np.eye(3))
 
 
 def test_voxel_keeps_colors_aligned():
