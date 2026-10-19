@@ -52,12 +52,21 @@ def instance_cloud(depth,k,mask,rgb,config):
 
 
 def write_ply(path,points,colors=None):
+    """Write an ASCII cloud after validating all vertices and RGB rows."""
     from pathlib import Path
     path = Path(path)
-    path.parent.mkdir(parents=True,exist_ok=True)
-    points = np.asarray(points).reshape(-1,3)
+    points = np.asarray(points,dtype=np.float64).reshape(-1,3)
+    if not np.isfinite(points).all():
+        raise ValueError("PLY vertices must contain only finite coordinates")
     if colors is None:
         colors = np.full(points.shape,180,dtype=np.uint8)
+    else:
+        colors = np.asarray(colors,dtype=np.float64)
+        if colors.shape != points.shape:
+            raise ValueError("PLY colors must have one RGB row per vertex")
+        if not np.isfinite(colors).all() or np.any((colors<0) | (colors>255)):
+            raise ValueError("PLY colors must contain finite RGB values in [0, 255]")
+    path.parent.mkdir(parents=True,exist_ok=True)
     with path.open("w",encoding="ascii") as f:
         f.write(f"ply\nformat ascii 1.0\nelement vertex {len(points)}\nproperty float x\nproperty float y\nproperty float z\nproperty uchar red\nproperty uchar green\nproperty uchar blue\nend_header\n")
         for p,c in zip(points,colors):

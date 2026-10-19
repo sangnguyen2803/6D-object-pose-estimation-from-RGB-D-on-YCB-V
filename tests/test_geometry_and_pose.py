@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 from scipy.spatial.transform import Rotation
-from clutterpick.geometry import backproject,voxel_downsample,transform_points,instance_cloud
+from clutterpick.geometry import backproject,voxel_downsample,transform_points,instance_cloud,write_ply
 from clutterpick.pose import rigid_fit,cube_rotations
 
 
@@ -72,6 +72,43 @@ def test_instance_depth_diagnostics_ignore_missing_pixels_outside_empty_mask():
                                                np.zeros((2,2,3),dtype=np.uint8),config)
     assert points.shape==colors.shape==(0,3)
     assert diagnostics["visible_mask_pixels"]==diagnostics["depth_missing_fraction"]==0
+
+
+def test_ply_roundtrip_preserves_vertices_and_colors(tmp_path):
+    import trimesh
+    points = np.array([[.1,-.2,.3],[1.,2.,3.]])
+    colors = np.array([[255,0,30],[10,120,240]],dtype=np.uint8)
+    path = tmp_path/"nested"/"cloud.ply"
+    write_ply(path,points,colors.tolist())
+    cloud = trimesh.load(path,process=False)
+    np.testing.assert_allclose(cloud.vertices,points,atol=1e-6)
+    np.testing.assert_array_equal(cloud.colors[:,:3],colors)
+
+
+@pytest.mark.parametrize("points,colors",[
+    ([[0,0,1],[1,1,1]],[[255,0,0]]),
+    ([[0,0,1]],[[255,0,0],[0,255,0]]),
+    ([[0,0,1]],[[255,0]]),
+    ([[0,0,1]],[[256,0,0]]),
+    ([[0,0,1]],[[-1,0,0]]),
+    ([[0,0,1]],[[np.nan,0,0]]),
+    ([[np.inf,0,1]],None),
+    ([[0,np.nan,1]],None),
+])
+def test_invalid_ply_data_does_not_overwrite_existing_cloud(tmp_path,points,colors):
+    path = tmp_path/"cloud.ply"
+    path.write_text("existing cloud",encoding="ascii")
+    with pytest.raises(ValueError):
+        write_ply(path,points,colors)
+    assert path.read_text(encoding="ascii")=="existing cloud"
+
+
+def test_empty_ply_contains_no_vertex_rows(tmp_path):
+    path = tmp_path/"empty.ply"
+    write_ply(path,np.empty((0,3)))
+    header,body = path.read_text(encoding="ascii").split("end_header\n")
+    assert "element vertex 0\n" in header
+    assert body==""
 
 
 def test_rigid_registration_recovers_known_transform_without_reflection():
