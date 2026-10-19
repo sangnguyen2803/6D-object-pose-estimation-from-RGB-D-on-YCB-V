@@ -1,5 +1,5 @@
 param([switch]$CpuOnly)
-$projectRoot = Split-Path -Parent $PSScriptRoot
+$projectRoot = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
 Set-Location -LiteralPath $projectRoot
 if (-not (Test-Path -LiteralPath '.venv\Scripts\python.exe')) {
     python -m venv .venv
