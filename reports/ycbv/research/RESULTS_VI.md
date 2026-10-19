@@ -95,7 +95,7 @@ Point cleaner có fallback nếu giữ dưới 40 points hoặc dưới 25% clou
 ## Chạy lại
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts/run_research.ps1
+powershell -ExecutionPolicy Bypass -File scripts/workflows/run_research.ps1
 ```
 
 ## Nhận xét từ số đo

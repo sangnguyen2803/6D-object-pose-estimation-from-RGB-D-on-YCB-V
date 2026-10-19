@@ -25,7 +25,7 @@ flowchart LR
 
 ## Segmentation và ablation
 
-`src/clutterpick/fusion.py` khởi tạo từ detector công khai, strict load 21 lớp + background. Mọi biến thể dùng cùng scalar depth, cùng tập ảnh, seed, minibatch budget và ROI sampler. RGB trunk được freeze. Heads được train; early fusion train stem, hai nhánh train depth layer4 và fusion adapters.
+`src/clutterpick/models/fusion.py` khởi tạo từ detector công khai, strict load 21 lớp + background. Mọi biến thể dùng cùng scalar depth, cùng tập ảnh, seed, minibatch budget và ROI sampler. RGB trunk được freeze. Heads được train; early fusion train stem, hai nhánh train depth layer4 và fusion adapters.
 
 | Biến thể | Input và fusion | Mask |
 |---|---|---|
@@ -44,7 +44,7 @@ Boundary AP dùng COCO evaluator với `min(mask IoU, boundary IoU)`, inner boun
 
 ## Learned point refinement
 
-`src/clutterpick/point_network.py` nhận chín features: XYZ local normalized, RGB, membership của predicted mask, absolute depth và local neighbor distance. Model có MLP, local attention trên 16 neighbors, global pooled context và object-class embedding. Đây là mạng point-attention nhỏ tự triển khai, không phải bản tái lập đầy đủ PointTransformer hay PointNet++.
+`src/clutterpick/models/point_network.py` nhận chín features: XYZ local normalized, RGB, membership của predicted mask, absolute depth và local neighbor distance. Model có MLP, local attention trên 16 neighbors, global pooled context và object-class embedding. Đây là mạng point-attention nhỏ tự triển khai, không phải bản tái lập đầy đủ PointTransformer hay PointNet++.
 
 Cache train dùng RGB detector dự đoán trên PBR, ghép proposal cùng class với visible GT mask (IoU ≥0.3), dilate proposal 5 px, backproject và sample 512 points. GT projected mask tạo nhãn foreground/background. Cache này là các matched proposals; F1 không tương đương accuracy toàn scene hoặc nhãn 3D volume.
 
@@ -64,13 +64,13 @@ Segmentation train bốn epochs mỗi biến thể. Checkpoint chọn val mask A
 
 ```powershell
 # Chuẩn bị subset một lần; không cần tải toàn bộ train_pbr archive
-.\.venv\Scripts\python.exe scripts/prepare_pbr_subset.py
+.\.venv\Scripts\python.exe scripts/data/prepare_pbr_subset.py
 # Train, evaluation, report, validation
-powershell -ExecutionPolicy Bypass -File scripts/run_research.ps1
+powershell -ExecutionPolicy Bypass -File scripts/workflows/run_research.ps1
 # Inference đủ cả ba module sau khi checkpoint đã train
-.\.venv\Scripts\python.exe scripts/run.py --config configs/hybrid.yaml infer --frame-key ycbv_test/000048/1074 --output artifacts/ycbv/hybrid_demo
+.\.venv\Scripts\python.exe main.py --config configs/hybrid.yaml infer --frame-key ycbv_test/000048/1074 --output artifacts/ycbv/hybrid_demo
 # Đối chứng giữ detector pretrained, chỉ bật learned point filter + robust ICP
-.\.venv\Scripts\python.exe scripts/run.py --config configs/point_refined.yaml infer --frame-key ycbv_test/000048/1074 --output artifacts/ycbv/point_refined_demo
+.\.venv\Scripts\python.exe main.py --config configs/point_refined.yaml infer --frame-key ycbv_test/000048/1074 --output artifacts/ycbv/point_refined_demo
 # Registered RGB-D riêng: thêm --config configs/hybrid.yaml vào infer_rgbd.py
 ```
 

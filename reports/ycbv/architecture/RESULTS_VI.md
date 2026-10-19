@@ -71,6 +71,6 @@ Kèm bảng ADD(-S) khi trình bày CV/phỏng vấn; không ghi “preserved ac
 
 ## Tái lập
 
-`powershell -ExecutionPolicy Bypass -File scripts/run_architecture.ps1`
+`powershell -ExecutionPolicy Bypass -File scripts/workflows/run_architecture.ps1`
 
 Demo: `artifacts/ycbv/architecture/demo/ycbv_test_000048_1074/instances_3d.html`. Thiết kế: [INFERENCE_ARCHITECTURE_VI.md](../../../docs/INFERENCE_ARCHITECTURE_VI.md).

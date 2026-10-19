@@ -34,7 +34,7 @@ The rotation has three degrees of freedom and translation has three. The camera 
 
 Deliverables include segmentation overlays, pose-axis overlays, JSON predictions and diagnostics, BOP-format CSV predictions, per-instance PLY clouds, aligned CAD PLY files, and interactive offline HTML viewers. Point clouds describe visible surfaces; they do not reconstruct hidden geometry.
 
-External registered RGB-D inputs can be processed without ground-truth labels through `scripts/infer_rgbd.py`. This interface still uses the same 21-class recognition vocabulary; generalization to a new camera has not been benchmarked.
+External registered RGB-D inputs can be processed without ground-truth labels through `scripts/inference/infer_rgbd.py`. This interface still uses the same 21-class recognition vocabulary; generalization to a new camera has not been benchmarked.
 
 ## 3. Dataset and evaluation cohorts
 
@@ -350,10 +350,10 @@ The tested environment is Windows, Python 3.11, PyTorch with CUDA, and an RTX 40
 ### Example optimized inference
 
 ```powershell
-.\.venv\Scripts\python.exe scripts/run.py --config configs/optimized.yaml infer --frame-key ycbv_test/000048/1074 --output artifacts/ycbv/architecture/demo
+.\.venv\Scripts\python.exe main.py --config configs/optimized.yaml infer --frame-key ycbv_test/000048/1074 --output artifacts/ycbv/architecture/demo
 ```
 
-Full reproduction entry points are `scripts/run_all.ps1`, `scripts/run_extension.ps1`, `scripts/run_research.ps1`, and `scripts/run_architecture.ps1`. These rerun substantial evaluations; existing reports can be inspected without rerunning them.
+Full reproduction entry points are `scripts/workflows/run_all.ps1`, `scripts/workflows/run_extension.ps1`, `scripts/workflows/run_research.ps1`, and `scripts/workflows/run_architecture.ps1`. These rerun substantial evaluations; existing reports can be inspected without rerunning them.
 
 ## 11. What the project demonstrates
 

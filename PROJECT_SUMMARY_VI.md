@@ -103,7 +103,7 @@ Hướng tiếp: tải train PBR khi đủ dung lượng, fine-tune theo validat
 
 Kiểm tra bàn giao đã vượt qua: full benchmark 900 ảnh / 4.128 pose xuất hợp lệ, cả bốn cohort 24 ảnh đồng nhất, demo 5 pose; 15 tests vượt qua. Xem [delivery_validation.json](reports/ycbv/delivery_validation.json) và [artifact_manifest.json](reports/ycbv/artifact_manifest.json).
 
-Làm theo [README](README.md). `scripts/run_all.ps1` thực hiện chuẩn bị → index → audit → tests → detector eval → pose benchmark → demo → ablations → report → delivery validation. Không tự train trên test. Config hiện tại nằm tại `configs/default.yaml`; xem `requirements-measured.txt` cho môi trường đã đo.
+Làm theo [README](README.md). `scripts/workflows/run_all.ps1` thực hiện chuẩn bị → index → audit → tests → detector eval → pose benchmark → demo → ablations → report → delivery validation. Không tự train trên test. Config hiện tại nằm tại `configs/default.yaml`; xem `requirements-measured.txt` cho môi trường đã đo.
 
 ## 10. Mở rộng robust depth refinement
 
@@ -121,10 +121,10 @@ Xem [thiết kế và pipeline đầy đủ](docs/LEARNED_HYBRID_VI.md), [kết 
 `configs/hybrid.yaml` kích hoạt đủ ba module (gated_query + learned point filter + robust ICP). Đây là cấu hình thử nghiệm, chưa mặc định rằng tốt hơn baseline. Chạy sau khi checkpoints train xong:
 
 ```powershell
-.\.venv\Scripts\python.exe scripts/run.py --config configs/hybrid.yaml infer --frame-key ycbv_test/000048/1074 --output artifacts/ycbv/hybrid_demo
+.\.venv\Scripts\python.exe main.py --config configs/hybrid.yaml infer --frame-key ycbv_test/000048/1074 --output artifacts/ycbv/hybrid_demo
 ```
 
-Lệnh toàn bộ: `powershell -ExecutionPolicy Bypass -File scripts/run_research.ps1`. Downloader subset `scripts/prepare_pbr_subset.py` chỉ tải các ZIP members cần thiết; không cần tải toàn archive train_pbr 21 GB.
+Lệnh toàn bộ: `powershell -ExecutionPolicy Bypass -File scripts/workflows/run_research.ps1`. Downloader subset `scripts/data/prepare_pbr_subset.py` chỉ tải các ZIP members cần thiết; không cần tải toàn archive train_pbr 21 GB.
 
 <!-- learned-results-start -->
 ## Kết quả learned modules trên cohort riêng

@@ -63,14 +63,14 @@ Seed 137: 63 cases. Seed 271: 63 cases khác, giữ nguyên config. Đây là se
 ## Tái lập
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts/run_extension.ps1
+powershell -ExecutionPolicy Bypass -File scripts/workflows/run_extension.ps1
 ```
 
 Lệnh yêu cầu baseline cache đã có tại artifacts/ycbv/benchmark_full. Cấu hình enhanced riêng tại configs/enhanced.yaml. Demo end-to-end:
 
 ```powershell
-.\.venv\Scripts\python.exe scripts/run.py --config configs/enhanced.yaml infer --frame-key ycbv_test/000048/1074 --output artifacts/ycbv/extension/demo
+.\.venv\Scripts\python.exe main.py --config configs/enhanced.yaml infer --frame-key ycbv_test/000048/1074 --output artifacts/ycbv/extension/demo
 ```
 
-RGB-D riêng dùng scripts/infer_rgbd.py với --config configs/enhanced.yaml. JSON/PLY dùng mét, CSV translation dùng mm như baseline.
+RGB-D riêng dùng scripts/inference/infer_rgbd.py với --config configs/enhanced.yaml. JSON/PLY dùng mét, CSV translation dùng mm như baseline.
 

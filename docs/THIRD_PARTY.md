@@ -5,5 +5,5 @@
 - Published model IDs: detector-bop-ycbv-synt+real--292971, coarse-bop-ycbv-synt+real--822463, refiner-bop-ycbv-synt+real--631598. URL file cụ thể và hash ghi sau HTTP transfer trong reports/ycbv/download_manifest.json.
 - Torchvision Mask R-CNN, EfficientNet source vendor trong CosyPose, Pyrender, Trimesh, NumPy/SciPy, pycocotools, Matplotlib và Plotly: giữ giấy phép riêng của mỗi thư viện.
 
-Windows adapter nằm trong src/clutterpick/cosypose_backend.py, không sửa source vendor. Renderer đổi từ Bullet/EGL sang Pyrender, do đó benchmark tại đây là kết quả implementation hiện tại, không khẳng định là điểm original paper. Tham khảo LICENSE của source và điều khoản dữ liệu khi phân phối lại dataset/checkpoint.
+Windows adapter nằm trong src/clutterpick/models/cosypose.py, không sửa source vendor. Renderer đổi từ Bullet/EGL sang Pyrender, do đó benchmark tại đây là kết quả implementation hiện tại, không khẳng định là điểm original paper. Tham khảo LICENSE của source và điều khoản dữ liệu khi phân phối lại dataset/checkpoint.
 

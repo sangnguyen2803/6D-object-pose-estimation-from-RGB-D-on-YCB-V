@@ -38,7 +38,7 @@ Kiểm tra renderer: silhouette phải giống hệt và depth sai khác không 
 
 ## Benchmark có đối chứng
 
-`scripts/benchmark_architecture.py` đánh giá bốn cấu hình: baseline, batch_only, cache_only và optimized. Dùng cùng cohort frame keys, detector checkpoint, coarse/refiner checkpoint và robust ICP. Warm toàn cohort trước khi đo, sau đó lặp các lượt chấm latency. Trước mỗi lượt đo frame có CUDA synchronization; quá trình pose lấy CPU tensors sau inference cũng đồng bộ GPU.
+`scripts/evaluation/benchmark_architecture.py` đánh giá bốn cấu hình: baseline, batch_only, cache_only và optimized. Dùng cùng cohort frame keys, detector checkpoint, coarse/refiner checkpoint và robust ICP. Warm toàn cohort trước khi đo, sau đó lặp các lượt chấm latency. Trước mỗi lượt đo frame có CUDA synchronization; quá trình pose lấy CPU tensors sau inference cũng đồng bộ GPU.
 
 Phase pilot đầu đo batch/cache/lazy, chưa có resident renderer. Phase sau bổ sung `resident_only` và đối chứng baseline/optimized trên 96 frames. GPU-resident cache dùng thêm graphics memory; báo peak Torch allocated không đủ để khẳng định tổng VRAM giảm. Telemetry ghi số render calls và mesh context additions sau warm-up.
 
@@ -52,11 +52,11 @@ Batching có thể gây chênh lệch số học so với sequential; renderer p
 
 ```powershell
 # Pilot / component ablation, 24 frames, warm-up + two measured repeats
-.\.venv\Scripts\python.exe scripts/benchmark_architecture.py
+.\.venv\Scripts\python.exe scripts/evaluation/benchmark_architecture.py
 # Cohort mở rộng cho baseline và optimized
-.\.venv\Scripts\python.exe scripts/benchmark_architecture.py --limit 96 --repeats 2 --variants baseline optimized --output artifacts/ycbv/architecture/benchmark96 --report reports/ycbv/architecture/benchmark96.json
+.\.venv\Scripts\python.exe scripts/evaluation/benchmark_architecture.py --limit 96 --repeats 2 --variants baseline optimized --output artifacts/ycbv/architecture/benchmark96 --report reports/ycbv/architecture/benchmark96.json
 # Demo giữ toàn bộ scene artifacts
-.\.venv\Scripts\python.exe scripts/run.py --config configs/optimized.yaml infer --frame-key ycbv_test/000048/1074 --output artifacts/ycbv/architecture/demo
+.\.venv\Scripts\python.exe main.py --config configs/optimized.yaml infer --frame-key ycbv_test/000048/1074 --output artifacts/ycbv/architecture/demo
 ```
 
 Kết quả sau benchmark tại `reports/ycbv/architecture/RESULTS_VI.md`; không có số cải thiện được giả định trước khi chạy.
