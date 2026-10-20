@@ -36,7 +36,11 @@ def write_json(path, value):
 
 
 def load_config(path="configs/default.yaml"):
-    return yaml.safe_load(resolve(path).read_text(encoding="utf-8"))
+    path = resolve(path)
+    config = yaml.safe_load(path.read_text(encoding="utf-8"))
+    if not isinstance(config, dict):
+        raise ValueError(f"Configuration must be a YAML mapping: {path}")
+    return config
 
 
 def object_ids(config):
