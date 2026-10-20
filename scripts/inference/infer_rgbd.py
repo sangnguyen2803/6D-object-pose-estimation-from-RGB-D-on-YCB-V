@@ -1,12 +1,11 @@
 """Run the trained YCB-V object pipeline on registered RGB-D without GT labels."""
 
 import argparse
+import math
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "src"))
-from clutterpick.inference.pipeline import run_frame
-from clutterpick.models.detector import load_detector
 from clutterpick.utils.common import load_config, resolve, write_json
 from clutterpick.utils.outputs import export_bop
 
@@ -21,10 +20,13 @@ def main():
     parser.add_argument("--output", default="artifacts/ycbv/external_rgbd")
     parser.add_argument("--device", default="auto")
     args = parser.parse_args()
-    if args.depth_scale_mm <= 0:
-        parser.error("Depth scale must be positive")
+    if not math.isfinite(args.depth_scale_mm) or args.depth_scale_mm <= 0:
+        parser.error("Depth scale must be finite and positive")
+    for name in ("rgb", "depth"):
+        path = getattr(args, name)
+        if not path.is_file():
+            parser.error(f"--{name} must point to an existing file: {path}")
     import numpy as np
-    import torch
 
     k = np.asarray(args.intrinsics).reshape(3, 3)
     if (
@@ -32,8 +34,14 @@ def main():
         or k[0, 0] <= 0
         or k[1, 1] <= 0
         or not np.allclose(k[2], [0, 0, 1])
+        or not np.isclose(k[1, 0], 0)
     ):
-        parser.error("Expected finite calibrated K with positive focal lengths")
+        parser.error("Expected finite upper-triangular K with positive focal lengths")
+    import torch
+
+    from clutterpick.inference.pipeline import run_frame
+    from clutterpick.models.detector import load_detector
+
     torch.set_num_threads(4)
     config = load_config(args.config)
     config["data"]["name"] = "external_registered_rgbd"
