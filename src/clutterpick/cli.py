@@ -1,6 +1,7 @@
 import argparse
 import os
 
+from clutterpick import __version__
 from clutterpick.utils.common import load_config, resolve, write_json
 from clutterpick.utils.outputs import export_bop
 
@@ -10,6 +11,7 @@ def build_parser():
     parser = argparse.ArgumentParser(
         description="YCBPose: instance segmentation -> point clouds -> 6D pose"
     )
+    parser.add_argument("--version", action="version", version=f"YCBPose {__version__}")
     parser.add_argument("--config", default="configs/default.yaml")
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("index")

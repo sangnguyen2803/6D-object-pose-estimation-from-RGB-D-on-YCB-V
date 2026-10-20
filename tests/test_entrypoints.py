@@ -7,6 +7,7 @@ from pathlib import Path
 import pytest
 
 from clutterpick.utils.common import PROJECT, load_config, resolve
+from clutterpick import __version__
 
 
 def test_project_paths_still_resolve_from_repository_root():
@@ -14,6 +15,18 @@ def test_project_paths_still_resolve_from_repository_root():
     assert PROJECT == root
     assert resolve("configs/default.yaml") == root / "configs/default.yaml"
     assert load_config()["data"]["name"] == "ycbv"
+
+
+def test_version_works_without_config_or_dataset(tmp_path):
+    result = subprocess.run(
+        [sys.executable, str(PROJECT / "main.py"), "--config", "missing.yaml", "--version"],
+        cwd=tmp_path,
+        capture_output=True,
+        text=True,
+        timeout=60,
+    )
+    assert result.returncode == 0, result.stderr
+    assert result.stdout.strip() == f"YCBPose {__version__}"
 
 
 @pytest.mark.parametrize(
