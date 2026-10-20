@@ -6,6 +6,17 @@ from clutterpick.utils.common import load_config, resolve, write_json
 from clutterpick.utils.outputs import export_bop
 
 
+def positive_int(value):
+    """Reject invalid counts before loading datasets or models."""
+    try:
+        count = int(value)
+    except ValueError:
+        raise argparse.ArgumentTypeError("Expected a positive integer") from None
+    if count <= 0:
+        raise argparse.ArgumentTypeError("Expected a positive integer")
+    return count
+
+
 def build_parser():
     """Define the commands and options shown by --help."""
     parser = argparse.ArgumentParser(
@@ -23,15 +34,15 @@ def build_parser():
         "--architecture", choices=["cosypose", "maskrcnn", "yolo", "fusion"]
     )
     evaluate.add_argument("--split", choices=["val", "test"], default="test")
-    evaluate.add_argument("--limit", type=int)
+    evaluate.add_argument("--limit", type=positive_int)
     evaluate.add_argument("--device", default="auto")
     evaluate.add_argument(
         "--output", default="artifacts/ycbv/evaluation/detection.json"
     )
     train = sub.add_parser("train")
-    train.add_argument("--epochs", type=int)
-    train.add_argument("--limit", type=int)
-    train.add_argument("--val-limit", type=int, default=200)
+    train.add_argument("--epochs", type=positive_int)
+    train.add_argument("--limit", type=positive_int)
+    train.add_argument("--val-limit", type=positive_int, default=200)
     train.add_argument("--device", default="auto")
     train.add_argument("--resume")
     for command in ["infer", "benchmark"]:
@@ -43,7 +54,7 @@ def build_parser():
         infer.add_argument("--frame-key")
         infer.add_argument("--split", choices=["val", "test"], default="test")
         infer.add_argument(
-            "--limit", type=int, default=1 if command == "infer" else 100
+            "--limit", type=positive_int, default=1 if command == "infer" else 100
         )
         infer.add_argument("--device", default="auto")
         infer.add_argument(
