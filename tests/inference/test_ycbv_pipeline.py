@@ -29,12 +29,20 @@ def test_bop_export_converts_meters_to_millimeters(tmp_path):
                 "timing": {"inference_s_before_reference_evaluation": 1.2},
             }
         ],
-        tmp_path,
+        tmp_path / "export" / "nested",
     )
-    with (tmp_path / "bop_predictions.csv").open() as stream:
+    with (tmp_path / "export" / "nested" / "bop_predictions.csv").open() as stream:
         row = list(csv.DictReader(stream))[0]
     np.testing.assert_allclose(np.fromstring(row["t"], sep=" "), [100, -200, 750])
     assert int(row["obj_id"]) == 21
+
+
+def test_bop_export_empty_run_creates_header(tmp_path):
+    output = tmp_path / "empty_run"
+    export_bop([], output)
+    with (output / "bop_predictions.csv").open() as stream:
+        rows = list(csv.reader(stream))
+    assert rows == [["scene_id", "im_id", "obj_id", "score", "R", "t", "time"]]
 
 
 def test_published_config_loader_rejects_arbitrary_constructors(tmp_path):

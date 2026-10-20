@@ -12,6 +12,7 @@ from clutterpick.visualization.draw import instance_color
 def export_bop(rows, output):
     """Export estimated object-to-camera poses in BOP CSV millimeter units."""
     path = resolve(output) / "bop_predictions.csv"
+    path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="", encoding="utf-8") as stream:
         writer = csv.writer(stream)
         writer.writerow(["scene_id", "im_id", "obj_id", "score", "R", "t", "time"])
