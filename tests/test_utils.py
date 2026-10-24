@@ -2,7 +2,14 @@
 
 import pytest
 
-from clutterpick.utils.common import load_config
+from clutterpick.utils.common import load_config, read_json
+
+
+@pytest.mark.parametrize("encoding", ["utf-8", "utf-8-sig"])
+def test_json_accepts_utf8_with_or_without_bom(tmp_path, encoding):
+    path = tmp_path / "camera.json"
+    path.write_text('{"name": "cámara", "depth_scale": 0.1}', encoding=encoding)
+    assert read_json(path) == {"name": "cámara", "depth_scale": 0.1}
 
 
 @pytest.mark.parametrize("content", ["", "# empty config", "null", "- item", "42"])
