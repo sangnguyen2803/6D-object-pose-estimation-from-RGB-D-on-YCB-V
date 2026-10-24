@@ -28,6 +28,18 @@ def test_mask_prevents_background_depth_contamination():
     np.testing.assert_allclose(points, [[0, 0, 0.5]])
 
 
+def test_backprojection_accepts_nested_list_masks():
+    points, pixels = backproject([[0.5, 3.0]], np.eye(3), [[255, 0]])
+    np.testing.assert_allclose(points, [[0, 0, 0.5]])
+    np.testing.assert_array_equal(pixels, [[0, 0]])
+
+
+@pytest.mark.parametrize("mask", [[[True]], [True, False], True])
+def test_backprojection_reports_mask_shape_mismatch(mask):
+    with pytest.raises(ValueError, match="Mask/depth size mismatch"):
+        backproject(np.ones((1, 2)), np.eye(3), mask)
+
+
 def test_backprojection_with_skew_reprojects_to_original_pixels():
     depth = np.array([[1.0, 2.0], [3.0, 4.0]])
     k = np.array([[200.0, 25.0, 0.5], [0.0, 150.0, 0.5], [0.0, 0.0, 1.0]])

@@ -22,9 +22,10 @@ def backproject(depth, k, mask=None, depth_min=0, depth_max=np.inf):
         )
     valid = np.isfinite(depth) & (depth > depth_min) & (depth < depth_max)
     if mask is not None:
+        mask = np.asarray(mask, dtype=bool)
         if mask.shape != depth.shape:
             raise ValueError("Mask/depth size mismatch")
-        valid &= mask.astype(bool)
+        valid &= mask
     v, u = np.nonzero(valid)
     z = depth[v, u]
     y = (v - k[1, 2]) * z / k[1, 1]
