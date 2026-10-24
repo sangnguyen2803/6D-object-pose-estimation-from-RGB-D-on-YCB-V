@@ -23,12 +23,15 @@ def build_parser():
         description="YCBPose: instance segmentation -> point clouds -> 6D pose"
     )
     parser.add_argument("--version", action="version", version=f"YCBPose {__version__}")
-    parser.add_argument("--config", default="configs/default.yaml")
+    parser.add_argument(
+        "--config", default="configs/default.yaml",
+        help="YAML configuration path (default: configs/default.yaml); place before the command",
+    )
     sub = parser.add_subparsers(dest="command", required=True)
-    sub.add_parser("index")
-    audit = sub.add_parser("audit")
+    sub.add_parser("index", help="Build the dataset index and scene-based splits")
+    audit = sub.add_parser("audit", help="Check indexed dataset assets and metadata")
     audit.add_argument("--output", default="reports/ycbv/data_audit.json")
-    evaluate = sub.add_parser("evaluate")
+    evaluate = sub.add_parser("evaluate", help="Measure detector bbox and mask AP")
     evaluate.add_argument("--checkpoint")
     evaluate.add_argument(
         "--architecture", choices=["cosypose", "maskrcnn", "yolo", "fusion"]
@@ -39,14 +42,19 @@ def build_parser():
     evaluate.add_argument(
         "--output", default="artifacts/ycbv/evaluation/detection.json"
     )
-    train = sub.add_parser("train")
+    train = sub.add_parser("train", help="Fine-tune the detector on train/validation scenes")
     train.add_argument("--epochs", type=positive_int)
     train.add_argument("--limit", type=positive_int)
     train.add_argument("--val-limit", type=positive_int, default=200)
     train.add_argument("--device", default="auto")
     train.add_argument("--resume")
     for command in ["infer", "benchmark"]:
-        infer = sub.add_parser(command)
+        infer = sub.add_parser(
+            command,
+            help="Export predictions and visualizations for selected frames"
+            if command == "infer"
+            else "Run inference on a frame cohort and export timings and poses",
+        )
         infer.add_argument("--checkpoint")
         infer.add_argument(
             "--architecture", choices=["cosypose", "maskrcnn", "yolo", "fusion"]
@@ -72,8 +80,12 @@ def build_parser():
             "--output",
             default="artifacts/ycbv/" + ("demo" if command == "infer" else "benchmark"),
         )
-        infer.add_argument("--no-plots", action="store_true")
-        infer.add_argument("--skip-cloud-export", action="store_true")
+        infer.add_argument(
+            "--no-plots", action="store_true", help="Skip the scene 3D PNG plot"
+        )
+        infer.add_argument(
+            "--skip-cloud-export", action="store_true", help="Skip PLY and scene instance-label exports"
+        )
     return parser
 
 
