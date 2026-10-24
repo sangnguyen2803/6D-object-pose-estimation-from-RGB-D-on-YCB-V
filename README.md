@@ -1,5 +1,7 @@
 # YCBPose — RGB-D instance segmentation và 6D pose estimation
 
+Hướng dẫn: [chọn cấu hình](configs/README.md) · [ảnh RGB-D riêng](docs/EXTERNAL_RGBD_VI.md) · [đọc kết quả](docs/OUTPUTS_VI.md) · [xử lý lỗi](docs/TROUBLESHOOTING_VI.md) · [đóng góp](CONTRIBUTING.md).
+
 Dự án thực hiện **RGB-D → instance segmentation → point cloud từng instance → pose 6D của vật thể YCB đã biết**. Dùng pretrained Mask R-CNN và CosyPose, bổ sung đăng ký CAD với depth bằng ICP có giới hạn cập nhật. Tên package Python `clutterpick` được giữ để tương thích thư mục; tên dự án hiện tại là YCBPose.
 
 Kết quả detector trên **900 ảnh / 4.125 GT instances / 21 lớp** của YCB-V BOP19: bbox AP@[.50:.95] **79,33%**, mask AP@[.50:.95] **74,27%**. Kết quả pose đầy đủ và thí nghiệm nằm trong [báo cáo đo thực tế](reports/ycbv/RESULTS_VI.md). Chỉ coi benchmark hoàn tất khi `complete_pose_test=true` trong [measured_summary.json](reports/ycbv/measured_summary.json) và [delivery_validation.json](reports/ycbv/delivery_validation.json) có `passed=true`.
