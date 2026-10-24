@@ -25,3 +25,13 @@ def test_config_accepts_mapping(tmp_path):
     path = tmp_path / "config.yaml"
     path.write_text("seed: 42\ndata:\n  name: ycbv\n", encoding="utf-8")
     assert load_config(path) == {"seed": 42, "data": {"name": "ycbv"}}
+
+
+def test_config_syntax_error_identifies_file_and_location(tmp_path):
+    path = tmp_path / "broken.yaml"
+    path.write_text("seed: [42\n", encoding="utf-8")
+    with pytest.raises(ValueError, match="Invalid YAML configuration") as error:
+        load_config(path)
+    assert str(path) in str(error.value)
+    assert "line" in str(error.value)
+    assert error.value.__cause__ is not None

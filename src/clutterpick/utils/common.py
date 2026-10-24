@@ -37,7 +37,10 @@ def write_json(path, value):
 
 def load_config(path="configs/default.yaml"):
     path = resolve(path)
-    config = yaml.safe_load(path.read_text(encoding="utf-8"))
+    try:
+        config = yaml.safe_load(path.read_text(encoding="utf-8"))
+    except yaml.YAMLError as error:
+        raise ValueError(f"Invalid YAML configuration: {path}\n{error}") from error
     if not isinstance(config, dict):
         raise ValueError(f"Configuration must be a YAML mapping: {path}")
     return config
