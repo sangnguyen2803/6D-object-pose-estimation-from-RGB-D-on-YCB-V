@@ -129,6 +129,14 @@ def test_instance_depth_diagnostics_ignore_missing_pixels_outside_empty_mask():
     )
 
 
+@pytest.mark.parametrize("rgb_shape", [(1, 2, 3), (2, 2), (2, 2, 4)])
+def test_instance_cloud_rejects_unregistered_or_non_rgb_images(rgb_shape):
+    with pytest.raises(ValueError, match="RGB must have three channels and match"):
+        instance_cloud(
+            np.ones((2, 2)), np.eye(3), np.ones((2, 2)), np.zeros(rgb_shape), {}
+        )
+
+
 def test_ply_roundtrip_preserves_vertices_and_colors(tmp_path):
     import trimesh
 

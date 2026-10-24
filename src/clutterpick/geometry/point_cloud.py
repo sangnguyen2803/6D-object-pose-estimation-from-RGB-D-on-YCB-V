@@ -44,6 +44,10 @@ def voxel_downsample(points, voxel_size, colors=None):
 
 
 def instance_cloud(depth, k, mask, rgb, config):
+    depth = np.asarray(depth)
+    rgb = np.asarray(rgb)
+    if depth.ndim != 2 or rgb.shape != (*depth.shape, 3):
+        raise ValueError("RGB must have three channels and match the depth image size")
     mask = np.asarray(mask, dtype=bool)
     g = config["geometry"]
     clean = (
